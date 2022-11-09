@@ -1,0 +1,4 @@
+# Server File
+/node_modules
+/.env
+*.local
