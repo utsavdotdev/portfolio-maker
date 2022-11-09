@@ -1,0 +1,16 @@
+.footer_con{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 0 2.5rem;
+}
+.footer_con p{
+    font-size: 16px;
+    font-weight: 500;
+    color: var(--white);
+}
+.footer_con p span{
+    color: gray;
+    cursor: pointer;
+
+}

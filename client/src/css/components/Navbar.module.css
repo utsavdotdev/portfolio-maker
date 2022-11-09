@@ -1,0 +1,116 @@
+.nav_container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  height: 80px;
+  background-color: transparent;
+  border-bottom: 1px solid var(--bg3);
+  padding: 0 2.5rem;
+  position: relative;
+  z-index: 1;
+}
+.left {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  cursor: pointer;
+}
+.left .logo {
+  width: 38px;
+  height: 38px;
+  background-color: var(--secondary);
+  border-radius: 15%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: var(--white);
+  font-size: 1.8rem;
+  transition: 0.3s;
+}
+.logo:hover{
+  color:#FF8D29;
+  background-color: var(--white);
+}
+.left h2 {
+  color: var(--white);
+  font-size: 28px;
+  font-weight: 600;
+  color: var(--white);
+}
+.right {
+  display: flex;
+  align-items: center;
+  padding: 0px 8px;
+  cursor: pointer;
+  position: relative;
+  user-select: none;
+}
+.right button {
+  display: flex;
+  align-items: center;
+  line-height: 46px;
+  width: 46px;
+  height: 46px;
+  padding-left: 8px;
+  background-color: var(--bg4);
+  border-radius: 50%;
+  font-size: 30px;
+  color: var(--white);
+  transition: 0.3s;
+  position: absolute;
+  left: -48px;
+  overflow: hidden;
+}
+.right p {
+  color: var(--white);
+  font-size: 1.5rem;
+  font-weight: 500;
+}
+.right:hover button {
+  position: absolute;
+  width: 145px;
+  border-radius: 100vw;
+  z-index: -1;
+}
+
+/* ripple effecr of button */
+
+.right button:after {
+  content: "";
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 5px;
+  height: 5px;
+  background: rgba(156, 156, 156, 0.5);
+  opacity: 0;
+  border-radius: 100%;
+  transform: scale(1, 1) translate(-50%);
+  transform-origin: 50% 50%;
+}
+
+@keyframes ripple {
+  0% {
+    transform: scale(0, 0);
+    opacity: 1;
+  }
+  20% {
+    transform: scale(25, 25);
+    opacity: 1;
+  }
+  100% {
+    opacity: 0;
+    transform: scale(40, 40);
+  }
+}
+
+.right button:focus:not(:active)::after {
+  animation: ripple 1s ease-out;
+}
+
+
+@media screen and (max-width: 750px) {
+  .nav_container{
+    padding: 0 1rem;
+  }
+}

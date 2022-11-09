@@ -1,9 +1,10 @@
 import react from 'react'
+import Router from './route'
 
 function App() {
   return (
     <>
-    <p>hello</p>
+    <Router/>
     </>
   )
 }

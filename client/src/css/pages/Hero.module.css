@@ -1,0 +1,120 @@
+.hero_container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: calc(100vh - 80px);
+  padding: 0 2.5rem;
+}
+.hero_content {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 5rem;
+  /* border: 1px solid red; */
+}
+.hero_content .left_content {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+  width: max(50%, 400px);
+  /* border: 1px solid red; */
+}
+.hero_content .left_content .hero_title {
+  font-size: 3.4rem;
+  font-weight: 600;
+  color: var(--white);
+  display: flex;
+  flex-direction: column;
+}
+.hero_content .left_content p {
+  font-size: 1.3rem;
+  color: var(--gray-text);
+}
+
+.hero_content .right_content {
+  display: flex;
+  width: max(50%, 400px);
+  align-items: center;
+  justify-content: center;
+  position: relative;
+  overflow: hidden;
+  padding-block: 2rem;
+}
+.logo_name {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+}
+
+.logo_name h3 {
+  color: #fff;
+  position: absolute;
+  /* transform: translate(150%, -100%); */
+  letter-spacing: 0.1rem;
+}
+
+.logo_name h3:nth-child(1) {
+  color: transparent;
+  -webkit-text-stroke: 0.8px var(--light-secondary);
+}
+
+.logo_name h3:nth-child(2) {
+  color: var(--light-secondary);
+  animation: animate 4s ease-in-out infinite;
+}
+
+@keyframes animate {
+  0%,
+  100% {
+    clip-path: polygon(
+      0% 45%,
+      16% 44%,
+      33% 50%,
+      54% 60%,
+      70% 61%,
+      84% 59%,
+      100% 52%,
+      100% 100%,
+      0% 100%
+    );
+  }
+
+  50% {
+    clip-path: polygon(
+      0% 60%,
+      15% 65%,
+      34% 66%,
+      51% 62%,
+      67% 50%,
+      84% 45%,
+      100% 46%,
+      100% 100%,
+      0% 100%
+    );
+  }
+}
+
+/* Responsive media query for 1180px less device */
+@media screen and (max-width: 1180px) {
+  .hero_container {
+    height: fit-content;
+    padding: 3rem 1.5rem;
+  }
+  .hero_content {
+    flex-direction: column-reverse;
+    gap: 2rem;
+  }
+  .hero_content .left_content {
+    width: 80%;
+    text-align: center;
+  }
+  .hero_content .right_content {
+    width: 100%;
+    text-align: center;
+    justify-content: center;
+  }
+  .logo_name {
+    display: flex;
+    align-items: center;
+  }
+}
