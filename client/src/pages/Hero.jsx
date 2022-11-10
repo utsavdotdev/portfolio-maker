@@ -1,20 +1,19 @@
 import React from "react";
 import CircularPortfolio from "../components/CircularPortfolio";
 import styles from "../css/pages/Hero.module.css";
-import {motion} from "framer-motion"
+import { IoIosCreate, IoIosShareAlt, IoIosSettings } from "react-icons/io";
+import { motion } from "framer-motion";
 import { data } from "../config/data";
 const Hero = () => {
   return (
     <>
-      <motion.div
-        className={styles.hero_container}
-      >
+      <div className={styles.hero_container}>
         <div className={styles.hero_content}>
           <motion.div
             className={styles.left_content}
             initial={{ opacity: 0 }}
-            animate={{ opacity: 1}}
-            transition={{ ease:"linear", duration: 0.6}}
+            animate={{ opacity: 1 }}
+            transition={{ ease: "linear", duration: 0.6 }}
           >
             <div className={styles.hero_title}>
               <div>
@@ -38,7 +37,39 @@ const Hero = () => {
             <CircularPortfolio data={data} />
           </div>
         </div>
-      </motion.div>
+      </div>
+      <div className={styles.service_con}>
+        <p className={styles.service_title}>Features</p>
+        <div className={styles.feature_con}>
+          <div className={styles.feature}>
+            <div className={styles.icon}>
+              <IoIosCreate />
+            </div>
+            <p className={styles.feature_title}>Create</p>
+            <p className={styles.feature_des}>
+              Create a awesome portfolio in just a minute
+            </p>
+          </div>
+          <div className={styles.feature}>
+            <div className={styles.icon}>
+              <IoIosSettings />
+            </div>
+            <p className={styles.feature_title}>Customize</p>
+            <p className={styles.feature_des}>
+              Customize transition, color, animation and many more
+            </p>
+          </div>
+          <div className={styles.feature}>
+            <div className={styles.icon}>
+              <IoIosShareAlt />
+            </div>
+            <p className={styles.feature_title}>Share</p>
+            <p className={styles.feature_des}>
+              Share it and increase your engagement
+            </p>
+          </div>
+        </div>
+      </div>
     </>
   );
 };
