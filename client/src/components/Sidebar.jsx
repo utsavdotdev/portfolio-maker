@@ -4,6 +4,7 @@ import { AiOutlineHome } from "react-icons/ai";
 import { IoSettingsOutline } from "react-icons/io5";
 import { RiUser3Line } from "react-icons/ri";
 import { NavLink } from "react-router-dom";
+import {MdPersonSearch} from "react-icons/md"
 import { VscGlobe } from "react-icons/vsc";
 import Link from "./Link";
 
@@ -18,12 +19,16 @@ const Sidebar = () => {
       icon: <IoSettingsOutline />,
     },
     {
-      to: "/@utsav",
+      to: "/app/profile",
       icon: <RiUser3Line />,
     },
     {
       to: "/app/domain",
       icon: <VscGlobe />,
+    },
+    {
+      to: "/app/search",
+      icon: <MdPersonSearch />,
     },
   ];
   return (

@@ -1,0 +1,76 @@
+.people_con{
+    display: flex;
+    padding: 1rem;
+    justify-content: space-between;
+    align-items: center;
+    /* border: 1px solid red; */
+}
+.left_con{
+    display: flex;
+    gap: 2rem;
+    align-items: center;
+}
+.left_con .img_con{
+    outline: 2px solid #2d2d2d;
+    width: 100px;
+    height: 100px;
+    overflow: hidden;
+    border-radius: 6px;
+    cursor: pointer;
+}
+.img_con:hover{
+    outline: 2px solid var(--secondary);
+}
+.img_con img{
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+.left_con span{
+    font-size: 1.1rem;
+    font-weight: 400;
+    color: var(--text);
+    display: flex;
+    align-items: center;
+    gap: 2px;
+}
+.icon{
+    font-size: 1.4rem;
+}
+.right_con{
+    display: flex;
+    gap:2rem;
+    align-items: center;
+}
+.status_con{
+    display: flex;
+    gap: 0.3rem;
+    align-items: center;
+}
+.sign{
+    width: 16px;
+    height: 16px;
+    border-radius: 50%;
+    background-color: #5FD164;
+}
+.status{
+    color: var(--text);
+    font-size: 1.1rem;
+}
+.visit_btn{
+    padding: 0.5rem 1rem;
+    border: 1.5px solid #3e3e3e;
+    border-radius: 4px;
+    color: #ABABAB;
+    font-size: 1.1rem;
+    font-weight: 400;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    gap:6px;
+    transition: 0.3s;
+}
+.visit_btn:hover{
+    background-color: #3e3e3e;
+    color:var(--text);
+}

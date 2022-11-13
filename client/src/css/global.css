@@ -5,22 +5,22 @@
   border-color: rgb(243, 244, 246);
 }
 
-:root{
-    --bg:#121212;
-    --bg1:#2d2d2d;
-    --grayish:#2d2d2d52;
-    --bg2:#2D2C2D;
-    --bg3:#2D2C2D;
-    --bg4:#2D2C2D;
-    --primary:#BB87FD;
-    --light-primary:#BB87FD;
-    --secondary:#03DAC5;
-    --light-secondary:#03DAC5;
-    --overlay:#51445F;
-    --white:#FFFFFF;
-    --text:#FEFFFE;
-    --gray-text:#D0D4CE;
-    --width:500px;
+:root {
+  --grayish: #2d2d2d52;
+  --bg: #121212;
+  --bg1: #1e1f1f;
+  --bg2: #2d2c2d;
+  --bg3: #2d2c2d;
+  --bg4: #2d2c2d;
+  --primary: #bb87fd;
+  --light-primary: #bb87fd;
+  --secondary: #03dac5;
+  --light-secondary: #03dac5;
+  --overlay: #51445f;
+  --white: #ffffff;
+  --text: #fefffe;
+  --gray-text: #d0d4ce;
+  --width: 500px;
 }
 
 html,
