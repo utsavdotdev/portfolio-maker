@@ -23,7 +23,7 @@ const Search = () => {
         </div>
         <div className={styles.search_data}>
           <People/>
-          <LoadingPeople/>
+          {/* <LoadingPeople/> */}
         </div>
       </div>
     </>

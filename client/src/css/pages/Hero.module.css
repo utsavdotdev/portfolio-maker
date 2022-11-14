@@ -130,6 +130,7 @@
   align-items: center;
   flex-direction: column;
   padding: 10px 16px;
+  border: 2px solid #2d2d2d;
 }
 .icon {
   width: 45px;

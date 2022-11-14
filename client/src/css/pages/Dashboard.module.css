@@ -149,7 +149,7 @@
 /* Responsive */
 @media screen and (max-width: 1050px) {
   .container {
-    padding: 1rem 1rem 1rem 5rem;
+    padding: 2rem 1rem 1rem 5rem;
   }
 }
 @media screen and (max-width: 625px) {
