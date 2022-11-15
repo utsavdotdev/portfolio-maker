@@ -68,18 +68,26 @@
   align-items: center;
   font-size: 1.4rem;
   color: var(--gray-text);
+  gap: 12px;
 }
 .profile_newsletter {
-  width: 500px;
+  width: 450px;
   height: 65px;
-  justify-content: center;
   align-items: center;
+  justify-content:center;
   display: flex;
-  flex-direction: column;
+  gap: 0.8rem;
+}
+.mail{
+  color: var(--gray-text);
+  font-size: 2.8rem;
 }
 .email_title {
   font-size: 1.5rem;
   color: var(--gray-text);
+  display: flex;
+  align-items: center;
+  gap: 12px;
 }
 .wrap{
   display: flex;
@@ -88,6 +96,8 @@
 }
 .text {
   color: rgba(255, 255, 255, 0.5);
+  margin-top: -5px;
+  font-size: 12px;
 }
 
 .left {

@@ -1,15 +1,19 @@
-import React, { useEffect } from "react";
+import React, { useEffect, useState } from "react";
 import { useOutletContext } from "react-router-dom";
 import styles from "../css/pages/Profile.module.css";
 import { BsArrowUpRight } from "react-icons/bs";
 import { FiUser } from "react-icons/fi";
-import Switch from "react-switch";
+import { IoMail } from "react-icons/io5";
+import ToggleSwitch from "../components/ToggleSwitch";
 
 const Profile = () => {
   const [pgname, setPagename] = useOutletContext();
   useEffect(() => {
     setPagename("Profile");
   }, [pgname]);
+  const [isToggled, setIsToggled] = useState(false);
+  const onToggle = () => setIsToggled(!isToggled);
+  console.log(isToggled);
   return (
     <>
       <div className={styles.profile_container}>
@@ -45,12 +49,19 @@ const Profile = () => {
             </div>
           </div>
           <div className={styles.change_status}>
-            <span className={styles.change_text}>Change status:</span>
+            <span className={styles.change_text}>
+              Change status:
+              <ToggleSwitch checked={isToggled} onChange={onToggle} />
+            </span>
           </div>
         </div>
         <div className={styles.profile_newsletter}>
+          <IoMail className={styles.mail} />
           <div className={styles.wrap}>
-            <span className={styles.email_title}>Subscribe newsletter:</span>
+            <span className={styles.email_title}>
+              Subscribe newsletter:
+              <ToggleSwitch checked={isToggled} onChange={onToggle} />
+            </span>
             <span className={styles.text}>
               *Notify Engagement through email
             </span>
