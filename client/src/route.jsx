@@ -28,10 +28,10 @@ export default function Router() {
         { path: "search", element: <Search /> },
       ],
     },
-    {
-      path: "/:user",
-      element: <Portfolio />,
-    },
+    // {
+    //   path: "/:user",
+    //   element: <Portfolio />,
+    // },
     {
       path: "*",
       element: <NotFound />,

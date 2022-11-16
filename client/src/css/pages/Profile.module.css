@@ -13,6 +13,7 @@
   background-color: rgba(45, 45, 45, 0.53);
   box-shadow: rgba(0, 0, 0, 0.02) 0px 1px 3px 0px,
     rgba(27, 31, 35, 0.15) 0px 0px 0px 1px;
+  border: 1px solid var(--overlay);
 }
 .profile_data {
   width: 400px;
@@ -74,11 +75,11 @@
   width: 450px;
   height: 65px;
   align-items: center;
-  justify-content:center;
+  justify-content: center;
   display: flex;
   gap: 0.8rem;
 }
-.mail{
+.mail {
   color: var(--gray-text);
   font-size: 2.8rem;
 }
@@ -89,7 +90,7 @@
   align-items: center;
   gap: 12px;
 }
-.wrap{
+.wrap {
   display: flex;
   flex-direction: column;
   align-items: flex-start;

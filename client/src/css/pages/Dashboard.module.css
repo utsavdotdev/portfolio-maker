@@ -110,13 +110,13 @@
   background-color: var(--light-secondary);
   color: var(--white);
   opacity: 0.6;
-  padding: 0.3rem 1.5rem;
+  padding: 0.4rem 1.5rem;
 }
 .add_btn {
   color: var(--white);
   background-color: var(--bg2);
   opacity: 0.5;
-  padding: 0.3rem 1rem;
+  padding: 0.4rem 1rem;
   outline: 0.5px solid var(--bg4);
 }
 .add_btn:hover{
