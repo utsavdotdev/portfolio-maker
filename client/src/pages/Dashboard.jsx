@@ -5,7 +5,7 @@ import { useOutletContext } from "react-router-dom";
 import { GrRotateRight } from "react-icons/gr";
 
 const Dashboard = () => {
-  const [pgname, setPagename] = useOutletContext();
+  const [pgname, setPagename,popup,setPopup] = useOutletContext();
   const [loading, setLoading] = useState(false);
   useEffect(() => {
     setPagename("Setup links");
@@ -13,18 +13,10 @@ const Dashboard = () => {
 
   return (
     <>
-      <form autoComplete="off">
+      <form autoComplete="off" action="">
         <div className={styles.link_con}>
-          <Input 
-           label="github.com/" 
-           placeholder={"Username"} 
-           name="github" 
-           />
-          <Input 
-           label="twitter.com/" 
-           placeholder={"Username"} 
-           name="twitter" 
-           />
+          <Input label="github.com/" placeholder={"Username"} name="github" />
+          <Input label="twitter.com/" placeholder={"Username"} name="twitter" />
           <Input
             label="linkedin.com/in/"
             placeholder={"Username"}
@@ -35,19 +27,13 @@ const Dashboard = () => {
             placeholder={"Username"}
             name="instagram"
           />
-          <Input 
-            label="youtube.com/" 
-            placeholder={"Username"} 
-            name="youtube" />
+          <Input label="youtube.com/" placeholder={"Username"} name="youtube" />
           <Input
             label="buymeacoffee.com/"
             placeholder={"Username"}
             name="buymeacoffee"
           />
-          <Input 
-            label={"Blog"} 
-            placeholder={"Blog URL"} 
-            name={"blog"} />
+          <Input label={"Blog"} placeholder={"Blog URL"} name={"blog"} />
           <Input
             label={"Portfolio"}
             placeholder={"Portfolio URL"}
@@ -68,7 +54,8 @@ const Dashboard = () => {
           </button>
           <button
             className={styles.add_btn}
-            onClick={() => alert("Coming soon")}
+            onClick={() => setPopup(!popup)}
+            type="button"
           >
             Add Link
           </button>

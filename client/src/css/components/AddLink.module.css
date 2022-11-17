@@ -1,0 +1,81 @@
+.popup {
+  width: 100%;
+  height: 100vh;
+  background-color: rgba(0, 0, 0, 0.5);
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: 1;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.popup_container {
+  width: min(360px, 90%);
+  height: fit-content;
+  border-radius: 4px;
+  background-color: #1e1f1f;
+  box-shadow: rgba(0, 0, 0, 0.15) 0px 2px 8px;
+  border: 1px solid #2d2c2d;
+  display: flex;
+  flex-direction: column;
+  z-index: 2;
+}
+.title_con {
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 8px 12px;
+  border-bottom: 1px solid #2d2c2d;
+}
+.title {
+  font-size: 19px;
+  color: var(--text);
+}
+.cancel_icon {
+  color: var(--gray-text);
+  font-size: 26px;
+  cursor: pointer;
+  margin-top: -5px;
+  margin-right: -5px;
+  border-radius: 50%;
+  transition: 0.3s;
+  padding: 2px;
+}
+.cancel_icon:hover {
+  background-color: var(--bg4);
+}
+.input_wrapper {
+  display: flex;
+  align-items: center;
+  padding: 1.2rem 1rem 0.8rem 1rem;
+  flex-direction: column;
+  gap: 1.2rem;
+}
+.btn_con {
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  gap: 1rem;
+}
+.btn {
+  height: 40px;
+  width: 50%;
+  border-radius: 4px;
+  background-color: rgba(45, 44, 45, 0.63);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 1rem;
+  color: var(--gray-text);
+  cursor: pointer;
+  font-size: 19px;
+  transition: 0.3s;
+  font-weight: 500;
+}
+.btn:hover{
+    color: var(--text);
+    background-color: var(--bg3);
+
+}

@@ -34,7 +34,7 @@
 .link_con {
   display: flex;
   width: 100%;
-  padding: 2rem;
+  padding: 1.5rem;
   gap: 1.5rem;
   flex-wrap: wrap;
   justify-content: center;
