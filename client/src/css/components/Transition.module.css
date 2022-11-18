@@ -1,0 +1,28 @@
+.transition {
+  background-color: rgba(45, 45, 45, 0.63);
+  border-radius: 4px;
+  padding: 0.5rem 1rem;
+  position: relative;
+  overflow: hidden;
+}
+.check {
+  right: 0;
+  position: absolute;
+  width: 120px;
+  height: 30px;
+  cursor: pointer;
+  opacity: 0;
+}
+.transition label {
+  font-size: 16px;
+  color: var(--gray-text);
+}
+.check:checked + label::before {
+    content: '';
+    position: absolute;
+    width: 100%;
+    bottom: 0;
+    left:0;
+    height:2.5px;
+    background-color: var(--secondary);
+}

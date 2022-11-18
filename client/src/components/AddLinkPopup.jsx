@@ -28,7 +28,7 @@ const AddLinkPopup = ({ state }) => {
               style={{ marginBottom: 0, width: "100%" }}
             />
             <div className={styles.btn_con}>
-                <div className={styles.btn}>Cancel</div>
+                <div className={styles.btn} onClick={() =>setPopup(!popup)}>Cancel</div>
                 <div className={styles.btn}>Add</div>
             </div>
           </div>
