@@ -20,7 +20,7 @@ const People = () => {
             <span className={styles.status}>Online</span>
           </div>
           <div className={styles.visit_btn}>
-            <span className={styles.visit_text}>Visit portfolio</span>
+            <span className={styles.visit_text}>Visit</span>
             <BsArrowUpRight />
           </div>
         </div>

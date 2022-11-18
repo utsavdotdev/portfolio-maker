@@ -1,7 +1,7 @@
 .toggle_switch {
   position: relative;
   display: inline-block;
-  width: 50px;
+  width: 48px;
   height: 25px;
 }
 .toggle_switch input[type="checkbox"] {
@@ -22,9 +22,9 @@
   position: absolute;
   content: "";
   left: -2px;
-  top: -2px;
-  width: 28px;
-  height: 28px;
+  top: -1px;
+  width: 26px;
+  height: 26px;
   background-color: #333333;
   border-radius: 50%;
   transition: transform 0.3s ease;

@@ -57,7 +57,7 @@ const Dashboard = () => {
             onClick={() => setPopup(!popup)}
             type="button"
           >
-            Add Link
+            Add
           </button>
         </div>
       </form>

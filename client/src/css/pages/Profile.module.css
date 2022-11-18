@@ -17,15 +17,15 @@
 }
 .profile_data {
   width: 400px;
-  height: 200px;
   display: flex;
   align-items: center;
-  padding: 0 14px;
+  justify-content: space-between;
+  padding: 1rem 14px;
   gap: 1rem;
 }
 .profile_status {
   width: 400px;
-  height: 200px;
+  padding-block: 1rem;
   display: flex;
   flex-direction: column;
   gap: 2rem;
@@ -73,7 +73,7 @@
 }
 .profile_newsletter {
   width: 450px;
-  height: 65px;
+  height: fit-content;
   align-items: center;
   justify-content: center;
   display: flex;
@@ -94,6 +94,8 @@
   display: flex;
   flex-direction: column;
   align-items: flex-start;
+  gap: 4px;
+  padding: 6px 0;
 }
 .text {
   color: rgba(255, 255, 255, 0.5);
@@ -155,4 +157,61 @@
 .visit_btn:hover {
   background-color: #3e3e3e;
   color: var(--text);
+}
+
+@media screen and (max-width: 540px) {
+  .profile_container{
+    padding: 1rem;
+  }
+  .left {
+    width: 130px;
+    height: 130px;
+  }
+  .label,
+  .name {
+    font-size: 1rem;
+  }
+  .visit_btn {
+    padding: 0.4rem 0.8rem;
+    font-size: 1rem;
+  }
+  .profile_data {
+    flex-direction: column;
+    padding: 1rem 4px;
+  }
+  .name_con {
+    align-items: center;
+    display: flex;
+    justify-content: center;
+  }
+  .label {
+    text-align: center;
+  }
+  .profile_status{
+    padding-block: 0.5rem;
+  }
+  .status_con{
+    padding: 0.5rem 1rem;
+  }
+  .title,.data{
+    font-size: 1.3rem;
+  }
+  .change_text{
+    font-size: 1rem;
+  }
+  .email_title{
+    font-size: 1.1rem;
+  }
+  .text{
+    font-size: 10px;
+  }
+  .mail{
+    display: none;
+  }
+  .wrap{
+    padding:10px;
+  }
+  .profile_newsletter{
+    display: none;
+  }
 }

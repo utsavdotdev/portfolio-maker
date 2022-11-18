@@ -1,11 +1,13 @@
 .side_con {
   position: fixed;
   left: 0;
-  top: 30%;
+  top: 100px;
+  bottom:0;
   width: 60px;
   height: 340px;
   background-color: var(--bg1);
   display: flex;
+  margin: auto 0;
 }
 .side_con::after {
   content: "";
@@ -39,17 +41,18 @@
   justify-content: center;
   align-items: center;
   color: var(--white);
-  padding-block:1.1rem;
+  padding-block: 1.1rem;
   font-size: 22px;
   cursor: pointer;
   transition: 0.3s;
   /* border:1px solid red */
 }
-.side_con ul li:hover{
-    background-color: var(--bg4);
+.side_con ul li:hover {
+  background-color: var(--bg4);
 }
 .active {
   color: var(--secondary) !important;
   border-right: 2px solid var(--secondary);
   background-color: var(--bg4);
 }
+

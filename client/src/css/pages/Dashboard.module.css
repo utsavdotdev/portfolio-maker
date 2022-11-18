@@ -1,6 +1,6 @@
 .container {
   display: flex;
-  height: 100%;
+  min-height: calc(100vh - 80px);
   padding: 2rem 10rem;
   justify-content: center;
   flex-direction: column;
@@ -58,7 +58,7 @@
   flex: 0.5;
   align-items: center;
   display: flex;
-  opacity: 0.5;
+  opacity: 0.6;
 }
 .input_con input[type="text"] {
   flex: 1;
@@ -90,6 +90,7 @@
   width: 100%;
   justify-content: center;
   gap: 1rem;
+  padding-inline: 1.5rem;
 }
 .save_btn,
 .add_btn {
@@ -101,6 +102,7 @@
   margin-bottom: 1rem;
   display: flex;
   align-items: center;
+  justify-content: center;
   gap: 6px;
   transition: 0.4s;
 }
@@ -153,14 +155,21 @@
   }
 }
 @media screen and (max-width: 625px) {
+  .main_container{
+    padding: 0.5rem;
+  }
   .link_con {
-    padding: 1rem;
+    padding: 0.3rem 0.1rem;
   }
   .input_con {
     width: 100%;
     margin-bottom: 0rem;
   }
   .save_btn,.add_btn {
-    margin: 0rem;
+    margin: 1rem 0 0 0 ;
+    width: 50%;
+  }
+  .input_con span,.input_con input[type="text"]{
+    font-size: 15.5px;
   }
 }
