@@ -9,6 +9,7 @@ const BgImg = ({ checked, onChange,img}) => {
           type="checkbox"
           checked={checked}
           onChange={onChange}
+          name={img}
           className={styles.bg_check}
         />
         <div className={styles.bg_img}>

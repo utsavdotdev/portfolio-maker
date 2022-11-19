@@ -9,6 +9,7 @@ const Transition = ({ label, checked, onChange }) => {
           type="checkbox"
           checked={checked}
           onChange={onChange}
+          name={label}
           className={styles.check}
         />
         <label className={styles.transition}>

@@ -9,7 +9,6 @@ import { FaBloggerB } from "react-icons/fa";
 import {RiUser3Fill} from "react-icons/ri"
 import { SiBuymeacoffee } from "react-icons/si";
 export const data = {
-  name: "Utsav",
   links: {
     github: {
       name: "github",
@@ -52,6 +51,51 @@ export const data = {
       label: "Blog",
     },
   },
+};
+export const user = {
+  name: "Utsav",
+  links: [
+    {
+      name: "github",
+      url: "https://github.com/utsavbhattarai007",
+      label: "github.com/",
+    },
+     {
+      name: "linkedin",
+      url: "https://www.linkedin.com/in/utsavbhattarai007/",
+      label: "linkedin.com/in/",
+    },
+    {
+      name: "twitter",
+      url: "https://twitter.com/utsavbhattarai7",
+      label: "twitter.com/",
+    },
+    {
+      name: "instagram",
+      url: "https://www.instagram.com/utsavbhattarai007/",
+      label: "instagram.com/",
+    },
+    {
+      name: "youtube",
+      url: "",
+      label: "youtube.com/",
+    },
+    {
+      name: "portfolio",
+      url: "https://utsavbhattarai.info.np",
+      label: "Portfolio",
+    },
+    {
+      name: "buymeacoffee",
+      url: "https://www.buymeacoffee.com/utsavbhattarai",
+      label: "buymeacoffee.com/",
+    },
+    {
+      name: "blog",
+      url: "https://blog.utsavbhattarai.info.np",
+      label: "Blog",
+    },
+  ],
   customization: {
     layout:"",
     loading: "",
@@ -61,7 +105,7 @@ export const data = {
 
 export const link = {
   github: {
-    color: "#22D2C2D",
+    color: "#2D2C2D",
     icon: <AiFillGithub />,
   },
   linkedin: {

@@ -6,24 +6,77 @@ import styles from "../css/pages/Customization.module.css";
 import { bg } from "../config/data.jsx";
 
 const Customization = () => {
-  const [value, setValue] = useState(20);
-  const [color, setColor] = useState("#000000");
-  const [pgname, setPagename] = useOutletContext();
+  const [pgname, setPagename, user, setUser] = useOutletContext();
+  console.log(user);
+  const [check, setCheck] = useState([
+    false,
+    false,
+    false,
+    false,
+    false,
+    false,
+  ]);
+  const [imgCheck, setImgCheck] = useState([
+    false,
+    false,
+    false,
+    false,
+    false,
+    false,
+  ]);
+
+  const transition = [
+    {
+      label: "From left",
+    },
+    {
+      label: "From right",
+    },
+    {
+      label: "From top",
+    },
+    {
+      label: "From bottom",
+    },
+    {
+      label: "Fade in",
+    },
+    {
+      label: "Fade up",
+    },
+  ];
+
   useEffect(() => {
     setPagename("Customization");
   }, [pgname]);
+
+  const handleTrans = (e) => {
+    const index = transition.findIndex((item) => item.label === e.target.name);
+    const newCheck = check.map((item, i) => (i === index ? true : false));
+    setCheck(newCheck);
+    setUser({ ...user, customization: { ...user.customization, transition: e.target.name } });
+  };
+
+  const handleImg = (e) => {
+    const index = bg.findIndex((item) => item.src === e.target.name);
+    const newCheck = imgCheck.map((item, i) => (i === index ? true : false));
+    setImgCheck(newCheck);
+    setUser({ ...user, customization: { ...user.customization, bg_img: e.target.name } });
+  };
   return (
     <>
       <div className={styles.custom_container}>
         <div className={styles.transition_container}>
           <div className={styles.title}>Transition</div>
           <div className={styles.transition_wrapper}>
-            <Transition label="From right" />
-            <Transition label="From left" />
-            <Transition label="From top" />
-            <Transition label="From bottom" />
-            <Transition label="Fade in" />
-            <Transition label="Fade up" />
+            {transition.map((data, i) => (
+              <Transition
+                label={data.label}
+                key={i}
+                checked={check[i]}
+                onChange={handleTrans}
+              />
+            ))}
           </div>
         </div>
 
@@ -33,13 +86,21 @@ const Customization = () => {
             <div className={styles.slider}>
               <input
                 type="range"
-                max="100"
-                value={value}
+                max="20"
+                value={user.customization?.border_radius}
                 onChange={({ target: { value: radius } }) => {
-                  setValue(radius);
+                  setUser({
+                    ...user,
+                    customization: {
+                      ...user.customization,
+                      border_radius: radius,
+                    },
+                  });
                 }}
               />
-              <div className={styles.data}>{value}</div>
+              <div className={styles.data}>
+                {user.customization?.border_radius}
+              </div>
             </div>
           </div>
           <div className={styles.center_con}>
@@ -48,20 +109,33 @@ const Customization = () => {
               <input
                 type="color"
                 className={styles.color_picker}
-                value={color}
+                value={user.customization.bg_color}
                 onChange={({ target: { value: code } }) => {
-                  setColor(code);
+                  setUser({
+                    ...user,
+                    customization: {
+                      ...user.customization,
+                      bg_color: code,
+                    },
+                  });
                 }}
               />
-              <span className={styles.color_hex}>{color}</span>
+              <span className={styles.color_hex}>
+                {user.customization.bg_color}
+              </span>
             </div>
           </div>
         </div>
         <div className={styles.bottom_con}>
           <div className={styles.title}>Background image</div>
           <div className={styles.bg_image_wrapper}>
-            {bg.slice(0,6).map((img,i) => (
-              <BgImg img={img.src} />
+            {bg.slice(0, 6).map((img, i) => (
+              <BgImg
+                img={img.src}
+                key={i}
+                checked={imgCheck[i]}
+                onChange={handleImg}
+              />
             ))}
           </div>
         </div>
