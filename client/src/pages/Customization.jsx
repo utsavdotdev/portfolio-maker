@@ -1,15 +1,17 @@
 import React, { useEffect, useState } from "react";
 import { useOutletContext } from "react-router-dom";
+import BgImg from "../components/BgImg";
 import Transition from "../components/Transition";
 import styles from "../css/pages/Customization.module.css";
+import { bg } from "../config/data.jsx";
 
 const Customization = () => {
-   const [value,setValue] = useState(20)
-   const [color,setColor] = useState("#000000")
-   const [pgname, setPagename] = useOutletContext();
-   useEffect(() => {
-     setPagename("Customization");
-   }, [pgname]);
+  const [value, setValue] = useState(20);
+  const [color, setColor] = useState("#000000");
+  const [pgname, setPagename] = useOutletContext();
+  useEffect(() => {
+    setPagename("Customization");
+  }, [pgname]);
   return (
     <>
       <div className={styles.custom_container}>
@@ -24,6 +26,7 @@ const Customization = () => {
             <Transition label="Fade up" />
           </div>
         </div>
+
         <div className={styles.center_row}>
           <div className={styles.center_con}>
             <div className={styles.title}>Border Radius</div>
@@ -52,6 +55,14 @@ const Customization = () => {
               />
               <span className={styles.color_hex}>{color}</span>
             </div>
+          </div>
+        </div>
+        <div className={styles.bottom_con}>
+          <div className={styles.title}>Background image</div>
+          <div className={styles.bg_image_wrapper}>
+            {bg.slice(0,6).map((img,i) => (
+              <BgImg img={img.src} />
+            ))}
           </div>
         </div>
       </div>

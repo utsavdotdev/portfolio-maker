@@ -1,13 +1,20 @@
 import React from "react";
 import styles from "../css/components/Transition.module.css";
 
-const Transition = ({label,checked,onChange}) => {
+const Transition = ({ label, checked, onChange }) => {
   return (
     <>
-      <label className={styles.transition}>
-        <input type="checkbox" checked={checked} onChange={onChange} className={styles.check}/>
-        <label>{label}</label>
-      </label>
+      <div className={styles.wrapper}>
+        <input
+          type="checkbox"
+          checked={checked}
+          onChange={onChange}
+          className={styles.check}
+        />
+        <label className={styles.transition}>
+          <label>{label}</label>
+        </label>
+      </div>
     </>
   );
 };

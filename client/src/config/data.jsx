@@ -94,4 +94,35 @@ export const link = {
   },
 };
 
+export const bg = [
+  {
+    name: "bg1",
+    src:"/bg/bg1.jpg"
+  },
+  {
+    name: "bg2",
+    src:"/bg/bg2.jpg"
+  },
+  {
+    name: "bg3",
+    src:"/bg/bg3.jpg"
+  },
+  {
+    name: "bg4",
+    src:"/bg/bg4.jpg"
+  },
+  {
+    name: "bg5",
+    src:"/bg/bg5.jpg"
+  },
+  {
+    name: "bg6",
+    src:"/bg/bg6.jpg"
+  },
+  {
+    name: "bg7",
+    src:"/bg/bg7.jpg"
+  }
+]
+
 
