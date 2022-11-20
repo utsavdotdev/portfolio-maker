@@ -48,19 +48,30 @@ const Context = ({ children }) => {
       },
     ],
     customization: {
-      transition: "",
+      transition: "fadein",
       border_radius: 4,
       bg_color: "#1e1f1f",
-      bg_img: "/bg/bg1.jpg",
+      bg_img: "/bg/bg6.jpg",
     },
   });
   const [popup, setPopup] = useState(false);
+  const [check, setCheck] = useState([false, false, false, false, true, false]);
+  const [imgCheck, setImgCheck] = useState([
+    false,
+    false,
+    false,
+    false,
+    false,
+    true,
+  ]);
   return (
     <>
       <ContextProvider.Provider
         value={{
           usr: [user, setUser],
-          pop:[popup, setPopup]
+          pop:[popup, setPopup],
+          chk:[check, setCheck],
+          imgChk:[imgCheck, setImgCheck]
         }}
       >
         {children}

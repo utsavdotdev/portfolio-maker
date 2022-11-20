@@ -3,6 +3,7 @@
   gap: 3rem;
   padding: 0 1rem;
   flex-direction: column;
+  /* display: none; */
 }
 .transition_container {
   display: flex;
@@ -108,4 +109,28 @@
   display: flex;
   gap: 2rem;
   flex-wrap: wrap;
+}
+.msg_con {
+  display: none;
+  border: 2px solid #2d2d2d;
+  background-color: rgba(45, 45, 45, 0.63);
+  border-radius: 8px;
+  padding: 1rem;
+  text-align: center;
+  width:80%;
+}
+.msg{
+  font-size: 1.2rem;
+  color: var(--gray-text);
+}
+
+@media  screen and (max-width:768px) {
+    .custom_container{
+        display: none;
+    }
+    .msg_con{
+      display: flex;
+      align-self: center;
+      margin: 3rem;
+    }
 }

@@ -3,28 +3,20 @@ import { useOutletContext } from "react-router-dom";
 import BgImg from "../components/BgImg";
 import Transition from "../components/Transition";
 import styles from "../css/pages/Customization.module.css";
-import { bg,transition } from "../config/data.jsx";
+import { bg, transition } from "../config/data.jsx";
 
 const Customization = () => {
-  const {pgname, setPagename, user, setUser} = useOutletContext();
+  const {
+    pgname,
+    setPagename,
+    user,
+    setUser,
+    check,
+    setCheck,
+    imgCheck,
+    setImgCheck,
+  } = useOutletContext();
   console.log(user);
-  const [check, setCheck] = useState([
-    false,
-    false,
-    false,
-    false,
-    true,
-    false,
-  ]);
-  const [imgCheck, setImgCheck] = useState([
-    false,
-    false,
-    false,
-    false,
-    false,
-    false,
-  ]);
-
 
   useEffect(() => {
     setPagename("Customization");
@@ -34,14 +26,20 @@ const Customization = () => {
     const index = transition.findIndex((item) => item.label === e.target.name);
     const newCheck = check.map((item, i) => (i === index ? true : false));
     setCheck(newCheck);
-    setUser({ ...user, customization: { ...user.customization, transition: e.target.name } });
+    setUser({
+      ...user,
+      customization: { ...user.customization, transition: e.target.name },
+    });
   };
 
   const handleImg = (e) => {
     const index = bg.findIndex((item) => item.src === e.target.name);
     const newCheck = imgCheck.map((item, i) => (i === index ? true : false));
     setImgCheck(newCheck);
-    setUser({ ...user, customization: { ...user.customization, bg_img: e.target.name } });
+    setUser({
+      ...user,
+      customization: { ...user.customization, bg_img: e.target.name },
+    });
   };
   return (
     <>
@@ -119,6 +117,11 @@ const Customization = () => {
             ))}
           </div>
         </div>
+      </div>
+      <div className={styles.msg_con}>
+        <span className={styles.msg}>
+          The customization is not available in small view
+        </span>
       </div>
     </>
   );

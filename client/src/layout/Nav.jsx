@@ -10,12 +10,14 @@ import Preview from "../components/Preview";
 
 const Nav = () => {
   const location = useLocation();
-  const {pathname} = location;
+  const { pathname } = location;
   const [isAuth, setIsAuth] = useState(true);
   const [pgname, setPagename] = useState("");
-  const { usr, pop } = useContext(ContextProvider);
+  const { usr, pop, chk, imgChk } = useContext(ContextProvider);
   const [user, setUser] = usr;
   const [popup, setPopup] = pop;
+  const [check, setCheck] = chk;
+  const [imgCheck, setImgCheck] = imgChk;
 
   if (!isAuth) {
     return <Navigate to="/" state={{ from: location }} replace />;
@@ -29,7 +31,18 @@ const Nav = () => {
         <div className={styles.con_wrapper}>
           <div className={styles.main_container}>
             <Outlet
-              context={{ pgname, setPagename, user, setUser, popup, setPopup }}
+              context={{
+                pgname,
+                setPagename,
+                user,
+                setUser,
+                popup,
+                setPopup,
+                check,
+                setCheck,
+                imgCheck,
+                setImgCheck,
+              }}
             />
           </div>
           <div

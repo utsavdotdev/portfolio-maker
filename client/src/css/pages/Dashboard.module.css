@@ -156,7 +156,6 @@
   width: 50%;
   height: 400px;
   border: 3px solid var(--bg4);
-  /* background-color: var(--bg1); */
   border-radius: 10px;
   display: flex;
   z-index: 1;
@@ -196,4 +195,9 @@
   .input_con span,.input_con input[type="text"]{
     font-size: 15.5px;
   }
+}
+@media  screen and (max-width:768px) {
+    .preview_con{
+        display: none;
+    }
 }
