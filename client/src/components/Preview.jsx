@@ -5,9 +5,14 @@ import Btn from "./Btn";
 const Preview = ({user}) => {
     const {name,customization} = user;
     const {bg_color,bg_img,border_radius,transition} = customization;
+    const convert = () =>{
+      //convert the transition value to lowercase and remove all the white spaces
+      return transition.toLowerCase().replace(/\s/g, "");
+    }
+    let trans = convert();
   return (
     <>
-      <div className={styles.preview}>
+      <div className={styles.preview} id={trans}>
         <img src={bg_img} className={styles.bg_img} />
         <div className={styles.preview_wrapper}>
           <div className={styles.notch}></div>

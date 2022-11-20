@@ -186,6 +186,6 @@ export const transition = [
     label: "Fade in",
   },
   {
-    label: "Fade up",
+    label: "Scale up",
   },
 ];

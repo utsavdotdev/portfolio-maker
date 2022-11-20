@@ -164,10 +164,12 @@
   padding-block:1rem;
   align-items: center;
   justify-content: center;
+  overflow: hidden;
 }
 .preview_con h2{
   color: var(--gray-text);
   font-size: 1.5rem;
+
 }
 
 /* Responsive */

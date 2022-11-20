@@ -62,3 +62,70 @@ button {
   text-transform: none;
   cursor: pointer;
 }
+
+#fromleft {
+  animation: fromleft 1s ease-in-out;
+}
+#fromright {
+  animation: fromright 1s ease-in-out;
+}
+#fromtop {
+  animation: fromtop 1s ease-in-out;
+}
+#frombottom {
+  animation: frombottom 1s ease-in-out;
+}
+#fadein {
+  animation: fadein 1s ease-in-out;
+}
+#scaleup {
+  animation: scaleup 1s ease-in-out;
+}
+@keyframes fromleft {
+  0% {
+    transform: translateX(-100%);
+  }
+  100% {
+    transform: translateX(0);
+  }
+}
+@keyframes fromright {
+  0% {
+    transform: translateX(100%);
+  }
+  100% {
+    transform: translateX(0);
+  }
+}
+@keyframes fromtop {
+  0% {
+    transform: translateY(-100%);
+  }
+  100% {
+    transform: translateY(0);
+  }
+}
+@keyframes frombottom {
+  0% {
+    transform: translateY(100%);
+  }
+  100% {
+    transform: translateY(0);
+  }
+}
+@keyframes fadein {
+  0% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
+}
+@keyframes scaleup {
+  0% {
+    transform: scale(0);
+  }
+  100% {
+    transform: scale(1);
+  }
+}
