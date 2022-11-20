@@ -1,0 +1,22 @@
+Todos:
+    Frontend:
+         ☐ Portfolio of user
+         ☐ Transistion css and manage state
+         ☐ Share and congo popup
+         ☐ All stuff kam chalau responsive
+         ☐ Github login 
+         ☐ Finishing stuff
+    
+    Backend:
+        ☐ Connect with mongo db
+        ☐ Make all routes
+        ☐ Make all models
+        ☐ Make all controllers
+        ☐ Make bot to send email about portfolio engagement
+    
+    Hosting:
+        ☐ Deploy the client side in netlify
+        ☐ Deploy the server side in heroku
+    
+    others:
+        ☐ Configure zoho mail to send professional email

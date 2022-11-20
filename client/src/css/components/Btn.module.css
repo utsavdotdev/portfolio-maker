@@ -9,12 +9,12 @@
 }
 .icon {
   width: 40px;
-  border-right: 0.2px solid var(--gray-text);
+  border-right: 0.5px solid var(--gray-text);
   height: 100%;
   display: flex;
   justify-content: center;
   align-items: center;
-  font-size: 28px;
+  font-size: 26px;
   color: var(--gray-text);
 }
 .link_label{

@@ -6,7 +6,7 @@ import {
   AiFillYoutube,
 } from "react-icons/ai";
 import { FaBloggerB } from "react-icons/fa";
-import {RiUser3Fill} from "react-icons/ri"
+import { RiUser3Fill } from "react-icons/ri";
 import { SiBuymeacoffee } from "react-icons/si";
 export const data = {
   links: {
@@ -60,14 +60,14 @@ export const user = {
       url: "https://github.com/utsavbhattarai007",
       label: "github.com/",
     },
-     {
+    {
       name: "linkedin",
       url: "https://www.linkedin.com/in/utsavbhattarai007/",
       label: "linkedin.com/in/",
     },
     {
       name: "twitter",
-      url: "https://twitter.com/utsavbhattarai7",
+      url: "https://twitter.com/utsabdev",
       label: "twitter.com/",
     },
     {
@@ -97,7 +97,7 @@ export const user = {
     },
   ],
   customization: {
-    layout:"",
+    layout: "",
     loading: "",
     transition: "",
   },
@@ -141,32 +141,51 @@ export const link = {
 export const bg = [
   {
     name: "bg1",
-    src:"/bg/bg1.jpg"
+    src: "/bg/bg1.jpg",
   },
   {
     name: "bg2",
-    src:"/bg/bg2.jpg"
+    src: "/bg/bg2.jpg",
   },
   {
     name: "bg3",
-    src:"/bg/bg3.jpg"
+    src: "/bg/bg3.jpg",
   },
   {
     name: "bg4",
-    src:"/bg/bg4.jpg"
+    src: "/bg/bg4.jpg",
   },
   {
     name: "bg5",
-    src:"/bg/bg5.jpg"
+    src: "/bg/bg5.jpg",
   },
   {
     name: "bg6",
-    src:"/bg/bg6.jpg"
+    src: "/bg/bg6.jpg",
   },
   {
     name: "bg7",
-    src:"/bg/bg7.jpg"
-  }
-]
+    src: "/bg/bg7.jpg",
+  },
+];
 
-
+export const transition = [
+  {
+    label: "From left",
+  },
+  {
+    label: "From right",
+  },
+  {
+    label: "From top",
+  },
+  {
+    label: "From bottom",
+  },
+  {
+    label: "Fade in",
+  },
+  {
+    label: "Fade up",
+  },
+];

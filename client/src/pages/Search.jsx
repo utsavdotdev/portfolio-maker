@@ -6,7 +6,7 @@ import People from "../components/People";
 import LoadingPeople from "../components/LoadingPeople";
 
 const Search = () => {
-  const [pgname, setPagename] = useOutletContext();
+  const {pgname, setPagename} = useOutletContext();
   useEffect(() => {
     setPagename("Search");
   }, [pgname]);

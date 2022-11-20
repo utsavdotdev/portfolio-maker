@@ -5,7 +5,7 @@ import { useOutletContext } from "react-router-dom";
 import { GrRotateRight } from "react-icons/gr";
 
 const Dashboard = () => {
-  const [pgname, setPagename,popup,setPopup] = useOutletContext();
+  const {pgname, setPagename,popup,setPopup} = useOutletContext();
   const [loading, setLoading] = useState(false);
   useEffect(() => {
     setPagename("Setup links");

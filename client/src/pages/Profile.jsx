@@ -7,13 +7,14 @@ import { IoMail } from "react-icons/io5";
 import ToggleSwitch from "../components/ToggleSwitch";
 
 const Profile = () => {
-  const [pgname, setPagename] = useOutletContext();
+  const { pgname, setPagename } = useOutletContext();
+  const [isToggled, setIsToggled] = useState(false);
+  
   useEffect(() => {
     setPagename("Profile");
   }, [pgname]);
-  const [isToggled, setIsToggled] = useState(false);
+
   const onToggle = () => setIsToggled(!isToggled);
-  console.log(isToggled);
   return (
     <>
       <div className={styles.profile_container}>

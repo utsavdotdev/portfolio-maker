@@ -1,10 +1,9 @@
 import React from "react";
 import styles from "../css/components/AddLink.module.css";
-import { MdOutlineCancel } from "react-icons/md";
 import { FiX } from "react-icons/fi";
 import Input from "./Input";
 const AddLinkPopup = ({ state }) => {
-  const [popup, setPopup] = state;
+  const {popup, setPopup} = state;
   return (
     <>
       <div className={styles.popup}>

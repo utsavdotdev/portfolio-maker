@@ -1,7 +1,7 @@
 .preview{
     width: 60%;
     min-height: 100%;
-    border: 6px solid #303030;
+    outline: 6px solid #303030;
     border-radius: 20px;
     overflow: hidden;
     position: relative;

@@ -3,7 +3,7 @@ import { useOutletContext } from "react-router-dom";
 import styles from "../css/pages/Domain.module.css";
 
 const Domain = () => {
-  const [pgname, setPagename] = useOutletContext();
+  const {pgname, setPagename} = useOutletContext();
   useEffect(() => {
     setPagename("Domain configuration");
   }, [pgname]);

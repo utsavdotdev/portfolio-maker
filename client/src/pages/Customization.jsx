@@ -3,17 +3,17 @@ import { useOutletContext } from "react-router-dom";
 import BgImg from "../components/BgImg";
 import Transition from "../components/Transition";
 import styles from "../css/pages/Customization.module.css";
-import { bg } from "../config/data.jsx";
+import { bg,transition } from "../config/data.jsx";
 
 const Customization = () => {
-  const [pgname, setPagename, user, setUser] = useOutletContext();
+  const {pgname, setPagename, user, setUser} = useOutletContext();
   console.log(user);
   const [check, setCheck] = useState([
     false,
     false,
     false,
     false,
-    false,
+    true,
     false,
   ]);
   const [imgCheck, setImgCheck] = useState([
@@ -25,26 +25,6 @@ const Customization = () => {
     false,
   ]);
 
-  const transition = [
-    {
-      label: "From left",
-    },
-    {
-      label: "From right",
-    },
-    {
-      label: "From top",
-    },
-    {
-      label: "From bottom",
-    },
-    {
-      label: "Fade in",
-    },
-    {
-      label: "Fade up",
-    },
-  ];
 
   useEffect(() => {
     setPagename("Customization");

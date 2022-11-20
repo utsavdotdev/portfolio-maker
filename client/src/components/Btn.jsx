@@ -19,7 +19,7 @@ const Btn = ({ links,style}) => {
   }, [links]);
   return (
     <>
-      <a href="https://utsavbhattarai.info.np" target="_blank">
+      <a href={links.url} target="_blank">
         <div className={styles.btn_con} style={{backgroundColor:color,...style}}>
           <div className={styles.icon}>
             {icon}
