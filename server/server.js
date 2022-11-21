@@ -1,10 +1,15 @@
 //Importing dependencies
 import express from "express";
-import {} from "dotenv/config";
+import colors from "colors";
 import cors from "cors";
+import {} from "dotenv/config";
+import { connectDB } from "./utils/db.js";
 
 //Making Instances
 const app = express();
+
+//Connecting to Database
+connectDB();
 
 //MiddleWares
 app.use(express.json()); // For JSON data

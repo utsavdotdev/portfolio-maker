@@ -49,12 +49,15 @@ const Context = ({ children }) => {
     ],
     customization: {
       transition: "fadein",
-      border_radius: 4,
+      border_radius: "4",
       bg_color: "#1e1f1f",
       bg_img: "/bg/bg6.jpg",
     },
   });
-  const [popup, setPopup] = useState(false);
+  const [popup, setPopup] = useState({
+    addlink:false,
+    congo:false
+  });
   const [check, setCheck] = useState([false, false, false, false, true, false]);
   const [imgCheck, setImgCheck] = useState([
     false,
@@ -64,6 +67,7 @@ const Context = ({ children }) => {
     false,
     true,
   ]);
+  
   return (
     <>
       <ContextProvider.Provider

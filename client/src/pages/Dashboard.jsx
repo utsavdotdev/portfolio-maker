@@ -11,6 +11,11 @@ const Dashboard = () => {
     setPagename("Setup links");
   }, [pgname]);
 
+  const onSave = () =>{
+    // setLoading(true);
+    setPopup({...popup,congo:true});
+  }
+
   return (
     <>
       <form autoComplete="off" action="">
@@ -43,7 +48,8 @@ const Dashboard = () => {
         <div className={styles.btn_con}>
           <button
             className={styles.save_btn}
-            onClick={() => setLoading(!loading)}
+            onClick={() => onSave()}
+            type="button"
           >
             Save
             {loading && (
@@ -54,7 +60,7 @@ const Dashboard = () => {
           </button>
           <button
             className={styles.add_btn}
-            onClick={() => setPopup(!popup)}
+            onClick={() => setPopup({...popup,addLink:!popup.addLink})}
             type="button"
           >
             Add

@@ -7,12 +7,14 @@ import Navbar from "../components/Navbar";
 import Sidebar from "../components/Sidebar";
 import AddLinkPopup from "../components/AddLinkPopup";
 import Preview from "../components/Preview";
+import CongoPopup from "../components/CongoPopup";
 
 const Nav = () => {
   const location = useLocation();
   const { pathname } = location;
   const [isAuth, setIsAuth] = useState(true);
   const [pgname, setPagename] = useState("");
+
   const { usr, pop, chk, imgChk } = useContext(ContextProvider);
   const [user, setUser] = usr;
   const [popup, setPopup] = pop;
@@ -56,7 +58,8 @@ const Nav = () => {
           </div>
         </div>
       </div>
-      {popup && <AddLinkPopup state={{ popup, setPopup }} />}
+      {popup.addLink && <AddLinkPopup state={{ popup, setPopup }} />}
+      {popup.congo && <CongoPopup state={{popup,setPopup}}/>}
     </>
   );
 };

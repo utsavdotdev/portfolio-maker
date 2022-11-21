@@ -8,13 +8,19 @@ import ToggleSwitch from "../components/ToggleSwitch";
 
 const Profile = () => {
   const { pgname, setPagename } = useOutletContext();
-  const [isToggled, setIsToggled] = useState(false);
-  
+  const [isToggled, setIsToggled] = useState({
+    status: false,
+    newsletter: false,
+  });
+
   useEffect(() => {
     setPagename("Profile");
   }, [pgname]);
 
-  const onToggle = () => setIsToggled(!isToggled);
+  const onToggle = (e) =>{
+    setIsToggled({...isToggled, [e.target.name]: !isToggled[e.target.name]})
+  };
+  console.log(isToggled);
   return (
     <>
       <div className={styles.profile_container}>
@@ -52,7 +58,7 @@ const Profile = () => {
           <div className={styles.change_status}>
             <span className={styles.change_text}>
               Change status:
-              <ToggleSwitch checked={isToggled} onChange={onToggle} />
+              <ToggleSwitch name="status" checked={isToggled.status} onChange={onToggle} />
             </span>
           </div>
         </div>
@@ -61,7 +67,7 @@ const Profile = () => {
           <div className={styles.wrap}>
             <span className={styles.email_title}>
               Subscribe newsletter:
-              <ToggleSwitch checked={isToggled} onChange={onToggle} />
+              <ToggleSwitch name="newsletter" checked={isToggled.newsletter} onChange={onToggle} />
             </span>
             <span className={styles.text}>
               *Notify Engagement through email

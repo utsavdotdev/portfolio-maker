@@ -11,7 +11,7 @@
   align-items: center;
 }
 .popup_container {
-  width: min(360px, 90%);
+  /* width: min(360px, 90%); */
   height: fit-content;
   border-radius: 4px;
   background-color: #1e1f1f;
@@ -19,7 +19,7 @@
   border: 1px solid #2d2c2d;
   display: flex;
   flex-direction: column;
-  z-index: 2;
+  z-index: 999;
 }
 .title_con {
   width: 100%;
@@ -30,7 +30,7 @@
   border-bottom: 1px solid #2d2c2d;
 }
 .title {
-  font-size: 19px;
+  font-size: 20px;
   color: var(--text);
 }
 .cancel_icon {

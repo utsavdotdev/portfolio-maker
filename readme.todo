@@ -2,13 +2,14 @@ Todos:
     Frontend:
          ☐ Portfolio of user
          ✔ Transistion css and manage state @done(22-11-20 13:52)
-         ☐ Share and congo popup
+         ✔ Share and congo popup @done(22-11-21 13:52)
          ✔ All stuff kam chalau responsive @done(22-11-20 14:23)
          ☐ Github login 
+         ☐ Add link functionality
          ☐ Finishing stuff
-    
+         ☐ Meta configuration    
     Backend:
-        ☐ Connect with mongo db
+        ✔ Connect with mongo db @done(22-11-20 22:25)
         ☐ Make all routes
         ☐ Make all models
         ☐ Make all controllers
@@ -19,4 +20,4 @@ Todos:
         ☐ Deploy the server side in heroku
     
     others:
-        ☐ Configure zoho mail to send professional email
+        ✔ Configure zoho mail to send professional email @done(22-11-20 18:26)

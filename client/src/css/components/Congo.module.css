@@ -1,0 +1,101 @@
+.congo_con {
+  display: flex;
+  flex-direction: column;
+  padding: 1rem;
+  align-items: center;
+  gap: 0.8rem;
+}
+.heading {
+  font-size: 28px;
+  color: var(--text);
+  font-family: "Poppins", sans-serif;
+  font-weight: 600;
+  -webkit-mask-image: linear-gradient(
+    -75deg,
+    rgba(0, 0, 0, 0.6) 30%,
+    #000 50%,
+    rgba(0, 0, 0, 0.6) 70%
+  );
+  -webkit-mask-size: 200%;
+  animation: shine 2s linear infinite;
+}
+.text {
+  font-size: 19px;
+  font-weight: 400;
+  color: var(--gray-text);
+}
+.brand {
+  color: var(--white);
+  font-weight: 600;
+}
+.btn_con {
+  width: 100%;
+  display: flex;
+  gap: 10px;
+  margin-top: 1rem;
+}
+.btn1,
+.btn2 {
+  width: 50%;
+  padding: 0.5rem;
+  color: var(--text);
+  text-align: center;
+  font-size: 19px;
+  border-radius: 4px;
+  opacity: 0.9;
+  cursor: pointer;
+  transition: 0.2s;
+  position: relative;
+  overflow: hidden;
+}
+.btn2 {
+  background-color: var(--secondary);
+}
+.btn1 {
+  background-color: #2d2d2d;
+}
+.btn1:hover {
+  opacity: 1;
+}
+.btn2:hover {
+  opacity: 1;
+}
+.btn1:after {
+  content: "";
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 5px;
+  height: 5px;
+  background: rgba(156, 156, 156, 0.5);
+  opacity: 0;
+  border-radius: 100%;
+  transform: scale(1, 1) translate(-50%);
+  transform-origin: 50% 50%;
+}
+
+.btn1:focus:not(:active)::after {
+  animation: ripple 1s ease-out;
+}
+@keyframes ripple {
+  0% {
+    transform: scale(0, 0);
+    opacity: 1;
+  }
+  20% {
+    transform: scale(25, 25);
+    opacity: 1;
+  }
+  100% {
+    opacity: 0;
+    transform: scale(40, 40);
+  }
+}
+@keyframes shine {
+  from {
+    -webkit-mask-position: 150%;
+  }
+  to {
+    -webkit-mask-position: -50%;
+  }
+}

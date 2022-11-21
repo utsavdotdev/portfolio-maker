@@ -1,38 +1,34 @@
 import React from "react";
 import styles from "../css/components/AddLink.module.css";
-import { FiX } from "react-icons/fi";
 import Input from "./Input";
+import Popup from "./Popup";
 const AddLinkPopup = ({ state }) => {
-  const {popup, setPopup} = state;
+  const { popup, setPopup } = state;
+  const closePopup = () =>{
+    setPopup({...popup,addLink:!popup.addLink})
+  }
   return (
     <>
-      <div className={styles.popup}>
-        <div className={styles.popup_container}>
-          <div className={styles.title_con}>
-            <span className={styles.title}>Add Link</span>
-            <FiX
-              className={styles.cancel_icon}
-              onClick={() => setPopup(!popup)}
-            />
-          </div>
-          <div className={styles.input_wrapper}>
-            <Input
-              label="Label"
-              placeholder="Enter the label"
-              style={{ marginBottom: 0, width: "100%" }}
-            />
-            <Input
-              label="Link"
-              placeholder="Enter the valid url"
-              style={{ marginBottom: 0, width: "100%" }}
-            />
-            <div className={styles.btn_con}>
-                <div className={styles.btn} onClick={() =>setPopup(!popup)}>Cancel</div>
-                <div className={styles.btn}>Add</div>
+      <Popup title="Add Link" close={closePopup} style={{width:"min(360px,90%)"}} >
+        <div className={styles.input_wrapper}>
+          <Input
+            label="Label"
+            placeholder="Enter the label"
+            style={{ marginBottom: 0, width: "100%" }}
+          />
+          <Input
+            label="Link"
+            placeholder="Enter the valid url"
+            style={{ marginBottom: 0, width: "100%" }}
+          />
+          <div className={styles.btn_con}>
+            <div className={styles.btn} onClick={closePopup}>
+              Cancel
             </div>
+            <div className={styles.btn}>Add</div>
           </div>
         </div>
-      </div>
+      </Popup>
     </>
   );
 };

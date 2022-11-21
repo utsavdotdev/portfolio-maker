@@ -6,7 +6,7 @@ const Link = ({icon,to,styles}) => {
   const {pathname} = location;
   return (
     <>
-      <NavLink to={to} className={pathname === to ? styles.active : ""}>
+      <NavLink to={to} className={pathname === to && styles.active}>
         <li>{icon}</li>
       </NavLink>
     </>
