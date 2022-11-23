@@ -5,7 +5,6 @@ import { ContextProvider } from "../config/Context";
 import styles from "../css/pages/Dashboard.module.css";
 import Navbar from "../components/Navbar";
 import Sidebar from "../components/Sidebar";
-import AddLinkPopup from "../components/AddLinkPopup";
 import Preview from "../components/Preview";
 import CongoPopup from "../components/CongoPopup";
 
@@ -18,8 +17,12 @@ const Nav = () => {
   const { usr, pop, chk, imgChk, lk } = useContext(ContextProvider);
   const [user, setUser] = usr;
   const [popup, setPopup] = pop;
-  const [check, setCheck] = chk;
   const [link, setLink] = lk;
+
+  //state for transition
+  const [check, setCheck] = chk;
+
+  //state for bg image
   const [imgCheck, setImgCheck] = imgChk;
 
   if (!isAuth) {
@@ -61,7 +64,7 @@ const Nav = () => {
           </div>
         </div>
       </div>
-      {popup.addLink && <AddLinkPopup state={{ popup, setPopup,link,setLink}} />}
+      {/* {popup.addLink && <AddLinkPopup state={{ popup, setPopup,link,setLink}} />} */}
       {popup.congo && <CongoPopup state={{ popup, setPopup }} />}
     </>
   );

@@ -55,6 +55,63 @@ export const data = {
   },
 };
 
+export const user = {
+  name: "utsavbhattarai",
+  links: [
+    {
+      name: "github",
+      url: "https://github.com/utsavbhattarai007",
+      label: "github.com/",
+    },
+    {
+      name: "linkedin",
+      url: "https://www.linkedin.com/in/utsavbhattarai007/",
+      label: "linkedin.com/in/",
+    },
+    {
+      name: "twitter",
+      url: "https://twitter.com/utsavbhattarai7",
+      label: "twitter.com/",
+    },
+    {
+      name: "instagram",
+      url: "https://www.instagram.com/utsavbhattarai007/",
+      label: "instagram.com/",
+    },
+    {
+      name: "youtube",
+      url: "",
+      label: "youtube.com/",
+    },
+    {
+      name: "portfolio",
+      url: "https://utsavbhattarai.info.np",
+      label: "Portfolio",
+    },
+    {
+      name: "facebook",
+      url: "https://facebook.com/utsavbhattarai007",
+      label: "Facebook",
+    },
+    {
+      name: "buymeacoffee",
+      url: "https://www.buymeacoffee.com/utsavbhattarai",
+      label: "buymeacoffee.com/",
+    },
+    {
+      name: "blog",
+      url: "https://blog.utsavbhattarai.info.np",
+      label: "Blog",
+    },
+  ],
+  customization: {
+    transition: "fromtop",
+    border_radius: "6",
+    bg_color: "#00000",
+    bg_img: "/bg/bg5.jpg",
+  },
+};
+
 //For input mapping
 export const links = [
   {
@@ -82,8 +139,8 @@ export const links = [
     label: "buymeacoffee.com/",
   },
   {
-    name:"facebook",
-    label: "facebook.com/"
+    name: "facebook",
+    label: "facebook.com/",
   },
   {
     name: "blog",
@@ -105,7 +162,7 @@ export const link = {
     color: "#0A66C2",
     icon: <AiFillLinkedin />,
   },
-  facebook:{
+  facebook: {
     color: "#3B5998",
     icon: <FaFacebookSquare />,
   },
@@ -135,8 +192,7 @@ export const link = {
   },
 };
 
-
-//For background image of portfolio 
+//For background image of portfolio
 export const bg = [
   {
     name: "bg1",
@@ -160,14 +216,13 @@ export const bg = [
   },
   {
     name: "bg6",
-    src: "/bg/bg6.jpg",
+    src: "/bg/bg7.jpg",
   },
   {
     name: "bg7",
     src: "/bg/bg7.jpg",
   },
 ];
-
 
 //For transition
 export const transition = [
@@ -191,15 +246,8 @@ export const transition = [
   },
 ];
 
-
-
-
-
-
-
-
- {
-   /* <Input
+{
+  /* <Input
             label="github.com/"
             value={link.github}
             placeholder={"Username"}
@@ -254,4 +302,4 @@ export const transition = [
             name={"portfolio"}
             onChange={handleLinks}
           /> */
- }
+}

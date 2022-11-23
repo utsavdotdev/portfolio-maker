@@ -1,11 +1,11 @@
 Todos:
     Frontend:
-         ☐ Portfolio of user
+         ☐ Portfolio of user @started(22-11-23 20:30)
          ✔ Transistion css and manage state @done(22-11-20 13:52)
          ✔ Share and congo popup @done(22-11-21 13:52)
          ✔ All stuff kam chalau responsive @done(22-11-20 14:23)
          ☐ Github login 
-         ☐ Add link functionality
+         ✘ Add link functionality @cancelled(22-11-23 20:30)
          ☐ Finishing stuff
          ☐ Meta configuration    
     Backend:
@@ -13,6 +13,7 @@ Todos:
         ☐ Make all routes
         ✔ Make all models @done(22-11-22 21:37)
         ☐ Make all controllers
+        ☐ Make all api
         ☐ Make bot to send email about portfolio engagement
     
     Hosting:
