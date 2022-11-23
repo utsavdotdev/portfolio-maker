@@ -9,10 +9,7 @@ const Hero = () => {
     <>
       <div className={styles.hero_container}>
         <div className={styles.hero_content}>
-          <div
-            className={styles.left_content}
-            id="fadein"
-          >
+          <div className={styles.left_content} id="fadein">
             <div className={styles.hero_title}>
               <div>
                 Introducing{" "}
@@ -65,6 +62,51 @@ const Hero = () => {
             <p className={styles.feature_des}>
               Share it and increase your engagement
             </p>
+          </div>
+        </div>
+      </div>
+      <div className={styles.who_con}>
+        <div className={styles.who}>
+          <div className={styles.who_left}>
+            <span className={styles.who_title}>Who’s using <br/>devport?</span>
+            <span className={styles.who_des}>
+              Here are some awesome people who has just made their portfolio.
+            </span>
+          </div>
+          <div className={styles.who_right}>
+            <div className={styles.who_column1}>
+              <div className={styles.who_img}>
+                
+              </div>
+              <div className={styles.who_img}>
+
+              </div>
+              <div className={styles.who_img}>
+
+              </div>
+            </div>
+            <div className={styles.who_column2}>
+              <div className={styles.who_img}>
+                
+              </div>
+              <div className={styles.who_img}>
+
+              </div>
+              <div className={styles.who_img}>
+
+              </div>
+            </div>
+            <div className={styles.who_column3}>
+              <div className={styles.who_img}>
+                
+              </div>
+              <div className={styles.who_img}>
+
+              </div>
+              <div className={styles.who_img}>
+
+              </div>
+            </div>
           </div>
         </div>
       </div>

@@ -44,7 +44,7 @@ const Portfolio = () => {
         </div>
       </div>
       <div className={styles.credit}>
-        <a href="https://devport.me">
+        <a href="https://devport.me" target={"_blank"}>
           <span>Powered by Devport</span>
         </a>
       </div>
