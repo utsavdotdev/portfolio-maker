@@ -3,6 +3,7 @@
   flex-direction: column;
   padding: 1rem;
   align-items: center;
+  justify-content: center;
   gap: 0.8rem;
 }
 .heading {
@@ -18,11 +19,15 @@
   );
   -webkit-mask-size: 200%;
   animation: shine 2s linear infinite;
+  width: 100%;
+  text-align: center;
 }
 .text {
   font-size: 19px;
   font-weight: 400;
   color: var(--gray-text);
+  width: 100%;
+  text-align: center;
 }
 .brand {
   color: var(--white);

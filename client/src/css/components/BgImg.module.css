@@ -10,8 +10,8 @@
   opacity: 0;
 }
 .bg_img {
-  width: 100px;
-  height: 100px;
+  width: 95px;
+  height: 95px;
   border-radius: 4px;
   background-color: rgba(45, 44, 45, 0.63);
   overflow: hidden;

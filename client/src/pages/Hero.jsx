@@ -9,11 +9,9 @@ const Hero = () => {
     <>
       <div className={styles.hero_container}>
         <div className={styles.hero_content}>
-          <motion.div
+          <div
             className={styles.left_content}
-            initial={{ opacity: 0 }}
-            animate={{ opacity: 1 }}
-            transition={{ ease: "linear", duration: 0.6 }}
+            id="fadein"
           >
             <div className={styles.hero_title}>
               <div>
@@ -31,7 +29,7 @@ const Hero = () => {
               different awesome Animation and transition effects, and share it
               with your friends.
             </p>
-          </motion.div>
+          </div>
           <div className={styles.right_content}>
             {/* Rotaing portfolio */}
             <CircularPortfolio data={data} />

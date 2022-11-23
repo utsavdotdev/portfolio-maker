@@ -5,9 +5,11 @@ import {
   AiFillInstagram,
   AiFillYoutube,
 } from "react-icons/ai";
-import { FaBloggerB } from "react-icons/fa";
+import { FaBloggerB, FaFacebookSquare } from "react-icons/fa";
 import { RiUser3Fill } from "react-icons/ri";
 import { SiBuymeacoffee } from "react-icons/si";
+
+//for hero page data
 export const data = {
   links: {
     github: {
@@ -52,57 +54,48 @@ export const data = {
     },
   },
 };
-export const user = {
-  name: "Utsav",
-  links: [
-    {
-      name: "github",
-      url: "https://github.com/utsavbhattarai007",
-      label: "github.com/",
-    },
-    {
-      name: "linkedin",
-      url: "https://www.linkedin.com/in/utsavbhattarai007/",
-      label: "linkedin.com/in/",
-    },
-    {
-      name: "twitter",
-      url: "https://twitter.com/utsabdev",
-      label: "twitter.com/",
-    },
-    {
-      name: "instagram",
-      url: "https://www.instagram.com/utsavbhattarai007/",
-      label: "instagram.com/",
-    },
-    {
-      name: "youtube",
-      url: "",
-      label: "youtube.com/",
-    },
-    {
-      name: "portfolio",
-      url: "https://utsavbhattarai.info.np",
-      label: "Portfolio",
-    },
-    {
-      name: "buymeacoffee",
-      url: "https://www.buymeacoffee.com/utsavbhattarai",
-      label: "buymeacoffee.com/",
-    },
-    {
-      name: "blog",
-      url: "https://blog.utsavbhattarai.info.np",
-      label: "Blog",
-    },
-  ],
-  customization: {
-    layout: "",
-    loading: "",
-    transition: "",
-  },
-};
 
+//For input mapping
+export const links = [
+  {
+    name: "github",
+    label: "github.com/",
+  },
+  {
+    name: "linkedin",
+    label: "linkedin.com/in/",
+  },
+  {
+    name: "twitter",
+    label: "twitter.com/",
+  },
+  {
+    name: "instagram",
+    label: "instagram.com/",
+  },
+  {
+    name: "youtube",
+    label: "youtube.com/",
+  },
+  {
+    name: "buymeacoffee",
+    label: "buymeacoffee.com/",
+  },
+  {
+    name:"facebook",
+    label: "facebook.com/"
+  },
+  {
+    name: "blog",
+    label: "Blog",
+  },
+  {
+    name: "portfolio",
+    label: "Portfolio",
+  },
+];
+
+//for icon and color mapping in portfolio
 export const link = {
   github: {
     color: "#2D2C2D",
@@ -111,6 +104,10 @@ export const link = {
   linkedin: {
     color: "#0A66C2",
     icon: <AiFillLinkedin />,
+  },
+  facebook:{
+    color: "#3B5998",
+    icon: <FaFacebookSquare />,
   },
   twitter: {
     color: "#1DA1F2",
@@ -138,6 +135,8 @@ export const link = {
   },
 };
 
+
+//For background image of portfolio 
 export const bg = [
   {
     name: "bg1",
@@ -169,6 +168,8 @@ export const bg = [
   },
 ];
 
+
+//For transition
 export const transition = [
   {
     label: "From left",
@@ -189,3 +190,68 @@ export const transition = [
     label: "Scale up",
   },
 ];
+
+
+
+
+
+
+
+
+ {
+   /* <Input
+            label="github.com/"
+            value={link.github}
+            placeholder={"Username"}
+            name="github"
+            onChange={handleLinks}
+          />
+          <Input
+            label="twitter.com/"
+            value={link.twitter}
+            placeholder={"Username"}
+            name="twitter"
+            onChange={handleLinks}
+          />
+          <Input
+            label="linkedin.com/in/"
+            placeholder={"Username"}
+            value={link.linkedin}
+            name="linkedin"
+            onChange={handleLinks}
+          />
+          <Input
+            label="instagram.com/"
+            placeholder={"Username"}
+            value={link.instagram}
+            name="instagram"
+            onChange={handleLinks}
+          />
+          <Input
+            label="youtube.com/"
+            value={link.youtube}
+            placeholder={"Username"}
+            name="youtube"
+            onChange={handleLinks}
+          />
+          <Input
+            label="buymeacoffee.com/"
+            placeholder={"Username"}
+            value={link.buymeacoffee}
+            name="buymeacoffee"
+            onChange={handleLinks}
+          />
+          <Input
+            label={"Blog"}
+            value={link.blog}
+            placeholder={"Blog URL"}
+            name={"blog"}
+            onChange={handleLinks}
+          />
+          <Input
+            label={"Portfolio"}
+            placeholder={"Portfolio URL"}
+            name={"portfolio"}
+            onChange={handleLinks}
+          /> */
+ }

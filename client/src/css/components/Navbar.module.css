@@ -160,3 +160,19 @@
     padding: 0 1rem;
   }
 }
+@media screen and (max-width: 455px) {
+  .nav_container {
+    padding: 0 1rem;
+  }
+  .left .logo{
+    width: 34px;
+    height:34px;
+    font-size: 1.4rem;
+  }
+  .left h2{
+    font-size: 23px;
+  }
+  .save_con{
+    display: none;
+  }
+}

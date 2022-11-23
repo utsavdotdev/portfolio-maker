@@ -8,11 +8,8 @@ const CircularPortfolio = ({ data }) => {
 
   return (
     <>
-      <motion.div
+      <div
         className={styles.circular_con}
-        initial={{ opacity: 0 }}
-        animate={{ opacity: 1 }}
-        transition={{ duration: 0.6 }}
       >
         <CircularLink links={links.linkedin} style={{ top: "-25px" }} />
         <div>
@@ -24,7 +21,7 @@ const CircularPortfolio = ({ data }) => {
                 links={links.buymeacoffee}
                 style={{ top: "-25px" }}
               />
-              <div>{/* <GiReactor className={styles.fire} /> */}</div>
+              <div></div>
               <CircularLink links={links.blog} style={{ bottom: "-25px" }} />
             </div>
             <CircularLink links={links.portfolio} style={{ bottom: "-25px" }} />
@@ -32,7 +29,7 @@ const CircularPortfolio = ({ data }) => {
           <CircularLink links={links.instagram} style={{ bottom: "-25px" }} />
         </div>
         <CircularLink links={links.github} style={{ bottom: "-25px" }} />
-      </motion.div>
+      </div>
     </>
   );
 };

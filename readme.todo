@@ -11,12 +11,12 @@ Todos:
     Backend:
         ✔ Connect with mongo db @done(22-11-20 22:25)
         ☐ Make all routes
-        ☐ Make all models
+        ✔ Make all models @done(22-11-22 21:37)
         ☐ Make all controllers
         ☐ Make bot to send email about portfolio engagement
     
     Hosting:
-        ☐ Deploy the client side in netlify
+        ✔ Deploy the client side in netlify @done(22-11-21 14:27)
         ☐ Deploy the server side in heroku
     
     others:

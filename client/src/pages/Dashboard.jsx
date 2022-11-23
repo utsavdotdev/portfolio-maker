@@ -3,47 +3,44 @@ import styles from "../css/pages/Dashboard.module.css";
 import Input from "../components/Input";
 import { useOutletContext } from "react-router-dom";
 import { GrRotateRight } from "react-icons/gr";
+import { links } from "../config/data";
 
 const Dashboard = () => {
-  const {pgname, setPagename,popup,setPopup} = useOutletContext();
+  const { pgname, setPagename, popup, setPopup, link, setLink } =
+    useOutletContext();
+
   const [loading, setLoading] = useState(false);
   useEffect(() => {
     setPagename("Setup links");
   }, [pgname]);
 
-  const onSave = () =>{
-    // setLoading(true);
-    setPopup({...popup,congo:true});
-  }
+  const onSave = () => {
+    setPopup({ ...popup, congo: true });
+  };
+
+  const handleLinks = (e) => {
+    setLink({
+      ...link,
+      [e.target.name]: e.target.value,
+    });
+  };
+
+  console.log(link);
 
   return (
     <>
       <form autoComplete="off" action="">
         <div className={styles.link_con}>
-          <Input label="github.com/" placeholder={"Username"} name="github" />
-          <Input label="twitter.com/" placeholder={"Username"} name="twitter" />
-          <Input
-            label="linkedin.com/in/"
-            placeholder={"Username"}
-            name="linkedin"
-          />
-          <Input
-            label="instagram.com/"
-            placeholder={"Username"}
-            name="instagram"
-          />
-          <Input label="youtube.com/" placeholder={"Username"} name="youtube" />
-          <Input
-            label="buymeacoffee.com/"
-            placeholder={"Username"}
-            name="buymeacoffee"
-          />
-          <Input label={"Blog"} placeholder={"Blog URL"} name={"blog"} />
-          <Input
-            label={"Portfolio"}
-            placeholder={"Portfolio URL"}
-            name={"portfolio"}
-          />
+          {links.map((data, index) => (
+            <Input
+              key={index}
+              label={data.label}
+              placeholder={"Username"}
+              name={data.name}
+              value={link[data.name]}
+              onChange={handleLinks}
+            />
+          ))}
         </div>
         <div className={styles.btn_con}>
           <button
@@ -58,13 +55,13 @@ const Dashboard = () => {
               />
             )}
           </button>
-          <button
+          {/* <button
             className={styles.add_btn}
-            onClick={() => setPopup({...popup,addLink:!popup.addLink})}
+            onClick={() => setPopup({ ...popup, addLink: !popup.addLink })}
             type="button"
           >
             Add
-          </button>
+          </button> */}
         </div>
       </form>
     </>

@@ -11,18 +11,10 @@ const portfolioSchema = new mongoose.Schema({
   },
   links: [
     {
-      name: {
-        type: String,
-        required: true,
-      },
-      url: {
-        type: String,
-        required: true,
-      },
-      label: {
-        type: String,
-        required: true,
-      },
+      type: String,
+      platform: String,
+      url: String,
+      label: String,
     },
   ],
   customizations: {

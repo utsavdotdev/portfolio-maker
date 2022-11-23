@@ -15,10 +15,11 @@ const Nav = () => {
   const [isAuth, setIsAuth] = useState(true);
   const [pgname, setPagename] = useState("");
 
-  const { usr, pop, chk, imgChk } = useContext(ContextProvider);
+  const { usr, pop, chk, imgChk, lk } = useContext(ContextProvider);
   const [user, setUser] = usr;
   const [popup, setPopup] = pop;
   const [check, setCheck] = chk;
+  const [link, setLink] = lk;
   const [imgCheck, setImgCheck] = imgChk;
 
   if (!isAuth) {
@@ -44,6 +45,8 @@ const Nav = () => {
                 setCheck,
                 imgCheck,
                 setImgCheck,
+                link,
+                setLink,
               }}
             />
           </div>
@@ -58,8 +61,8 @@ const Nav = () => {
           </div>
         </div>
       </div>
-      {popup.addLink && <AddLinkPopup state={{ popup, setPopup }} />}
-      {popup.congo && <CongoPopup state={{popup,setPopup}}/>}
+      {popup.addLink && <AddLinkPopup state={{ popup, setPopup,link,setLink}} />}
+      {popup.congo && <CongoPopup state={{ popup, setPopup }} />}
     </>
   );
 };

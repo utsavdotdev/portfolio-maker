@@ -107,7 +107,7 @@
 }
 .bg_image_wrapper {
   display: flex;
-  gap: 2rem;
+  gap: 1.5rem;
   flex-wrap: wrap;
 }
 .msg_con {

@@ -1,6 +1,5 @@
 import React, { useEffect, useState } from "react";
 import styles from "../css/components/Btn.module.css";
-import { AiOutlineInstagram } from "react-icons/ai";
 import { link } from "../config/data";
 
 const Btn = ({ links,style}) => {

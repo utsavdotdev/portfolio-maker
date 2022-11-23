@@ -37,6 +37,11 @@ const Context = ({ children }) => {
         label: "Portfolio",
       },
       {
+        name: "facebook",
+        url: "https://facebook.com/utsavbhattarai007",
+        label: "Facebook",
+      },
+      {
         name: "buymeacoffee",
         url: "https://www.buymeacoffee.com/utsavbhattarai",
         label: "buymeacoffee.com/",
@@ -54,9 +59,20 @@ const Context = ({ children }) => {
       bg_img: "/bg/bg6.jpg",
     },
   });
+  const [link, setLink] = useState({
+    github: "",
+    linkedin: "",
+    twitter: "",
+    instagram: "",
+    youtube: "",
+    portfolio: "",
+    facebook: "",
+    buymeacoffee: "",
+    blog: "",
+  });
+
   const [popup, setPopup] = useState({
-    addlink:false,
-    congo:false
+    congo: false,
   });
   const [check, setCheck] = useState([false, false, false, false, true, false]);
   const [imgCheck, setImgCheck] = useState([
@@ -67,15 +83,16 @@ const Context = ({ children }) => {
     false,
     true,
   ]);
-  
+
   return (
     <>
       <ContextProvider.Provider
         value={{
           usr: [user, setUser],
-          pop:[popup, setPopup],
-          chk:[check, setCheck],
-          imgChk:[imgCheck, setImgCheck]
+          pop: [popup, setPopup],
+          chk: [check, setCheck],
+          imgChk: [imgCheck, setImgCheck],
+          lk: [link, setLink],
         }}
       >
         {children}
