@@ -68,7 +68,7 @@ const Hero = () => {
       <div className={styles.who_con}>
         <div className={styles.who}>
           <div className={styles.who_left}>
-            <span className={styles.who_title}>Who’s using <br/>devport?</span>
+            <span className={styles.who_title}>Who’s using devport?</span>
             <span className={styles.who_des}>
               Here are some awesome people who has just made their portfolio.
             </span>

@@ -183,15 +183,17 @@
   display: flex;
   justify-content: space-between;
   padding: 1.5rem 2.5rem;
-  height: 300px;
+  height: 250px;
   overflow: hidden;
   position: relative;
+  cursor: pointer;
 }
 .who_left {
   display: flex;
   flex-direction: column;
   gap: 0.5rem;
   width: 50%;
+  justify-content: center;
 }
 .who_title {
   font-size: 3.5rem;
@@ -209,7 +211,6 @@
   position: relative;
 }
 .who_column1 {
-  /* border: 1px solid red; */
   position: absolute;
   display: flex;
   flex-direction: column;
@@ -239,6 +240,27 @@
   border-radius: 4px;
   overflow: hidden;
   background-color: #1e1e1e;
+}
+.who:hover .who_column1 {
+  animation: updown 4s ease-in-out infinite;
+}
+.who:hover .who_column2 {
+  animation: updown 6s ease-in-out infinite;
+}
+.who:hover .who_column3 {
+  animation: updown 4s ease-in-out infinite;
+}
+
+@keyframes updown {
+  0% {
+    transform: translateY(50px);
+  }
+  50% {
+    transform: translateY(-110px);
+  }
+  100% {
+    transform: translateY(50px);
+  }
 }
 
 /* Responsive media query for 1180px less device */
