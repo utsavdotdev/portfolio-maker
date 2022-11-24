@@ -5,6 +5,12 @@ import cors from "cors";
 import {} from "dotenv/config";
 import { connectDB } from "./utils/db.js";
 
+//Importing routes
+import authRoutes from "./routes/auth.js";
+import userRoutes from "./routes/user.js";
+import portfolioRoutes from "./routes/portfolio.js";
+import tokenRoutes from "./routes/token.js";
+
 //Making Instances
 const app = express();
 
@@ -19,6 +25,12 @@ app.use(cors("*")); // For incoming request
 app.get("/", (req, res) => {
   res.json({ msg: "Success✅" });
 });
+
+//Routes
+app.use("/api/auth",authRoutes)
+app.use("/api/user",userRoutes)
+app.use("/api/portfolio",portfolioRoutes)
+app.use("/api/token",tokenRoutes)
 
 //Listening to the port
 const PORT = process.env.PORT || 3001;

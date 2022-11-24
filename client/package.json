@@ -10,9 +10,11 @@
   },
   "dependencies": {
     "framer-motion": "^7.5.3",
+    "gapi-script": "^1.2.0",
     "react": "^18.2.0",
     "react-confetti": "^6.1.0",
     "react-dom": "^18.2.0",
+    "react-google-login": "^5.2.2",
     "react-icons": "^4.4.0",
     "react-router-dom": "^6.4.2",
     "react-switch": "^7.0.0"

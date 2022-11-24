@@ -9,6 +9,10 @@ const portfolioSchema = new mongoose.Schema({
     type: String,
     required: true,
   },
+  url:{
+    type: String,
+    required: true,
+  },
   links: [
     {
       type: String,
@@ -38,6 +42,14 @@ const portfolioSchema = new mongoose.Schema({
       required: true,
       default: "/bg/bg6.jpg",
     },
+  },
+  status: {
+    type: String,
+    required: true,
+  },
+  newsletter: {
+    type: String,
+    required: true,
   },
 });
 

@@ -1,20 +1,44 @@
-import React from "react";
+import React, { useEffect } from "react";
 import styles from "../css/components/Navbar.module.css";
 import {
   AiFillFire,
-  AiFillGithub,
+  AiOutlineGoogle,
   AiOutlineCloudDownload,
-  AiOutlineCloudSync, 
+  AiOutlineCloudSync,
 } from "react-icons/ai";
 import { FiLogOut } from "react-icons/fi";
 import { motion } from "framer-motion";
+import { useGoogleLogin } from "react-google-login";
+import { gapi } from "gapi-script";
 import { NavLink } from "react-router-dom";
 
 const Navbar = () => {
+  const clientId = import.meta.env.VITE_CLIENT_ID;
   const location = window.location.pathname;
-  const login = () => {
-    console.log("login");
+  useEffect(() => {
+    function start() {
+      gapi.client.init({
+        clientId: clientId,
+        scope: "email",
+      });
+    }
+    gapi.load("client:auth2", start);
+  }, []);
+
+  const onFailure = (err) => {
+    console.log(err);
   };
+
+  const onSuccess = async (res) => {
+    const { profileObj } = res;
+    console.log(profileObj);
+  };
+
+  const { signIn } = useGoogleLogin({
+    onSuccess,
+    clientId,
+    onFailure,
+  });
   return (
     <>
       <div className={styles.nav_container}>
@@ -26,23 +50,23 @@ const Navbar = () => {
             <h2>Devport</h2>
           </NavLink>
         </div>
-        {/* <motion.div
+        <motion.div
           className={styles.right}
-          onClick={() => login()}
+          onClick={signIn}
           whileTap={{ scale: 0.8 }}
         >
           <button>
-            <AiFillGithub />
+            <AiOutlineGoogle />
           </button>
           <p>Login</p>
-        </motion.div> */}
-        <div className={styles.right}>
+        </motion.div>
+        {/* <div className={styles.right}>
           {location === "/app/customization" && (
             <div className={styles.save_con}>
-              {/* <span className={styles.saved}>
+              <span className={styles.saved}>
                 <AiOutlineCloudDownload size={28} />
                 Saved
-              </span> */}
+              </span>
               <span className={styles.saving}>
                 <AiOutlineCloudSync size={28} />
                 Saving . . .
@@ -55,7 +79,7 @@ const Navbar = () => {
           <div className={styles.logout}>
             <FiLogOut />
           </div>
-        </div>
+        </div> */}
       </div>
     </>
   );

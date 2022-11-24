@@ -253,13 +253,13 @@
 
 @keyframes updown {
   0% {
-    transform: translateY(50px);
+    transform: translateY(0px);
   }
   50% {
     transform: translateY(-110px);
   }
   100% {
-    transform: translateY(50px);
+    transform: translateY(0px);
   }
 }
 
