@@ -11,6 +11,7 @@ import { motion } from "framer-motion";
 import { useGoogleLogin } from "react-google-login";
 import { gapi } from "gapi-script";
 import { NavLink } from "react-router-dom";
+import axios from "../config/axios";
 
 const Navbar = () => {
   const clientId = import.meta.env.VITE_CLIENT_ID;
@@ -28,10 +29,38 @@ const Navbar = () => {
   const onFailure = (err) => {
     console.log(err);
   };
-
+  const header = {
+    headers: {
+      "Content-Type": "application/json",
+    },
+  };
   const onSuccess = async (res) => {
     const { profileObj } = res;
-    console.log(profileObj);
+    try {
+      const res = axios(
+        "/auth",
+        {
+          username: profileObj.name,
+          email: profileObj.email,
+          profilePic: profileObj.imageUrl,
+        },
+        header
+      );
+      if (res) {
+        console.log(res.data.msg);
+        localStorage.setItem("access", res.data.accessToken);
+        localStorage.setItem("refresh", res.data.refreshToken);
+        window.location.href = "/app";
+      }
+    } catch (error) {
+      if (
+        error.response &&
+        error.response.status >= 400 &&
+        error.response.status <= 500
+      ) {
+        console.log(error.response.data.msg);
+      }
+    }
   };
 
   const { signIn } = useGoogleLogin({
