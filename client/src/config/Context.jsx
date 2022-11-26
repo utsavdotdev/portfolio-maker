@@ -1,5 +1,5 @@
 import React, { createContext, useEffect, useState } from "react";
-
+import axios from "../config/axios";
 export const ContextProvider = createContext();
 
 const Context = ({ children }) => {
@@ -59,6 +59,7 @@ const Context = ({ children }) => {
       bg_img: "/bg/bg6.jpg",
     },
   });
+  const [data, setData] = useState({});
   const [link, setLink] = useState({
     github: "",
     linkedin: "",
@@ -83,6 +84,54 @@ const Context = ({ children }) => {
     false,
     true,
   ]);
+  const accessToken = localStorage.getItem("access");
+  const refreshToken = localStorage.getItem("refresh");
+
+  //getting access token through refresh token
+  const getAccessToken = async () => {
+    try {
+      if (localStorage.getItem("refresh")) {
+        const res = await axios.post("/token/refresh", {
+          refreshToken: refreshToken,
+        });
+        if (res) {
+          localStorage.setItem("access", res.data.accessToken);
+          return res.data.accessToken;
+        }
+      }
+    } catch (error) {
+      console.log(error);
+    }
+  };
+
+  useEffect(() => {
+    if (accessToken !== null) {
+      fetchUser();
+    }
+  }, []);
+
+  //fetching user details from accestoken
+  const fetchUser = async () => {
+    try {
+      const res = await axios.get("/user", {
+        headers: {
+          "x-access-token": accessToken,
+        },
+      });
+      setData(res.data.user);
+    } catch (error) {
+      if (error.response && error.response.status === 401) {
+        const accessTok = await getAccessToken();
+        const res = await axios.get("/user", {
+          headers: {
+            "x-access-token": accessTok,
+          },
+        });
+        setData(res.data.user);
+      }
+      console.log(error);
+    }
+  };
 
   return (
     <>

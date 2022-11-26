@@ -11,7 +11,8 @@ import { motion } from "framer-motion";
 import { useGoogleLogin } from "react-google-login";
 import { gapi } from "gapi-script";
 import { NavLink } from "react-router-dom";
-import axios from "../config/axios";
+import { auth } from "../api/api";
+import { useQuery, useMutation, useQueryClient } from "@tanstack/react-query";
 
 const Navbar = () => {
   const clientId = import.meta.env.VITE_CLIENT_ID;
@@ -26,41 +27,25 @@ const Navbar = () => {
     gapi.load("client:auth2", start);
   }, []);
 
+  const mutation = useMutation({
+    mutationFn: data => auth(data),
+    onSuccess: ({data}) => {
+      localStorage.setItem("access", data.accessToken);
+      localStorage.setItem("refresh", data.refreshToken);
+      console.log(data.msg);
+    },
+  });
   const onFailure = (err) => {
     console.log(err);
   };
-  const header = {
-    headers: {
-      "Content-Type": "application/json",
-    },
-  };
+
   const onSuccess = async (res) => {
     const { profileObj } = res;
-    try {
-      const res = axios(
-        "/auth",
-        {
-          username: profileObj.name,
-          email: profileObj.email,
-          profilePic: profileObj.imageUrl,
-        },
-        header
-      );
-      if (res) {
-        console.log(res.data.msg);
-        localStorage.setItem("access", res.data.accessToken);
-        localStorage.setItem("refresh", res.data.refreshToken);
-        window.location.href = "/app";
-      }
-    } catch (error) {
-      if (
-        error.response &&
-        error.response.status >= 400 &&
-        error.response.status <= 500
-      ) {
-        console.log(error.response.data.msg);
-      }
-    }
+    mutation.mutate({
+      username: profileObj.name,
+      email: profileObj.email,
+      profilePic: profileObj.imageUrl,
+    });
   };
 
   const { signIn } = useGoogleLogin({
