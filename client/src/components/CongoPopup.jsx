@@ -2,6 +2,7 @@ import React, { useEffect, useState } from "react";
 import Popup from "./Popup";
 import styles from "../css/components/Congo.module.css";
 import Confetti from "react-confetti";
+import { AiOutlineTwitter } from "react-icons/ai";
 
 const CongoPopup = ({ state }) => {
   const { popup, setPopup } = state;
@@ -38,7 +39,9 @@ const CongoPopup = ({ state }) => {
           </span>
           <div className={styles.btn_con}>
             <button className={styles.btn1}>Visit</button>
-            <div className={styles.btn2}>Share</div>
+            <div className={styles.btn2}>
+              Share <AiOutlineTwitter className={styles.twitter}/>
+            </div>
           </div>
         </div>
       </Popup>

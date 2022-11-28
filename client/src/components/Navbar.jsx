@@ -6,6 +6,7 @@ import {
   AiOutlineCloudDownload,
   AiOutlineCloudSync,
 } from "react-icons/ai";
+import {BsCloudCheck} from "react-icons/bs"
 import { FiLogOut } from "react-icons/fi";
 import { motion } from "framer-motion";
 import { useGoogleLogin } from "react-google-login";
@@ -89,11 +90,11 @@ const Navbar = () => {
             {location === "/app/customization" && (
               <div className={styles.save_con}>
                 <span className={styles.saved}>
-                  <AiOutlineCloudDownload size={28} />
+                  <BsCloudCheck size={26} />
                   Saved
                 </span>
                 {/* <span className={styles.saving}>
-                  <AiOutlineCloudSync size={28} />
+                  <AiOutlineCloudSync size={26} />
                   Saving . . .
                 </span> */}
               </div>

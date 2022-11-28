@@ -42,10 +42,11 @@
 .btn1,
 .btn2 {
   width: 50%;
-  padding: 0.5rem;
+  padding: 0.1rem;
+  height: 45px;
   color: var(--text);
   text-align: center;
-  font-size: 19px;
+  font-size: 20px;
   border-radius: 4px;
   opacity: 0.9;
   cursor: pointer;
@@ -54,7 +55,15 @@
   overflow: hidden;
 }
 .btn2 {
-  background-color: var(--secondary);
+  background-color: #1DA1F2;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 6px;
+}
+.twitter{
+  font-size: 28px;
+  margin-top: -3px;
 }
 .btn1 {
   background-color: #2d2d2d;

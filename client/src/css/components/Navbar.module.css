@@ -144,12 +144,12 @@
 .saving {
   display: flex;
   align-items: center;
-  gap: 0.3rem;
-  font-size: 19px;
+  gap: 0.5rem;
+  font-size: 17px;
   font-weight: 300;
 }
 .saved {
-  color: rgb(67, 252, 67);
+  color: #10b981
 }
 .saving{
   color: var(--white);
