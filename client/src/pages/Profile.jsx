@@ -7,26 +7,27 @@ import { IoMail } from "react-icons/io5";
 import ToggleSwitch from "../components/ToggleSwitch";
 
 const Profile = () => {
-  const { pgname, setPagename } = useOutletContext();
+  const { pgname, setPagename,user } = useOutletContext();
   const [isToggled, setIsToggled] = useState({
     status: false,
     newsletter: false,
   });
-
+  
   useEffect(() => {
     setPagename("Profile");
   }, [pgname]);
 
+  const name = user[0]?.username.trim().toLowerCase().split(" ");
+
   const onToggle = (e) =>{
     setIsToggled({...isToggled, [e.target.name]: !isToggled[e.target.name]})
   };
-  console.log(isToggled);
   return (
     <>
       <div className={styles.profile_container}>
         <div className={styles.profile_data}>
           <div className={styles.left}>
-            <img src="/pic.png" />
+            <img src={user[0]?.profilePic} />
           </div>
           <div className={styles.right}>
             <div className={styles.name_con}>
@@ -34,7 +35,7 @@ const Profile = () => {
                 <FiUser className={styles.icon} />
                 Username:
               </span>
-              <span className={styles.name}>utsavbhattarai</span>
+              <span className={styles.name}>{name}</span>
             </div>
             <div className={styles.visit_btn}>
               <span className={styles.visit_text}>Visit portfolio</span>

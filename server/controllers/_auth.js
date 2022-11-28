@@ -1,5 +1,4 @@
 import User from "../models/user.schema.js";
-import UserToken from "../models/userToken.schema.js";
 import generateToken from "../utils/generateToken.js";
 
 export const auth = async (req, res) => {
@@ -25,6 +24,7 @@ export const auth = async (req, res) => {
     const { accessToken, refreshToken } = await generateToken(newUser._id);
     res.status(200).json({error:false,accessToken,refreshToken,msg:"Signup Successfully"});
   } catch (error) {
+    console.log(error);
     res.status(500).json({ error: true, msg: "Internal server error" });
   }
 };

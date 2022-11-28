@@ -8,14 +8,14 @@ const generateToken = async (id) => {
       payload,
       process.env.ACCESS_TOKEN_PRIVATE_KEY,
       {
-        expiresIn: "15m",
+        expiresIn: "10s",
       }
     );
     const refreshToken = jwt.sign(
       payload,
       process.env.REFRESH_TOKEN_PRIVATE_KEY,
       {
-        expiresIn: "15m",
+        expiresIn: "30d",
       }
     );
 

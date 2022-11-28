@@ -3,7 +3,7 @@ import axios from "../config/axios";
 export const ContextProvider = createContext();
 
 const Context = ({ children }) => {
-  const [user, setUser] = useState({
+  const [portfolio, setPortfolio] = useState({
     name: "utsavbhattarai",
     links: [
       {
@@ -59,7 +59,7 @@ const Context = ({ children }) => {
       bg_img: "/bg/bg6.jpg",
     },
   });
-  const [data, setData] = useState({});
+  const [user, setUser] = useState([]);
   const [link, setLink] = useState({
     github: "",
     linkedin: "",
@@ -77,6 +77,7 @@ const Context = ({ children }) => {
   });
   const [check, setCheck] = useState([false, false, false, false, true, false]);
   const [imgCheck, setImgCheck] = useState([
+
     false,
     false,
     false,
@@ -109,6 +110,7 @@ const Context = ({ children }) => {
       fetchUser();
     }
   }, []);
+  console.log(user);
 
   //fetching user details from accestoken
   const fetchUser = async () => {
@@ -118,7 +120,7 @@ const Context = ({ children }) => {
           "x-access-token": accessToken,
         },
       });
-      setData(res.data.user);
+      setUser([res.data.user]);
     } catch (error) {
       if (error.response && error.response.status === 401) {
         const accessTok = await getAccessToken();
@@ -127,7 +129,7 @@ const Context = ({ children }) => {
             "x-access-token": accessTok,
           },
         });
-        setData(res.data.user);
+        setUser([res.data.user]);
       }
       console.log(error);
     }
@@ -137,11 +139,12 @@ const Context = ({ children }) => {
     <>
       <ContextProvider.Provider
         value={{
-          usr: [user, setUser],
+          port: [portfolio, setPortfolio],
           pop: [popup, setPopup],
           chk: [check, setCheck],
           imgChk: [imgCheck, setImgCheck],
           lk: [link, setLink],
+          usr:[user,setUser]
         }}
       >
         {children}

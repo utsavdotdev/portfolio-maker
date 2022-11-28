@@ -1,4 +1,4 @@
-import React, { useEffect } from "react";
+import React, { useContext, useEffect } from "react";
 import styles from "../css/components/Navbar.module.css";
 import {
   AiFillFire,
@@ -13,10 +13,13 @@ import { gapi } from "gapi-script";
 import { NavLink } from "react-router-dom";
 import { auth } from "../api/api";
 import { useQuery, useMutation, useQueryClient } from "@tanstack/react-query";
+import { ContextProvider } from "../config/Context";
 
 const Navbar = () => {
   const clientId = import.meta.env.VITE_CLIENT_ID;
   const location = window.location.pathname;
+  const { usr } = useContext(ContextProvider);
+  const [user, setUser] = usr;
   useEffect(() => {
     function start() {
       gapi.client.init({
@@ -28,11 +31,11 @@ const Navbar = () => {
   }, []);
 
   const mutation = useMutation({
-    mutationFn: data => auth(data),
-    onSuccess: ({data}) => {
+    mutationFn: (data) => auth(data),
+    onSuccess: ({ data }) => {
       localStorage.setItem("access", data.accessToken);
       localStorage.setItem("refresh", data.refreshToken);
-      console.log(data.msg);
+      window.location.href = "/app";
     },
   });
   const onFailure = (err) => {
@@ -47,6 +50,12 @@ const Navbar = () => {
       profilePic: profileObj.imageUrl,
     });
   };
+
+  const logout = () => {
+    localStorage.clear();
+    setUser([]);
+    window.location.href = "/";
+  }
 
   const { signIn } = useGoogleLogin({
     onSuccess,
@@ -64,36 +73,39 @@ const Navbar = () => {
             <h2>Devport</h2>
           </NavLink>
         </div>
-        <motion.div
-          className={styles.right}
-          onClick={signIn}
-          whileTap={{ scale: 0.8 }}
-        >
-          <button>
-            <AiOutlineGoogle />
-          </button>
-          <p>Login</p>
-        </motion.div>
-        {/* <div className={styles.right}>
-          {location === "/app/customization" && (
-            <div className={styles.save_con}>
-              <span className={styles.saved}>
-                <AiOutlineCloudDownload size={28} />
-                Saved
-              </span>
-              <span className={styles.saving}>
-                <AiOutlineCloudSync size={28} />
-                Saving . . .
-              </span>
+        {user?.length === 0 ? (
+          <motion.div
+            className={styles.right}
+            onClick={signIn}
+            whileTap={{ scale: 0.8 }}
+          >
+            <button>
+              <AiOutlineGoogle />
+            </button>
+            <p>Login</p>
+          </motion.div>
+        ) : (
+          <div className={styles.right}>
+            {location === "/app/customization" && (
+              <div className={styles.save_con}>
+                <span className={styles.saved}>
+                  <AiOutlineCloudDownload size={28} />
+                  Saved
+                </span>
+                {/* <span className={styles.saving}>
+                  <AiOutlineCloudSync size={28} />
+                  Saving . . .
+                </span> */}
+              </div>
+            )}
+            <div className={styles.user_img}>
+              <img src={user[0]?.profiliPic} />
             </div>
-          )}
-          <div className={styles.user_img}>
-            <img src="/pic.png" />
+            <div className={styles.logout} onClick={logout}>
+              <FiLogOut />
+            </div>
           </div>
-          <div className={styles.logout}>
-            <FiLogOut />
-          </div>
-        </div> */}
+        )}
       </div>
     </>
   );

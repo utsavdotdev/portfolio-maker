@@ -9,14 +9,14 @@ const Customization = () => {
   const {
     pgname,
     setPagename,
-    user,
-    setUser,
+    portfolio,
+    setPortfolio,
     check,
     setCheck,
     imgCheck,
     setImgCheck,
   } = useOutletContext();
-  console.log(user);
+  console.log(portfolio);
 
   useEffect(() => {
     setPagename("Customization");
@@ -26,9 +26,9 @@ const Customization = () => {
     const index = transition.findIndex((item) => item.label === e.target.name);
     const newCheck = check.map((item, i) => (i === index ? true : false));
     setCheck(newCheck);
-    setUser({
-      ...user,
-      customization: { ...user.customization, transition: e.target.name },
+    setPortfolio({
+      ...portfolio,
+      customization: { ...portfolio.customization, transition: e.target.name },
     });
   };
 
@@ -36,9 +36,9 @@ const Customization = () => {
     const index = bg.findIndex((item) => item.src === e.target.name);
     const newCheck = imgCheck.map((item, i) => (i === index ? true : false));
     setImgCheck(newCheck);
-    setUser({
-      ...user,
-      customization: { ...user.customization, bg_img: e.target.name },
+    setPortfolio({
+      ...portfolio,
+      customization: { ...portfolio.customization, bg_img: e.target.name },
     });
   };
   return (
@@ -65,19 +65,19 @@ const Customization = () => {
               <input
                 type="range"
                 max="20"
-                value={user.customization?.border_radius}
+                value={portfolio.customization?.border_radius}
                 onChange={({ target: { value: radius } }) => {
-                  setUser({
-                    ...user,
+                  setPortfolio({
+                    ...portfolio,
                     customization: {
-                      ...user.customization,
+                      ...portfolio.customization,
                       border_radius: radius,
                     },
                   });
                 }}
               />
               <div className={styles.data}>
-                {user.customization?.border_radius}
+                {portfolio.customization?.border_radius}
               </div>
             </div>
           </div>
@@ -87,19 +87,19 @@ const Customization = () => {
               <input
                 type="color"
                 className={styles.color_picker}
-                value={user.customization.bg_color}
+                value={portfolio.customization.bg_color}
                 onChange={({ target: { value: code } }) => {
-                  setUser({
-                    ...user,
+                  setPortfolio({
+                    ...portfolio,
                     customization: {
-                      ...user.customization,
+                      ...portfolio.customization,
                       bg_color: code,
                     },
                   });
                 }}
               />
               <span className={styles.color_hex}>
-                {user.customization.bg_color}
+                {portfolio.customization.bg_color}
               </span>
             </div>
           </div>

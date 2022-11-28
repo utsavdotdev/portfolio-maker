@@ -1,10 +1,18 @@
-import React from "react";
-import { Outlet } from "react-router-dom";
+import React, { useContext } from "react";
+import { Navigate, Outlet } from "react-router-dom";
 
 import Navbar from "../components/Navbar";
 import Footer from "../components/Footer";
+import { ContextProvider } from "../config/Context";
 
 const NavFoot = () => {
+  const { usr } = useContext(ContextProvider);
+  const [user,setUser] = usr;
+
+  if(user?.length !== 0){
+    return <Navigate to="/app" replace/>
+  }
+
   return (
     <>
       <Navbar />

@@ -1,6 +1,6 @@
 import React from "react";
 import { useState, useContext } from "react";
-import { Navigate, Outlet, useLocation } from "react-router-dom";
+import { useNavigation, Outlet, useLocation, Navigate } from "react-router-dom";
 import { ContextProvider } from "../config/Context";
 import styles from "../css/pages/Dashboard.module.css";
 import Navbar from "../components/Navbar";
@@ -11,11 +11,11 @@ import CongoPopup from "../components/CongoPopup";
 const Nav = () => {
   const location = useLocation();
   const { pathname } = location;
-  const [isAuth, setIsAuth] = useState(true);
   const [pgname, setPagename] = useState("");
 
-  const { usr, pop, chk, imgChk, lk } = useContext(ContextProvider);
-  const [user, setUser] = usr;
+  const { port, pop, chk, imgChk, lk,usr } = useContext(ContextProvider);
+  const [portfolio, setPortfolio] = port;
+  const [user,setUser] = usr;
   const [popup, setPopup] = pop;
   const [link, setLink] = lk;
 
@@ -24,10 +24,12 @@ const Nav = () => {
 
   //state for bg image
   const [imgCheck, setImgCheck] = imgChk;
-
-  if (!isAuth) {
-    return <Navigate to="/" state={{ from: location }} replace />;
+  
+  if(user?.length === 0){
+    return <Navigate to="/" replace/>
   }
+
+
   return (
     <>
       <Navbar />
@@ -40,8 +42,8 @@ const Nav = () => {
               context={{
                 pgname,
                 setPagename,
-                user,
-                setUser,
+                portfolio,
+                setPortfolio,
                 popup,
                 setPopup,
                 check,
@@ -50,17 +52,19 @@ const Nav = () => {
                 setImgCheck,
                 link,
                 setLink,
+                user,
+                setUser
               }}
             />
           </div>
           <div
             className={styles.preview_con}
             style={{
-              backgroundColor: user.customization.bg_color,
+              backgroundColor: portfolio.customization.bg_color,
               display: pathname === "/app/customization" ? "" : "none",
             }}
           >
-            <Preview user={user} />
+            <Preview portfolio={portfolio} />
           </div>
         </div>
       </div>

@@ -2,13 +2,13 @@ import React from "react";
 import styles from "../css/components/Preview.module.css";
 import Btn from "./Btn";
 
-const Preview = ({user}) => {
-    const {name,customization} = user;
-    const {bg_img,border_radius,transition} = customization;
-    const convert = () =>{
-      return transition.toLowerCase().replace(/\s/g, "");
-    }
-    let trans = convert();
+const Preview = ({ portfolio }) => {
+  const { name, customization,links } = portfolio;
+  const { bg_img, border_radius, transition } = customization;
+  const convert = () => {
+    return transition.toLowerCase().replace(/\s/g, "");
+  };
+  let trans = convert();
   return (
     <>
       <div className={styles.preview} id={trans}>
@@ -22,8 +22,12 @@ const Preview = ({user}) => {
             <span className={styles.username}>@{name}</span>
           </div>
           <div className={styles.links_con}>
-            {user.links.slice(0, 3).map((link,i) => (
-              <Btn links={link} key={i} style={{borderRadius:border_radius+"px"}} />
+            {links.slice(0, 3).map((link, i) => (
+              <Btn
+                links={link}
+                key={i}
+                style={{ borderRadius: border_radius + "px" }}
+              />
             ))}
           </div>
         </div>
