@@ -6,13 +6,13 @@ import {
   AiOutlineCloudDownload,
   AiOutlineCloudSync,
 } from "react-icons/ai";
-import {BsCloudCheck} from "react-icons/bs"
+import { BsCloudCheck } from "react-icons/bs";
 import { FiLogOut } from "react-icons/fi";
 import { motion } from "framer-motion";
 import { useGoogleLogin } from "react-google-login";
 import { gapi } from "gapi-script";
 import { NavLink } from "react-router-dom";
-import { auth } from "../api/api";
+import { auth, logout } from "../api/api";
 import { useQuery, useMutation, useQueryClient } from "@tanstack/react-query";
 import { ContextProvider } from "../config/Context";
 
@@ -52,11 +52,14 @@ const Navbar = () => {
     });
   };
 
-  const logout = () => {
+  const logoutUser = async() => {
+    let refreshToken = localStorage.getItem("refresh");
+    const res = await logout(refreshToken);
+    console.log(res.data.msg);
     localStorage.clear();
     setUser([]);
     window.location.href = "/";
-  }
+  };
 
   const { signIn } = useGoogleLogin({
     onSuccess,
@@ -102,7 +105,7 @@ const Navbar = () => {
             <div className={styles.user_img}>
               <img src={user[0]?.profiliPic} />
             </div>
-            <div className={styles.logout} onClick={logout}>
+            <div className={styles.logout} onClick={logoutUser}>
               <FiLogOut />
             </div>
           </div>

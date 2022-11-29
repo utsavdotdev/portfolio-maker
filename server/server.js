@@ -10,6 +10,7 @@ import authRoutes from "./routes/auth.js";
 import userRoutes from "./routes/user.js";
 import portfolioRoutes from "./routes/portfolio.js";
 import tokenRoutes from "./routes/token.js";
+import imgUploadRoutes from "./routes/imgUpload.js";
 
 //Making Instances
 const app = express();
@@ -27,10 +28,16 @@ app.get("/", (req, res) => {
 });
 
 //Routes
-app.use("/api/auth",authRoutes)
-app.use("/api/user",userRoutes)
-app.use("/api/portfolio",portfolioRoutes)
-app.use("/api/token",tokenRoutes)
+app.use("/api/auth", authRoutes);
+app.use("/api/user", userRoutes);
+app.use("/api/portfolio", portfolioRoutes);
+app.use("/api/token", tokenRoutes);
+
+//Image upload route
+app.use("/api/upload", imgUploadRoutes);
+
+//Serving the static files from the uploads folder.
+app.use("/uploads", express.static("uploads"));
 
 //Listening to the port
 const PORT = process.env.PORT || 3001;

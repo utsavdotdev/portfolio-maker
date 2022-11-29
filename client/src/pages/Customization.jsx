@@ -16,7 +16,6 @@ const Customization = () => {
     imgCheck,
     setImgCheck,
   } = useOutletContext();
-  console.log(portfolio);
 
   useEffect(() => {
     setPagename("Customization");
