@@ -15,7 +15,14 @@ Todos:
         ☐ Make all routes
         ✔ Make all models @done(22-11-22 21:37)
         ☐ Make all controllers
-        ☐ Make all api
+        Api:
+            ✔ auth api @done(22-11-29 23:39)
+            ✔ image update api api @done(22-11-29 23:39)
+            ✔ jwt api (fetch user and refresh token) @done(22-11-29 23:39)
+            ☐ Links api
+            ☐ Customization api
+            ☐ Newsletter,status and username update api
+            ☐ search api
         ☐ Make bot to send email about portfolio engagement
     
     Hosting:
