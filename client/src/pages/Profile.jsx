@@ -2,25 +2,27 @@ import React, { useEffect, useState } from "react";
 import { useOutletContext } from "react-router-dom";
 import styles from "../css/pages/Profile.module.css";
 import { BsArrowUpRight } from "react-icons/bs";
-import { FiUser } from "react-icons/fi";
+import { FiUser, FiUpload } from "react-icons/fi";
 import { IoMail } from "react-icons/io5";
 import ToggleSwitch from "../components/ToggleSwitch";
+import ImgUpload from "../components/ImgUpload";
 
 const Profile = () => {
-  const { pgname, setPagename,user } = useOutletContext();
+  const { pgname, setPagename, user } = useOutletContext();
+  const [upload, setUpload] = useState(false);
   const [isToggled, setIsToggled] = useState({
     status: false,
     newsletter: false,
   });
-  
+
   useEffect(() => {
     setPagename("Profile");
   }, [pgname]);
 
   const name = user[0]?.username.trim().toLowerCase().split(" ");
 
-  const onToggle = (e) =>{
-    setIsToggled({...isToggled, [e.target.name]: !isToggled[e.target.name]})
+  const onToggle = (e) => {
+    setIsToggled({ ...isToggled, [e.target.name]: !isToggled[e.target.name] });
   };
   return (
     <>
@@ -28,6 +30,9 @@ const Profile = () => {
         <div className={styles.profile_data}>
           <div className={styles.left}>
             <img src={user[0]?.profilePic} />
+            <div className={styles.overlay} onClick={() => setUpload(!upload)}>
+              <FiUpload />
+            </div>
           </div>
           <div className={styles.right}>
             <div className={styles.name_con}>
@@ -59,7 +64,11 @@ const Profile = () => {
           <div className={styles.change_status}>
             <span className={styles.change_text}>
               Change status:
-              <ToggleSwitch name="status" checked={isToggled.status} onChange={onToggle} />
+              <ToggleSwitch
+                name="status"
+                checked={isToggled.status}
+                onChange={onToggle}
+              />
             </span>
           </div>
         </div>
@@ -68,7 +77,11 @@ const Profile = () => {
           <div className={styles.wrap}>
             <span className={styles.email_title}>
               Subscribe newsletter:
-              <ToggleSwitch name="newsletter" checked={isToggled.newsletter} onChange={onToggle} />
+              <ToggleSwitch
+                name="newsletter"
+                checked={isToggled.newsletter}
+                onChange={onToggle}
+              />
             </span>
             <span className={styles.text}>
               *Notify Engagement through email
@@ -76,6 +89,7 @@ const Profile = () => {
           </div>
         </div>
       </div>
+      {upload && <ImgUpload state={{setUpload,upload}} id={user[0]?._id}/>}
     </>
   );
 };

@@ -103,7 +103,7 @@ const Navbar = () => {
               </div>
             )}
             <div className={styles.user_img}>
-              <img src={user[0]?.profiliPic} />
+              <img src={user[0]?.profilePic} />
             </div>
             <div className={styles.logout} onClick={logoutUser}>
               <FiLogOut />
