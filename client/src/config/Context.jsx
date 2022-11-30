@@ -9,47 +9,38 @@ const Context = ({ children }) => {
       {
         name: "github",
         url: "https://github.com/utsavbhattarai007",
-        label: "github.com/",
       },
       {
         name: "linkedin",
         url: "https://www.linkedin.com/in/utsavbhattarai007/",
-        label: "linkedin.com/in/",
       },
       {
         name: "twitter",
         url: "https://twitter.com/utsavbhattarai7",
-        label: "twitter.com/",
       },
       {
         name: "instagram",
         url: "https://www.instagram.com/utsavbhattarai007/",
-        label: "instagram.com/",
       },
       {
         name: "youtube",
         url: "",
-        label: "youtube.com/",
       },
       {
         name: "portfolio",
         url: "https://utsavbhattarai.info.np",
-        label: "Portfolio",
       },
       {
         name: "facebook",
         url: "https://facebook.com/utsavbhattarai007",
-        label: "Facebook",
       },
       {
         name: "buymeacoffee",
         url: "https://www.buymeacoffee.com/utsavbhattarai",
-        label: "buymeacoffee.com/",
       },
       {
         name: "blog",
         url: "https://blog.utsavbhattarai.info.np",
-        label: "Blog",
       },
     ],
     customization: {

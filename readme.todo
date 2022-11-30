@@ -19,9 +19,9 @@ Todos:
             ✔ auth api @done(22-11-29 23:39)
             ✔ image update api api @done(22-11-29 23:39)
             ✔ jwt api (fetch user and refresh token) @done(22-11-29 23:39)
-            ☐ Links api
-            ☐ Customization api
-            ☐ Newsletter,status and username update api
+            ✔ Links api @done(22-11-30 23:02)
+            ✔ Customization api @done(22-11-30 23:02)
+            ✔ Newsletter,status and username update api @done(22-11-30 23:02)
             ☐ search api
         ☐ Make bot to send email about portfolio engagement
     

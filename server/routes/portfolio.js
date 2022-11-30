@@ -4,7 +4,11 @@ import {
   deletePortfolio,
   getPortfolio,
   getPortfolios,
-  updatePortfolio,
+  updateCustomizationPortfolio,
+  updateLinksPortfolio,
+  updateNamePortfolio,
+  updateNewsletter,
+  updateStatus,
 } from "../controllers/_portfolio.js";
 
 //Instance
@@ -12,7 +16,11 @@ const router = Router();
 
 router.get("/:username", getPortfolio);
 router.get("/", getPortfolios);
-router.patch("/:username", updatePortfolio);
+router.patch("/username", updateNamePortfolio);
+router.patch("/links", updateLinksPortfolio);
+router.patch("/customization", updateCustomizationPortfolio);
+router.patch("/newsletter", updateNewsletter);
+router.patch("/status", updateStatus);
 router.delete("/:username", deletePortfolio);
 router.post("/", createPortfolio);
 

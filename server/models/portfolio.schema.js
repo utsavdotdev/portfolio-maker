@@ -8,6 +8,7 @@ const portfolioSchema = new mongoose.Schema({
   username: {
     type: String,
     required: true,
+    unique: true,
   },
   url:{
     type: String,
@@ -15,42 +16,40 @@ const portfolioSchema = new mongoose.Schema({
   },
   links: [
     {
-      type: String,
       platform: String,
       url: String,
-      label: String,
     },
   ],
   customizations: {
     transition: {
       type: String,
-      required: true,
       default: "fadein",
     },
     border_radius: {
       type: String,
-      required: true,
       default: "4",
     },
     bg_color: {
       type: String,
-      required: true,
       default: "#1e1f1f",
     },
     bg_img: {
       type: String,
-      required: true,
       default: "/bg/bg6.jpg",
     },
   },
   status: {
     type: String,
-    required: true,
+    default:"Active"
   },
   newsletter: {
-    type: String,
-    required: true,
+    type: Boolean,
+    default:false
   },
+  views:{
+    type:Number,
+    default:0
+  }
 });
 
 const Portfolio = mongoose.model("Portfolio", portfolioSchema);
