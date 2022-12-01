@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from "react";
 import styles from "../css/components/BigBtn.module.css";
-import { link } from "../config/data";
+import { link} from "../config/data";
 
 const BigBtn = ({ links, style }) => {
   const [color, setColor] = useState("");

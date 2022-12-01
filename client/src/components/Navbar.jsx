@@ -58,7 +58,6 @@ const Navbar = () => {
     console.log(res.data.msg);
     localStorage.clear();
     setUser([]);
-    window.location.href = "/";
   };
 
   const { signIn } = useGoogleLogin({

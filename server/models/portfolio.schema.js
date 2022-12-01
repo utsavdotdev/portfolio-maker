@@ -3,16 +3,12 @@ import mongoose from "mongoose";
 const portfolioSchema = new mongoose.Schema({
   user_id: {
     type: String,
-    required: true,
   },
   username: {
     type: String,
-    required: true,
-    unique: true,
   },
   url:{
     type: String,
-    required: true,
   },
   links: [
     {

@@ -23,3 +23,17 @@ export const logout = async (refreshToken) => {
     return res;
   }
 };
+
+export const postLink = async (data) => {
+  const res = await axios.post("/portfolio", data, header);
+  if (res) {
+    return res;
+  }
+}
+
+export const updateLink = async (data) => {
+  const res = await axios.patch("/portfolio/links", data, header);
+  if (res) {
+    return res;
+  }
+}

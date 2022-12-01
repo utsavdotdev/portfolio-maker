@@ -1,6 +1,7 @@
 import { Router } from "express";
 import {
   createPortfolio,
+  deleteAllPortfolio,
   deletePortfolio,
   getPortfolio,
   getPortfolios,
@@ -21,7 +22,8 @@ router.patch("/links", updateLinksPortfolio);
 router.patch("/customization", updateCustomizationPortfolio);
 router.patch("/newsletter", updateNewsletter);
 router.patch("/status", updateStatus);
-router.delete("/:username", deletePortfolio);
+// router.delete("/:username", deletePortfolio);
+router.delete("/all", deleteAllPortfolio);
 router.post("/", createPortfolio);
 
 

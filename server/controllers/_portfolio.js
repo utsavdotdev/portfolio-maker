@@ -30,9 +30,6 @@ export const createPortfolio = async (req, res) => {
       username,
       url,
       links,
-      customizations,
-      status,
-      newsletter,
     } = req.body;
     const isPortfolio = await Portfolio.findOne({ user_id });
     if (isPortfolio) {
@@ -45,9 +42,6 @@ export const createPortfolio = async (req, res) => {
       username,
       url,
       links,
-      customizations,
-      status,
-      newsletter,
     });
     await portfolio.save();
     res
@@ -71,7 +65,7 @@ export const updateLinksPortfolio = async (req, res) => {
     portfolio.links = links;
     await portfolio.save();
     res
-      .status(201)
+      .status(200)
       .json({ error: false, msg: "Portfolio updated successfully" });
   } catch (error) {}
 };
@@ -189,3 +183,12 @@ export const updateStatus = async (req, res) => {
     res.status(500).json({ error: true, msg: "Internal server error" });
   }
 };
+
+export const deleteAllPortfolio = async (req, res) => {
+  try {
+    await Portfolio.deleteMany();
+    res.status(200).json({ error: false, msg: "All portfolio deleted" });
+  } catch (error) {
+    res.status(500).json({ error: true, msg: "Internal server error" });
+  }
+}

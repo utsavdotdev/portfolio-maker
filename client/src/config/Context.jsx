@@ -4,51 +4,17 @@ export const ContextProvider = createContext();
 
 const Context = ({ children }) => {
   const [portfolio, setPortfolio] = useState({
-    name: "utsavbhattarai",
-    links: [
-      {
-        name: "github",
-        url: "https://github.com/utsavbhattarai007",
-      },
-      {
-        name: "linkedin",
-        url: "https://www.linkedin.com/in/utsavbhattarai007/",
-      },
-      {
-        name: "twitter",
-        url: "https://twitter.com/utsavbhattarai7",
-      },
-      {
-        name: "instagram",
-        url: "https://www.instagram.com/utsavbhattarai007/",
-      },
-      {
-        name: "youtube",
-        url: "",
-      },
-      {
-        name: "portfolio",
-        url: "https://utsavbhattarai.info.np",
-      },
-      {
-        name: "facebook",
-        url: "https://facebook.com/utsavbhattarai007",
-      },
-      {
-        name: "buymeacoffee",
-        url: "https://www.buymeacoffee.com/utsavbhattarai",
-      },
-      {
-        name: "blog",
-        url: "https://blog.utsavbhattarai.info.np",
-      },
-    ],
+    username: "",
+    user_id: "",
+    links: [],
     customization: {
       transition: "fadein",
       border_radius: "4",
       bg_color: "#1e1f1f",
       bg_img: "/bg/bg6.jpg",
     },
+    newsletter: false,
+    status: "Active",
   });
   const [user, setUser] = useState([]);
   const [link, setLink] = useState({
@@ -68,7 +34,6 @@ const Context = ({ children }) => {
   });
   const [check, setCheck] = useState([false, false, false, false, true, false]);
   const [imgCheck, setImgCheck] = useState([
-
     false,
     false,
     false,
@@ -96,12 +61,13 @@ const Context = ({ children }) => {
     }
   };
 
+  console.log(user);
+
   useEffect(() => {
     if (accessToken !== null) {
       fetchUser();
     }
   }, []);
-  console.log(user);
 
   //fetching user details from accestoken
   const fetchUser = async () => {
@@ -135,7 +101,7 @@ const Context = ({ children }) => {
           chk: [check, setCheck],
           imgChk: [imgCheck, setImgCheck],
           lk: [link, setLink],
-          usr:[user,setUser]
+          usr: [user, setUser],
         }}
       >
         {children}

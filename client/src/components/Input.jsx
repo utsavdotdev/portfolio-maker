@@ -1,7 +1,7 @@
 import React from "react";
 import styles from "../css/pages/Dashboard.module.css";
 
-const Input = ({ placeholder, label, onChange, name, style,value }) => {
+const Input = ({ placeholder, label, onChange, name, style, value }) => {
   return (
     <>
       <div className={styles.input_con} style={style}>
@@ -12,6 +12,7 @@ const Input = ({ placeholder, label, onChange, name, style,value }) => {
           placeholder={placeholder}
           name={name}
           onChange={onChange}
+          id={label}
         />
       </div>
     </>
