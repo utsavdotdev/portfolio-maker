@@ -40,6 +40,21 @@ const Dashboard = () => {
     //filter the links url which are not empty
     allLinks = allLinks.filter((link) => link.url !== "");
 
+    //join the label of links array which matches the platform
+    allLinks = allLinks.map((link) => {
+      for (const [key, value] of Object.entries(links)) {
+        if (link.platform === value.name) {
+          if (link.platform === "blog" || link.platform === "portfolio") {
+            continue;
+          }
+          link.url = "https://" + value.label + link.url;
+        }
+      }
+      return link;
+    });
+
+    console.log(allLinks);
+
     //setting data
     const name = username.trim().toLowerCase().replace(/\s/g, "");
 
@@ -54,13 +69,13 @@ const Dashboard = () => {
         links: allLinks,
         url: url,
       });
-      if(res.status === 201){
+      if (res.status === 201) {
         console.log(res.data.msg);
         return setPopup({ ...popup, congo: true });
       }
-      if(res.status === 203){
+      if (res.status === 203) {
         console.log(res.data.msg);
-        const updateRes = await updateLink({user_id:_id, links:links});
+        const updateRes = await updateLink({ user_id: _id, links: allLinks });
         console.log(updateRes);
       }
     } catch (error) {
