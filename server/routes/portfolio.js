@@ -8,8 +8,7 @@ import {
   updateCustomizationPortfolio,
   updateLinksPortfolio,
   updateNamePortfolio,
-  updateNewsletter,
-  updateStatus,
+  updateOther,
 } from "../controllers/_portfolio.js";
 
 //Instance
@@ -20,8 +19,7 @@ router.get("/", getPortfolios);
 router.patch("/username", updateNamePortfolio);
 router.patch("/links", updateLinksPortfolio);
 router.patch("/customization", updateCustomizationPortfolio);
-router.patch("/newsletter", updateNewsletter);
-router.patch("/status", updateStatus);
+router.patch("/other", updateOther);
 router.delete("/all", deleteAllPortfolio);
 router.post("/", createPortfolio);
 // router.delete("/:username", deletePortfolio);

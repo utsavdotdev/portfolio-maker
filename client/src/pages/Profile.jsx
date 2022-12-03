@@ -6,21 +6,53 @@ import { FiUser, FiUpload } from "react-icons/fi";
 import { IoMail } from "react-icons/io5";
 import ToggleSwitch from "../components/ToggleSwitch";
 import ImgUpload from "../components/ImgUpload";
+import { useMutation } from "@tanstack/react-query";
+import { updateOther } from "../api/api";
+import { toast } from "react-hot-toast";
 
 const Profile = () => {
   const { pgname, setPagename, user, setPortfolio, portfolio } =
     useOutletContext();
   const [upload, setUpload] = useState(false);
+  const [load, setLoad] = useState(false);
 
   useEffect(() => {
     setPagename("Profile");
   }, [pgname]);
 
   const name = user[0]?.username.trim().toLowerCase().split(" ");
+  const { mutate: updateProfile } = useMutation({
+    mutationFn: (data) => updateOther(data),
+    onSuccess: ({ data }) => {
+      setLoad(false);
+      toast.success(data.msg);
+    },
+  });
+
+  useEffect(() => {
+    if (!load) {
+      setLoad(true);
+      setTimeout(() => {
+        updateProfile({
+          user_id: user[0]?._id,
+          data: {
+            status: portfolio?.status,
+            newsletter: portfolio?.newsletter,
+          },
+        });
+      }, 1000);
+    }
+  }, [portfolio?.status, portfolio?.newsletter]);
 
   const onToggle = (e) => {
-    setPortfolio({ ...portfolio, [e.target.name]: !portfolio[e.target.name] });
+    if (!load) {
+      setPortfolio({
+        ...portfolio,
+        [e.target.name]: !portfolio[e.target.name],
+      });
+    }
   };
+
   return (
     <>
       <div className={styles.profile_container}>
@@ -84,7 +116,7 @@ const Profile = () => {
               Subscribe newsletter:
               <ToggleSwitch
                 name="newsletter"
-                checked={portfolio.newsletter}
+                checked={portfolio?.newsletter}
                 onChange={onToggle}
               />
             </span>

@@ -51,3 +51,10 @@ export const updateName = async (data) => {
     return res;
   }
 };
+
+export const updateOther = async (data) => {
+  const res = await axios.patch("/portfolio/other", data, header);
+  if (res) {
+    return res;
+  }
+};

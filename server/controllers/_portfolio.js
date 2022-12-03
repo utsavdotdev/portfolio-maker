@@ -25,12 +25,7 @@ export const getPortfolios = async (req, res) => {
 
 export const createPortfolio = async (req, res) => {
   try {
-    const {
-      user_id,
-      username,
-      url,
-      links,
-    } = req.body;
+    const { user_id, username, url, links } = req.body;
     const isPortfolio = await Portfolio.findOne({ user_id });
     if (isPortfolio) {
       return res
@@ -64,9 +59,7 @@ export const updateLinksPortfolio = async (req, res) => {
     }
     portfolio.links = links;
     await portfolio.save();
-    res
-      .status(200)
-      .json({ error: false, msg: "Links updated" });
+    res.status(200).json({ error: false, msg: "Links updated" });
   } catch (error) {
     console.log(error.message);
     res.status(500).json({ error: true, msg: "Internal server error" });
@@ -85,9 +78,7 @@ export const updateNamePortfolio = async (req, res) => {
     }
     //check the username is same as the previous one
     if (portfolio.username === username) {
-      return res
-        .status(203)
-        .json({ error: true, msg: "Username is same" });
+      return res.status(203).json({ error: true, msg: "Username is same" });
     }
 
     //check the username is already taken or not
@@ -99,18 +90,14 @@ export const updateNamePortfolio = async (req, res) => {
     }
 
     //save the username
-    portfolio.username = username;    
-    
+    portfolio.username = username;
+
     //save the url with new username
     const CLIENT_SIDE_URL = process.env.CLIENT_SIDE_URL;
     portfolio.url = `${CLIENT_SIDE_URL}/${username}`;
     await portfolio.save();
     console.log(portfolio);
-    res
-      .status(200)
-      .json({ error: false, msg: "Username updated"
-     });
-
+    res.status(200).json({ error: false, msg: "Username updated" });
   } catch (error) {
     console.log(error.message);
     res.status(500).json({ error: true, msg: "Internal server error" });
@@ -152,40 +139,21 @@ export const deletePortfolio = async (req, res) => {
   }
 };
 
-export const updateNewsletter = async (req, res) => {
+export const updateOther = async (req, res) => {
   try {
-    const { user_id, newsletter } = req.body;
-    const portfolio = await Portfolio.findOne({ user_id });
+    //update the status or newsletter or both of the portfolio using findOneAndUpdate
+    const { user_id, data } = req.body;
+    const portfolio = await Portfolio.findOneAndUpdate(
+      { user_id },
+      { $set: data },
+      { new: true }
+    );
     if (!portfolio) {
-      return res
-        .status(203)
-        .json({ error: false, msg: "Portfolio does not exists" });
+      return res.status(203).json({ error: true, msg: "Portfolio not found" });
     }
-    portfolio.newsletter = newsletter;
-    await portfolio.save();
-    res
-      .status(201)
-      .json({ error: false, msg: "Portfolio updated successfully" });
+    res.status(200).json({ error: false, msg: "Portfolio updated" });
   } catch (error) {
-    res.status(500).json({ error: true, msg: "Internal server error" });
-  }
-};
-
-export const updateStatus = async (req, res) => {
-  try {
-    const { user_id, status } = req.body;
-    const portfolio = await Portfolio.findOne({ user_id });
-    if (!portfolio) {
-      return res
-        .status(203)
-        .json({ error: false, msg: "Portfolio does not exists" });
-    }
-    portfolio.status = status;
-    await portfolio.save();
-    res
-      .status(201)
-      .json({ error: false, msg: "Portfolio updated successfully" });
-  } catch (error) {
+    console.log(error.message);
     res.status(500).json({ error: true, msg: "Internal server error" });
   }
 };
@@ -197,4 +165,4 @@ export const deleteAllPortfolio = async (req, res) => {
   } catch (error) {
     res.status(500).json({ error: true, msg: "Internal server error" });
   }
-}
+};
