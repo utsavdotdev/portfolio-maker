@@ -29,7 +29,7 @@ export default function Router() {
       ],
     },
     {
-      path: "/:user",
+      path: "/:username",
       element: <Portfolio />,
     },
     {

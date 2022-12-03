@@ -6,6 +6,8 @@
   align-items: center;
   gap: 1.5rem;
   box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
+  overflow: hidden;
+  transition: 0.3s;
 }
 .icon {
   width: 60px;
@@ -16,10 +18,21 @@
   align-items: center;
   font-size: 32px;
   color: var(--gray-text);
+  transition: 0.3s;
+  filter: blur(0.6px);
 }
-.link_label{
-    color: var(--gray-text);
-    font-size: 19px;
-    font-weight: 500;
-    text-transform: capitalize;
+.link_label {
+  color: var(--gray-text);
+  font-size: 19px;
+  font-weight: 500;
+  text-transform: capitalize;
+}
+.btn_con:hover {
+  box-shadow: rgba(50, 50, 93, 0.25) 0px 13px 27px -5px,
+    rgba(0, 0, 0, 0.3) 0px 8px 16px -8px;
+}
+
+.btn_con:hover .icon {
+  scale: 1.05;
+  filter: blur(0);
 }

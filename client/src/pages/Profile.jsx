@@ -15,6 +15,7 @@ const Profile = () => {
     useOutletContext();
   const [upload, setUpload] = useState(false);
   const [load, setLoad] = useState(false);
+  const [check, setCheck] = useState(false);
 
   useEffect(() => {
     setPagename("Profile");
@@ -30,6 +31,9 @@ const Profile = () => {
   });
 
   useEffect(() => {
+    if (!check) {
+      return;
+    }
     if (!load) {
       setLoad(true);
       setTimeout(() => {
@@ -46,6 +50,7 @@ const Profile = () => {
 
   const onToggle = (e) => {
     if (!load) {
+      setCheck(true)
       setPortfolio({
         ...portfolio,
         [e.target.name]: !portfolio[e.target.name],

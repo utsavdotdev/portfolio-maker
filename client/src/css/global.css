@@ -21,6 +21,8 @@
   --text: #fefffe;
   --gray-text: #d0d4ce;
   --width: 500px;
+  --x: 70deg;
+  --speed: 1s;
 }
 
 html,
@@ -83,7 +85,7 @@ button {
 }
 @keyframes fromleft {
   0% {
-    transform: translateX(-100%);
+    transform: translateX(-150%);
   }
   100% {
     transform: translateX(0);
@@ -91,7 +93,7 @@ button {
 }
 @keyframes fromright {
   0% {
-    transform: translateX(100%);
+    transform: translateX(150%);
   }
   100% {
     transform: translateX(0);
@@ -129,3 +131,5 @@ button {
     transform: scale(1);
   }
 }
+
+

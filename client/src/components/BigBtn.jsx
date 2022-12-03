@@ -7,7 +7,7 @@ const BigBtn = ({ links, style }) => {
   const [icon, setIcon] = useState();
   const setState = () => {
     for (const [key, value] of Object.entries(link)) {
-      if (links.name === key) {
+      if (links.platform === key) {
         setColor(value.color);
         setIcon(value.icon);
       }
@@ -24,7 +24,7 @@ const BigBtn = ({ links, style }) => {
           style={{ backgroundColor: color, ...style }}
         >
           <div className={styles.icon}>{icon}</div>
-          <span className={styles.link_label}>{links.name}</span>
+          <span className={styles.link_label}>{links.platform}</span>
         </div>
       </a>
     </>

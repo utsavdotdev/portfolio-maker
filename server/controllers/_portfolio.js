@@ -5,9 +5,10 @@ export const getPortfolio = async (req, res) => {
     const username = req.params.username;
     const portfolio = await Portfolio.findOne({ username });
     if (!portfolio)
-      return res.status(404).json({ error: true, msg: "Portfolio not found" });
-    if (portfolio.status === "offline")
-      return res.status(404).json({ error: true, msg: "Portfolio Offline" });
+      return res.status(204).json({ error: true, msg: "Portfolio not found" });
+    if (!portfolio.status)
+      return res.status(203).json({ error: true, msg: "Portfolio Offline" });
+      
     portfolio.views++; //Incrementing the views
     await portfolio.save();
     res.status(200).json({ error: false, portfolio, msg: "Porfolio Found" });

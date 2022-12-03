@@ -65,3 +65,10 @@ export const searchData = async (data) => {
     return res;
   }
 };
+
+export const fetchPortfolio = async (username) => {
+  const res = await axios.get(`/portfolio/${username}`, header);
+  if (res) {
+    return res;
+  }
+}
