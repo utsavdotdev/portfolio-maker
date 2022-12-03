@@ -61,3 +61,14 @@
 .search_box span:hover {
   background-color: #313131;
 }
+.resultWrapper{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  min-height: 320px;
+}
+.resultText{
+  font-size: 1.3rem;
+  color: var(--gray-text);
+}

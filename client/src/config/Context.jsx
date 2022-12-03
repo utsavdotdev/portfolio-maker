@@ -19,12 +19,6 @@ const Context = ({ children }) => {
   });
   const [user, setUser] = useState([]);
   const [cload, setCload] = useState(false);
-  // const [customization, setCustomization] = useState({
-  //   transition: "fadein",
-  //   border_radius: "4",
-  //   bg_color: "#1e1f1f",
-  //   bg_img: "/bg/bg6.jpg",
-  // });
 
   const [link, setLink] = useState({
     github: "",
@@ -66,6 +60,11 @@ const Context = ({ children }) => {
         }
       }
     } catch (error) {
+      if (error.response && error.response.status === 401) {
+        localStorage.removeItem("access");
+        localStorage.removeItem("refresh");
+        window.location.replace("/");
+      }
       console.log(error);
     }
   };

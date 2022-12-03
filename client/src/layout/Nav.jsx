@@ -14,9 +14,8 @@ const Nav = () => {
   const location = useLocation();
   const { pathname } = location;
   const [pgname, setPagename] = useState("");
-
-  const { port, pop, chk, imgChk, lk, usr, c } =
-    useContext(ContextProvider);
+  const token = localStorage.getItem("access");
+  const { port, pop, chk, imgChk, lk, usr, c } = useContext(ContextProvider);
   const [cload, setCload] = c;
   const [portfolio, setPortfolio] = port;
   const [user, setUser] = usr;
@@ -29,7 +28,7 @@ const Nav = () => {
   //state for bg image
   const [imgCheck, setImgCheck] = imgChk;
 
-  if (user?.length === 0) {
+  if (!token) {
     return <Navigate to="/" replace />;
   }
 

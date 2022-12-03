@@ -20,7 +20,8 @@ const Navbar = () => {
   const clientId = import.meta.env.VITE_CLIENT_ID;
   const location = window.location.pathname;
   const { usr, c } = useContext(ContextProvider);
-  const [cload,setCload] =c;
+  const token = localStorage.getItem("access");
+  const [cload, setCload] = c;
   const [user, setUser] = usr;
   useEffect(() => {
     function start() {
@@ -77,7 +78,7 @@ const Navbar = () => {
             <h2>Devport</h2>
           </NavLink>
         </div>
-        {user?.length === 0 ? (
+        {token === null ? (
           <motion.div
             className={styles.right}
             onClick={signIn}

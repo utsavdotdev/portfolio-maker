@@ -8,9 +8,10 @@ import { ContextProvider } from "../config/Context";
 const NavFoot = () => {
   const { usr } = useContext(ContextProvider);
   const [user,setUser] = usr;
+  const token = localStorage.getItem("access");
 
-  if(user?.length !== 0){
-    return <Navigate to="/app" replace/>
+  if(token){
+    return <Navigate to="/app"/>
   }
 
   return (

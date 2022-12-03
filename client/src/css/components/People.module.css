@@ -47,11 +47,17 @@
   gap: 0.3rem;
   align-items: center;
 }
-.sign {
+.green {
   width: 16px;
   height: 16px;
   border-radius: 50%;
   background-color: #5fd164;
+}
+.red{
+  width: 16px;
+  height: 16px;
+  border-radius: 50%;
+  background-color: #ff4d4d;
 }
 .status {
   color: var(--text);

@@ -58,3 +58,10 @@ export const updateOther = async (data) => {
     return res;
   }
 };
+
+export const searchData = async (data) => {
+  const res = await axios.get(`/portfolio/search/${data}`, header);
+  if (res) {
+    return res;
+  }
+};

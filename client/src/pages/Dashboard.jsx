@@ -10,7 +10,8 @@ import { postLink, updateLink } from "../api/api";
 const Dashboard = () => {
   const { pgname, setPagename, popup, setPopup, link, setLink, user } =
     useOutletContext();
-  const { _id, username } = user[0];
+  const _id = user[0]?._id;
+  const username = user[0]?.username;
   const [loading, setLoading] = useState(false);
   useEffect(() => {
     setPagename("Setup links");
@@ -70,6 +71,7 @@ const Dashboard = () => {
         username: name,
         links: allLinks,
         url: url,
+        user_img: user[0]?.profilePic,
       });
       if (res.status === 201) {
         setLoading(false);
@@ -97,6 +99,9 @@ const Dashboard = () => {
   };
 
   const clear = () => {
+    if (loading) {
+      return;
+    }
     //check that at least one link is filled to clear
     let count = 0;
     for (const [key, value] of Object.entries(link)) {
@@ -105,8 +110,8 @@ const Dashboard = () => {
       }
     }
     if (count < 1) {
-      return toast.error("Nothing to clear",{
-        duration:1000,
+      return toast.error("Nothing to clear", {
+        duration: 1000,
       });
     }
     setLink({

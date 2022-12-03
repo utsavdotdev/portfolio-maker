@@ -25,7 +25,7 @@ export const getPortfolios = async (req, res) => {
 
 export const createPortfolio = async (req, res) => {
   try {
-    const { user_id, username, url, links } = req.body;
+    const { user_id, username, url, links, user_img } = req.body;
     const isPortfolio = await Portfolio.findOne({ user_id });
     if (isPortfolio) {
       return res
@@ -37,6 +37,7 @@ export const createPortfolio = async (req, res) => {
       username,
       url,
       links,
+      user_img,
     });
     await portfolio.save();
     res
@@ -163,6 +164,20 @@ export const deleteAllPortfolio = async (req, res) => {
     await Portfolio.deleteMany();
     res.status(200).json({ error: false, msg: "All portfolio deleted" });
   } catch (error) {
+    res.status(500).json({ error: true, msg: "Internal server error" });
+  }
+};
+
+export const searchPortfolio = async (req, res) => {
+  try {
+    const username = req.params.username;
+    const portfolio = await Portfolio.find({ username: { $regex: username } });
+    if (portfolio.length === 0) {
+      return res.status(203).json({ error: true, msg: "Portfolio not found" });
+    }
+    res.status(200).json({ error: false, portfolio });
+  } catch (error) {
+    console.log(error.message);
     res.status(500).json({ error: true, msg: "Internal server error" });
   }
 };

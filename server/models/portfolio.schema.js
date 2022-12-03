@@ -4,6 +4,9 @@ const portfolioSchema = new mongoose.Schema({
   user_id: {
     type: String,
   },
+  user_img: {
+    type: String,
+  },
   username: {
     type: String,
   },

@@ -5,6 +5,7 @@ import {
   deletePortfolio,
   getPortfolio,
   getPortfolios,
+  searchPortfolio,
   updateCustomizationPortfolio,
   updateLinksPortfolio,
   updateNamePortfolio,
@@ -22,7 +23,7 @@ router.patch("/customization", updateCustomizationPortfolio);
 router.patch("/other", updateOther);
 router.delete("/all", deleteAllPortfolio);
 router.post("/", createPortfolio);
+router.get("/search/:username", searchPortfolio);
 // router.delete("/:username", deletePortfolio);
-
 
 export default router;

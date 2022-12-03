@@ -7,6 +7,9 @@ export const getNewToken = async (req, res) => {
     const { refreshToken } = req.body;
     const { error, tokenDetails, msg } = verifyRefreshToken(refreshToken);
     if (error) {
+      if (err.name === "TokenExpiredError") {
+        return res.status(401).json({ error: true, msg: "Token expired" });
+      }
       return res.status(401).json({ error, msg });
     }
     const { _id } = tokenDetails;

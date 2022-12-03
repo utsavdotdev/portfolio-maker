@@ -14,12 +14,14 @@ const Domain = () => {
   }, [pgname]);
 
   const handleChange = (e) => {
-    setPortfolio({ ...portfolio, username: e.target.value });
+    //convert the username to lowercase and remove all spaces
+    const username = e.target.value.toLowerCase().replace(/\s/g, "");
+    setPortfolio({ ...portfolio, username: username });
   };
 
   const handleSubmit = async () => {
     try {
-      if(portfolio.username === ""){
+      if (portfolio.username === "") {
         return toast.error("Hmm! username");
       }
       setLoading(!loading);
@@ -49,7 +51,12 @@ const Domain = () => {
               onChange={handleChange}
             />
           </div>
-          <button type="button" className={styles.w_btn} onClick={handleSubmit} disabled={loading}>
+          <button
+            type="button"
+            className={styles.w_btn}
+            onClick={handleSubmit}
+            disabled={loading}
+          >
             Update
           </button>
         </div>
