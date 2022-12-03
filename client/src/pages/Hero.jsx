@@ -106,6 +106,9 @@ const Hero = () => {
               <div className={styles.who_img}>
 
               </div>
+              <div className={styles.who_img}>
+
+              </div>
             </div>
           </div>
         </div>

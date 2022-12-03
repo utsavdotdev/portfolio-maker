@@ -8,12 +8,9 @@ import ToggleSwitch from "../components/ToggleSwitch";
 import ImgUpload from "../components/ImgUpload";
 
 const Profile = () => {
-  const { pgname, setPagename, user } = useOutletContext();
+  const { pgname, setPagename, user, setPortfolio, portfolio } =
+    useOutletContext();
   const [upload, setUpload] = useState(false);
-  const [isToggled, setIsToggled] = useState({
-    status: false,
-    newsletter: false,
-  });
 
   useEffect(() => {
     setPagename("Profile");
@@ -22,7 +19,7 @@ const Profile = () => {
   const name = user[0]?.username.trim().toLowerCase().split(" ");
 
   const onToggle = (e) => {
-    setIsToggled({ ...isToggled, [e.target.name]: !isToggled[e.target.name] });
+    setPortfolio({ ...portfolio, [e.target.name]: !portfolio[e.target.name] });
   };
   return (
     <>
@@ -52,12 +49,20 @@ const Profile = () => {
           <div className={styles.status_con}>
             <div className={styles.views}>
               <span className={styles.title}>Views</span>
-              <span className={styles.data}>1000</span>
+              <span className={styles.data}>{portfolio?.views}</span>
             </div>
             <div className={styles.status}>
               <span className={styles.title}>Status</span>
               <span className={styles.data}>
-                <div className={styles.green}></div>Active
+                {portfolio?.status ? (
+                  <>
+                    <div className={styles.green}></div>Active
+                  </>
+                ) : (
+                  <>
+                    <div className={styles.red}></div>Offline
+                  </>
+                )}
               </span>
             </div>
           </div>
@@ -66,7 +71,7 @@ const Profile = () => {
               Change status:
               <ToggleSwitch
                 name="status"
-                checked={isToggled.status}
+                checked={portfolio.status}
                 onChange={onToggle}
               />
             </span>
@@ -79,7 +84,7 @@ const Profile = () => {
               Subscribe newsletter:
               <ToggleSwitch
                 name="newsletter"
-                checked={isToggled.newsletter}
+                checked={portfolio.newsletter}
                 onChange={onToggle}
               />
             </span>
@@ -89,7 +94,7 @@ const Profile = () => {
           </div>
         </div>
       </div>
-      {upload && <ImgUpload state={{setUpload,upload}} id={user[0]?._id}/>}
+      {upload && <ImgUpload state={{ setUpload, upload }} id={user[0]?._id} />}
     </>
   );
 };

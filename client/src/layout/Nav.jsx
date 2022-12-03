@@ -1,6 +1,7 @@
 import React from "react";
 import { useState, useContext } from "react";
-import { useNavigation, Outlet, useLocation, Navigate } from "react-router-dom";
+import { Outlet, useLocation, Navigate } from "react-router-dom";
+import { Toaster } from "react-hot-toast";
 import { ContextProvider } from "../config/Context";
 import styles from "../css/pages/Dashboard.module.css";
 import Navbar from "../components/Navbar";
@@ -14,7 +15,9 @@ const Nav = () => {
   const { pathname } = location;
   const [pgname, setPagename] = useState("");
 
-  const { port, pop, chk, imgChk, lk, usr } = useContext(ContextProvider);
+  const { port, pop, chk, imgChk, lk, usr, c } =
+    useContext(ContextProvider);
+  const [cload, setCload] = c;
   const [portfolio, setPortfolio] = port;
   const [user, setUser] = usr;
   const [popup, setPopup] = pop;
@@ -55,6 +58,8 @@ const Nav = () => {
                   setLink,
                   user,
                   setUser,
+                  setCload,
+                  cload,
                 }}
               />
             </div>
@@ -71,6 +76,7 @@ const Nav = () => {
         </div>
         {/* {popup.addLink && <AddLinkPopup state={{ popup, setPopup,link,setLink}} />} */}
         {popup.congo && <CongoPopup state={{ popup, setPopup }} />}
+        <Toaster reverseOrder={true} />
       </Page>
     </>
   );

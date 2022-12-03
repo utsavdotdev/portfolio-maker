@@ -7,7 +7,7 @@ const portfolioSchema = new mongoose.Schema({
   username: {
     type: String,
   },
-  url:{
+  url: {
     type: String,
   },
   links: [
@@ -35,17 +35,17 @@ const portfolioSchema = new mongoose.Schema({
     },
   },
   status: {
-    type: String,
-    default:"Active"
+    type: Boolean,
+    default: true,
   },
   newsletter: {
     type: Boolean,
-    default:false
+    default: false,
   },
-  views:{
-    type:Number,
-    default:0
-  }
+  views: {
+    type: Number,
+    default: 0,
+  },
 });
 
 const Portfolio = mongoose.model("Portfolio", portfolioSchema);

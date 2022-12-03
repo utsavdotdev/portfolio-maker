@@ -19,7 +19,8 @@ import { ContextProvider } from "../config/Context";
 const Navbar = () => {
   const clientId = import.meta.env.VITE_CLIENT_ID;
   const location = window.location.pathname;
-  const { usr } = useContext(ContextProvider);
+  const { usr, c } = useContext(ContextProvider);
+  const [cload,setCload] =c;
   const [user, setUser] = usr;
   useEffect(() => {
     function start() {
@@ -52,7 +53,7 @@ const Navbar = () => {
     });
   };
 
-  const logoutUser = async() => {
+  const logoutUser = async () => {
     let refreshToken = localStorage.getItem("refresh");
     const res = await logout(refreshToken);
     console.log(res.data.msg);
@@ -91,14 +92,17 @@ const Navbar = () => {
           <div className={styles.right}>
             {location === "/app/customization" && (
               <div className={styles.save_con}>
-                <span className={styles.saved}>
-                  <BsCloudCheck size={26} />
-                  Saved
-                </span>
-                {/* <span className={styles.saving}>
-                  <AiOutlineCloudSync size={26} />
-                  Saving . . .
-                </span> */}
+                {cload ? (
+                  <span className={styles.saving}>
+                    <AiOutlineCloudSync size={26} />
+                    Saving . . .
+                  </span>
+                ) : (
+                  <span className={styles.saved}>
+                    <BsCloudCheck size={26} />
+                    Saved
+                  </span>
+                )}
               </div>
             )}
             <div className={styles.user_img}>

@@ -2,8 +2,9 @@ import React, { useEffect, useState } from "react";
 import styles from "../css/pages/Dashboard.module.css";
 import Input from "../components/Input";
 import { useOutletContext } from "react-router-dom";
-import { GrRotateRight } from "react-icons/gr";
+import { GrRotateRight, GrToast } from "react-icons/gr";
 import { links } from "../config/data";
+import { toast } from "react-hot-toast";
 import { postLink, updateLink } from "../api/api";
 
 const Dashboard = () => {
@@ -24,9 +25,12 @@ const Dashboard = () => {
       }
     }
     if (count < 4) {
-      return alert("Please fill at least four links");
+      return toast.error("Please fill at least four links");
     }
-
+    toast.loading("Saving...", {
+      id: "save",
+    });
+    setLoading(!loading);
     let allLinks = [];
 
     //map the link object to links array
@@ -53,8 +57,6 @@ const Dashboard = () => {
       return link;
     });
 
-    console.log(allLinks);
-
     //setting data
     const name = username.trim().toLowerCase().replace(/\s/g, "");
 
@@ -70,13 +72,17 @@ const Dashboard = () => {
         url: url,
       });
       if (res.status === 201) {
-        console.log(res.data.msg);
+        setLoading(false);
+        toast.remove("save");
         return setPopup({ ...popup, congo: true });
       }
       if (res.status === 203) {
-        console.log(res.data.msg);
         const updateRes = await updateLink({ user_id: _id, links: allLinks });
-        console.log(updateRes);
+        if (updateRes) {
+          setLoading(false);
+          toast.remove("save");
+          toast.success(updateRes.data.msg);
+        }
       }
     } catch (error) {
       console.log(error);
@@ -90,6 +96,32 @@ const Dashboard = () => {
     });
   };
 
+  const clear = () => {
+    //check that at least one link is filled to clear
+    let count = 0;
+    for (const [key, value] of Object.entries(link)) {
+      if (value !== "") {
+        count++;
+      }
+    }
+    if (count < 1) {
+      return toast.error("Nothing to clear",{
+        duration:1000,
+      });
+    }
+    setLink({
+      github: "",
+      linkedin: "",
+      twitter: "",
+      instagram: "",
+      youtube: "",
+      portfolio: "",
+      facebook: "",
+      buymeacoffee: "",
+      blog: "",
+    });
+  };
+
   return (
     <>
       <form autoComplete="off" action="">
@@ -98,7 +130,11 @@ const Dashboard = () => {
             <Input
               key={index}
               label={data.label}
-              placeholder={"Username"}
+              placeholder={
+                data.name === "blog" || data.name === "portfolio"
+                  ? "Link"
+                  : "Username"
+              }
               name={data.name}
               value={link[data.name]}
               onChange={handleLinks}
@@ -109,6 +145,7 @@ const Dashboard = () => {
           <button
             className={styles.save_btn}
             onClick={() => onSave()}
+            disabled={loading}
             type="button"
           >
             Save
@@ -120,19 +157,7 @@ const Dashboard = () => {
           </button>
           <button
             className={styles.add_btn}
-            onClick={() =>
-              setLink({
-                github: "",
-                linkedin: "",
-                twitter: "",
-                instagram: "",
-                youtube: "",
-                portfolio: "",
-                facebook: "",
-                buymeacoffee: "",
-                blog: "",
-              })
-            }
+            onClick={() => clear()}
             type="button"
           >
             Clear all

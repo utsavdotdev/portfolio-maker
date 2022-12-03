@@ -29,11 +29,25 @@ export const postLink = async (data) => {
   if (res) {
     return res;
   }
-}
+};
 
 export const updateLink = async (data) => {
   const res = await axios.patch("/portfolio/links", data, header);
   if (res) {
     return res;
   }
-}
+};
+
+export const custom = async (data) => {
+  const res = await axios.patch("/portfolio/customization", data, header);
+  if (res) {
+    return res;
+  }
+};
+
+export const updateName = async (data) => {
+  const res = await axios.patch("/portfolio/username", data, header);
+  if (res) {
+    return res;
+  }
+};

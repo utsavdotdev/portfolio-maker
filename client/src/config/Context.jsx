@@ -14,9 +14,18 @@ const Context = ({ children }) => {
       bg_img: "/bg/bg6.jpg",
     },
     newsletter: false,
-    status: "Active",
+    status: false,
+    views: "1000",
   });
   const [user, setUser] = useState([]);
+  const [cload, setCload] = useState(false);
+  // const [customization, setCustomization] = useState({
+  //   transition: "fadein",
+  //   border_radius: "4",
+  //   bg_color: "#1e1f1f",
+  //   bg_img: "/bg/bg6.jpg",
+  // });
+
   const [link, setLink] = useState({
     github: "",
     linkedin: "",
@@ -61,8 +70,6 @@ const Context = ({ children }) => {
     }
   };
 
-  console.log(user);
-
   useEffect(() => {
     if (accessToken !== null) {
       fetchUser();
@@ -92,6 +99,10 @@ const Context = ({ children }) => {
     }
   };
 
+  //logging
+  console.log(user);
+  console.log(portfolio);
+
   return (
     <>
       <ContextProvider.Provider
@@ -102,6 +113,7 @@ const Context = ({ children }) => {
           imgChk: [imgCheck, setImgCheck],
           lk: [link, setLink],
           usr: [user, setUser],
+          c: [cload, setCload],
         }}
       >
         {children}

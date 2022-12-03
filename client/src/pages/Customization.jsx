@@ -3,43 +3,81 @@ import { useOutletContext } from "react-router-dom";
 import BgImg from "../components/BgImg";
 import Transition from "../components/Transition";
 import styles from "../css/pages/Customization.module.css";
+import { useMutation } from "@tanstack/react-query";
 import { bg, transition } from "../config/data.jsx";
+import { custom } from "../api/api";
 
 const Customization = () => {
   const {
     pgname,
     setPagename,
-    portfolio,
-    setPortfolio,
     check,
     setCheck,
     imgCheck,
     setImgCheck,
+    setPortfolio,
+    portfolio,
+    user,
+    setCload,
+    cload,
   } = useOutletContext();
+  const _id = user[0]?._id;
 
   useEffect(() => {
     setPagename("Customization");
   }, [pgname]);
 
   const handleTrans = (e) => {
+    if (cload) {
+      return;
+    }
     const index = transition.findIndex((item) => item.label === e.target.name);
     const newCheck = check.map((item, i) => (i === index ? true : false));
     setCheck(newCheck);
     setPortfolio({
       ...portfolio,
-      customization: { ...portfolio.customization, transition: e.target.name },
+      customization: { ...portfolio?.customization, transition: e.target.name },
     });
   };
 
   const handleImg = (e) => {
+    if (cload) {
+      return;
+    }
     const index = bg.findIndex((item) => item.src === e.target.name);
     const newCheck = imgCheck.map((item, i) => (i === index ? true : false));
     setImgCheck(newCheck);
     setPortfolio({
       ...portfolio,
-      customization: { ...portfolio.customization, bg_img: e.target.name },
+      customization: { ...portfolio?.customization, bg_img: e.target.name },
     });
   };
+
+  const { isLoading, isError, data, error, mutate, status } = useMutation({
+    mutationFn: (data) => custom(data),
+    onSuccess: ({ data }) => {
+      console.log(data.msg);
+      setCload(!cload);
+    },
+  });
+
+  useEffect(() => {
+    //delay the api call
+    if (!cload) {
+      setCload(!cload);
+      setTimeout(() => {
+        mutate({ user_id: _id, customizations: portfolio?.customization });
+      }, 2000);
+    }
+  }, [portfolio?.customization]);
+  if (isError) {
+    console.log(error);
+    alert(error.msg);
+  }
+
+  //logging
+  console.log(status);
+  
   return (
     <>
       <div className={styles.custom_container}>
@@ -64,19 +102,19 @@ const Customization = () => {
               <input
                 type="range"
                 max="20"
-                value={portfolio.customization?.border_radius}
+                value={portfolio?.customization.border_radius}
                 onChange={({ target: { value: radius } }) => {
                   setPortfolio({
                     ...portfolio,
                     customization: {
-                      ...portfolio.customization,
+                      ...portfolio?.customization,
                       border_radius: radius,
                     },
                   });
                 }}
               />
               <div className={styles.data}>
-                {portfolio.customization?.border_radius}
+                {portfolio?.customization.border_radius}
               </div>
             </div>
           </div>
@@ -86,19 +124,22 @@ const Customization = () => {
               <input
                 type="color"
                 className={styles.color_picker}
-                value={portfolio.customization.bg_color}
+                value={portfolio?.customization.bg_color}
                 onChange={({ target: { value: code } }) => {
+                  if (cload) {
+                    return;
+                  }
                   setPortfolio({
                     ...portfolio,
                     customization: {
-                      ...portfolio.customization,
+                      ...portfolio?.customization,
                       bg_color: code,
                     },
                   });
                 }}
               />
               <span className={styles.color_hex}>
-                {portfolio.customization.bg_color}
+                {portfolio?.customization.bg_color}
               </span>
             </div>
           </div>

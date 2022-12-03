@@ -66,8 +66,11 @@ export const updateLinksPortfolio = async (req, res) => {
     await portfolio.save();
     res
       .status(200)
-      .json({ error: false, msg: "Portfolio updated successfully" });
-  } catch (error) {}
+      .json({ error: false, msg: "Links updated" });
+  } catch (error) {
+    console.log(error.message);
+    res.status(500).json({ error: true, msg: "Internal server error" });
+  }
 };
 
 export const updateNamePortfolio = async (req, res) => {
@@ -84,7 +87,7 @@ export const updateNamePortfolio = async (req, res) => {
     if (portfolio.username === username) {
       return res
         .status(203)
-        .json({ error: true, msg: "Username is same as previous one" });
+        .json({ error: true, msg: "Username is same" });
     }
 
     //check the username is already taken or not
@@ -105,7 +108,7 @@ export const updateNamePortfolio = async (req, res) => {
     console.log(portfolio);
     res
       .status(200)
-      .json({ error: false, msg: "Username updated successfully"
+      .json({ error: false, msg: "Username updated"
      });
 
   } catch (error) {
@@ -128,7 +131,10 @@ export const updateCustomizationPortfolio = async (req, res) => {
     res
       .status(201)
       .json({ error: false, msg: "Portfolio updated successfully" });
-  } catch (error) {}
+  } catch (error) {
+    console.log(error);
+    res.status(500).json({ error: true, msg: "Internal server error" });
+  }
 };
 
 export const deletePortfolio = async (req, res) => {
