@@ -17,7 +17,8 @@
   display: flex;
   border-radius: 8px;
   overflow: hidden;
-  border: 2px solid #2d2c2d;
+  outline: 2px solid #2d2c2d;
+  align-items: center;
 }
 .search_data {
   overflow-y: auto;
@@ -49,6 +50,7 @@
 }
 .search_box span {
   width: 50px;
+  height: 100%;
   background-color: #2d2c2d;
   display: flex;
   justify-content: center;

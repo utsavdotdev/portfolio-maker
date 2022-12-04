@@ -42,7 +42,15 @@ const Search = () => {
   const onSearch = () => {
     if (!loading) {
       setLoading(!loading);
-      mutate(search);
+      setTimeout(() => {
+        mutate({ search });
+      }, 2000);
+    }
+  };
+  const handleKeypress = (e) => {
+    //it triggers by pressing the enter key
+    if (e.keyCode === 13) {
+      onSearch();
     }
   };
   if (isError) {
@@ -60,6 +68,7 @@ const Search = () => {
               placeholder="Search"
               value={search}
               onChange={(e) => handleSearch(e)}
+              onKeyPress={handleKeypress}
             />
             <span onClick={() => onSearch()}>
               <BsSearch />
