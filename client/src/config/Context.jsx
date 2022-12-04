@@ -1,6 +1,7 @@
 import React, { createContext, useEffect, useState } from "react";
 import { fetchPortfolioById } from "../api/api";
 import axios from "../config/axios";
+import { bg, transition } from "./data";
 export const ContextProvider = createContext();
 
 const Context = ({ children }) => {
@@ -53,6 +54,22 @@ const Context = ({ children }) => {
         }, {});
         console.log(links);
         setLink(links);
+
+        //for transition
+        const index = transition.findIndex(
+          (item) => item.label === portfolio?.customizations?.transition
+        );
+        const newCheck = check.map((item, i) => (i === index ? true : false));
+        setCheck(newCheck);
+
+        //for bg
+        const index1 = bg.findIndex(
+          (item) => item.src === portfolio?.customizations?.bg_img
+        );
+        const newCheck1 = imgCheck.map((item, i) =>
+          i === index1 ? true : false
+        );
+        setImgCheck(newCheck1);
       }
     } catch (error) {
       console.log(error);
