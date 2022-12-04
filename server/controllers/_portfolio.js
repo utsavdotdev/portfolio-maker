@@ -199,3 +199,13 @@ export const getPortfolioById = async (req, res) => {
     res.status(500).json({ error: true, msg: "Internal server error" });
   }
 };
+
+export const getImg = async (req, res) => {
+  try {
+    const img = await Portfolio.find({}, { user_img: 1, _id: 0 }).limit(5);
+    res.status(200).json({ error: false, img });
+  } catch (error) {
+    console.log(error);
+    res.status(500).json({ error: true, msg: "Internal server error" });
+  }
+};

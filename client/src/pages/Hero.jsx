@@ -1,10 +1,26 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import CircularPortfolio from "../components/CircularPortfolio";
 import styles from "../css/pages/Hero.module.css";
 import { IoIosCreate, IoIosShareAlt, IoIosSettings } from "react-icons/io";
-import { motion } from "framer-motion";
 import { data } from "../config/data";
+import { fetchImgs } from "../api/api";
 const Hero = () => {
+  const [imgs, setImgs] = useState();
+  useEffect(() => {
+    getImgs();
+  }, []);
+
+  const getImgs = async () => {
+    try {
+      const res = await fetchImgs();
+      if (res.status === 200) {
+        setImgs(res.data.img);
+      }
+    } catch (error) {
+      console.log(error);
+    }
+  };
+  const imgCard = [1, 2, 3, 4];
   return (
     <>
       <div className={styles.hero_container}>
@@ -75,40 +91,25 @@ const Hero = () => {
           </div>
           <div className={styles.who_right}>
             <div className={styles.who_column1}>
-              <div className={styles.who_img}>
-                
-              </div>
-              <div className={styles.who_img}>
-
-              </div>
-              <div className={styles.who_img}>
-
-              </div>
+              <div className={styles.who_img}></div>
+              <div className={styles.who_img}></div>
+              <div className={styles.who_img}></div>
             </div>
             <div className={styles.who_column2}>
+              <div className={styles.who_img}></div>
               <div className={styles.who_img}>
-                
+                <img
+                  src={imgs && imgs[0].user_img}
+                  className={styles.who_pic}
+                />
               </div>
-              <div className={styles.who_img}>
-
-              </div>
-              <div className={styles.who_img}>
-
-              </div>
+              <div className={styles.who_img}></div>
             </div>
             <div className={styles.who_column3}>
-              <div className={styles.who_img}>
-                
-              </div>
-              <div className={styles.who_img}>
-
-              </div>
-              <div className={styles.who_img}>
-
-              </div>
-              <div className={styles.who_img}>
-
-              </div>
+              <div className={styles.who_img}></div>
+              <div className={styles.who_img}></div>
+              <div className={styles.who_img}></div>
+              <div className={styles.who_img}></div>
             </div>
           </div>
         </div>

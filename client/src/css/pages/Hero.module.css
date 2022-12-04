@@ -240,7 +240,27 @@
   border-radius: 4px;
   overflow: hidden;
   background-color: #1e1e1e;
+  transition: 0.3s;
 }
+.who_pic {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  filter: brightness(0.8);
+  transition: 0.3s;
+}
+.who_img:hover .who_pic {
+  filter: brightness(1);
+}
+.who_img:hover {
+  box-shadow: rgba(99, 99, 99, 0.2) 0px 2px 8px 0px;
+  outline: 2px solid var(--bg2);
+}
+/*stop the animation while hovering the who_img*/
+.who_img:hover .who_column1 {
+  animation-play-state: paused;
+}
+
 .who:hover .who_column1 {
   animation: updown 4s ease-in-out infinite;
 }

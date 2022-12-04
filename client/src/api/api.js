@@ -79,3 +79,10 @@ export const fetchPortfolioById = async (id) => {
     return res;
   }
 }
+
+export const fetchImgs = async () => {
+  const res = await axios.get(`/portfolio/img/all`, header);
+  if(res){
+    return res;
+  }
+}
