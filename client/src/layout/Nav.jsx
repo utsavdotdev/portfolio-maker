@@ -65,7 +65,7 @@ const Nav = () => {
             <div
               className={styles.preview_con}
               style={{
-                backgroundColor: portfolio.customization.bg_color,
+                backgroundColor: portfolio?.customizations?.bg_color,
                 display: pathname === "/app/customization" ? "" : "none",
               }}
             >

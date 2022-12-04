@@ -1,36 +1,14 @@
 import React, { createContext, useEffect, useState } from "react";
+import { fetchPortfolioById } from "../api/api";
 import axios from "../config/axios";
 export const ContextProvider = createContext();
 
 const Context = ({ children }) => {
-  const [portfolio, setPortfolio] = useState({
-    username: "",
-    user_id: "",
-    links: [],
-    customization: {
-      transition: "fadein",
-      border_radius: "4",
-      bg_color: "#1e1f1f",
-      bg_img: "/bg/bg6.jpg",
-    },
-    newsletter: false,
-    status: false,
-    views: "1000",
-  });
+  const [portfolio, setPortfolio] = useState();
   const [user, setUser] = useState([]);
   const [cload, setCload] = useState(false);
 
-  const [link, setLink] = useState({
-    github: "",
-    linkedin: "",
-    twitter: "",
-    instagram: "",
-    youtube: "",
-    portfolio: "",
-    facebook: "",
-    buymeacoffee: "",
-    blog: "",
-  });
+  const [link, setLink] = useState();
 
   const [popup, setPopup] = useState({
     congo: false,
@@ -46,6 +24,40 @@ const Context = ({ children }) => {
   ]);
   const accessToken = localStorage.getItem("access");
   const refreshToken = localStorage.getItem("refresh");
+
+  // UseEffects
+  useEffect(() => {
+    if (accessToken !== null) {
+      fetchUser();
+    }
+  }, []);
+
+  useEffect(() => {
+    if (user.length > 0) {
+      getPortfolio();
+    }
+  }, [user[0]]);
+
+  //getting the portfolio
+  const getPortfolio = async () => {
+    try {
+      const id = user[0]?._id;
+      const res = await fetchPortfolioById(id);
+      if (res) {
+        const { portfolio } = res?.data;
+        setPortfolio(portfolio);
+        const allLinks = portfolio?.links;
+        const links = allLinks?.reduce((acc, curr) => {
+          acc[curr.platform] = curr.url.split("/").pop();
+          return acc;
+        }, {});
+        console.log(links);
+        setLink(links);
+      }
+    } catch (error) {
+      console.log(error);
+    }
+  };
 
   //getting access token through refresh token
   const getAccessToken = async () => {
@@ -68,12 +80,6 @@ const Context = ({ children }) => {
       console.log(error);
     }
   };
-
-  useEffect(() => {
-    if (accessToken !== null) {
-      fetchUser();
-    }
-  }, []);
 
   //fetching user details from accestoken
   const fetchUser = async () => {
@@ -100,7 +106,7 @@ const Context = ({ children }) => {
 
   //logging
   console.log(user);
-  console.log(portfolio);
+  // console.log(portfolio);
 
   return (
     <>

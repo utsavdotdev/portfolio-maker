@@ -76,10 +76,10 @@ const Profile = () => {
               </span>
               <span className={styles.name}>{name}</span>
             </div>
-            <div className={styles.visit_btn}>
+            <a href={portfolio?.url} className={styles.visit_btn} target="_blank">
               <span className={styles.visit_text}>Visit portfolio</span>
               <BsArrowUpRight />
-            </div>
+            </a>
           </div>
         </div>
         <div className={styles.profile_status}>
@@ -108,7 +108,7 @@ const Profile = () => {
               Change status:
               <ToggleSwitch
                 name="status"
-                checked={portfolio.status}
+                checked={portfolio?.status}
                 onChange={onToggle}
               />
             </span>

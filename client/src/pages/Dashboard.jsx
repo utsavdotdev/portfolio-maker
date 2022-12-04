@@ -17,6 +17,11 @@ const Dashboard = () => {
     setPagename("Setup links");
   }, [pgname]);
 
+  //experimental things
+  // if (link === undefined) {
+  //   return <div className={styles.load}>Loading . . .</div>;
+  // }
+
   const onSave = async () => {
     //check that at least four link is filled
     let count = 0;
@@ -141,8 +146,8 @@ const Dashboard = () => {
                   : "Username"
               }
               name={data.name}
-              value={link[data.name]}
               onChange={handleLinks}
+              value={link === undefined ? "" : link[data.name]}
             />
           ))}
         </div>

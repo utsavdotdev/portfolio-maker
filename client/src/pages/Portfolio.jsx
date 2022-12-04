@@ -49,11 +49,12 @@ const Portfolio = () => {
   const trans = portfolio?.customizations.transition
     .toLowerCase()
     .replace(/\s/g, "");
+
   return (
     <>
       <Page title={username} loc="portfolio">
         {loading ? (
-          <Loader/>
+          <Loader />
         ) : (
           <>
             <div

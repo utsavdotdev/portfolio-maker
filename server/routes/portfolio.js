@@ -4,6 +4,7 @@ import {
   deleteAllPortfolio,
   deletePortfolio,
   getPortfolio,
+  getPortfolioById,
   getPortfolios,
   searchPortfolio,
   updateCustomizationPortfolio,
@@ -16,6 +17,7 @@ import {
 const router = Router();
 
 router.get("/:username", getPortfolio);
+router.get("/id/:id", getPortfolioById);
 router.get("/", getPortfolios);
 router.patch("/username", updateNamePortfolio);
 router.patch("/links", updateLinksPortfolio);

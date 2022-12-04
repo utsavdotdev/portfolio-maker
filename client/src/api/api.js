@@ -72,3 +72,10 @@ export const fetchPortfolio = async (username) => {
     return res;
   }
 }
+
+export const fetchPortfolioById = async (id) => {
+  const res = await axios.get(`/portfolio/id/${id}`, header);
+  if(res){
+    return res;
+  }
+}

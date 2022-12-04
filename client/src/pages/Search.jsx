@@ -41,18 +41,18 @@ const Search = () => {
 
   const onSearch = () => {
     if (!loading) {
-      setLoading(!loading);
+      setLoading(true);
       setTimeout(() => {
         mutate({ search });
       }, 2000);
     }
   };
-  const handleKeypress = (e) => {
-    //it triggers by pressing the enter key
-    if (e.keyCode === 13) {
-      onSearch();
-    }
-  };
+  // const handleKeypress = (e) => {
+  //   //it triggers by pressing the enter key
+  //   if (e.keyCode === 13) {
+  //     onSearch();
+  //   }
+  // };
   if (isError) {
     setLoading(!loading);
     toast.error("Something went wrong");
@@ -68,7 +68,6 @@ const Search = () => {
               placeholder="Search"
               value={search}
               onChange={(e) => handleSearch(e)}
-              onKeyPress={handleKeypress}
             />
             <span onClick={() => onSearch()}>
               <BsSearch />

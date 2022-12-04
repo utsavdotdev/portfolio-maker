@@ -2,12 +2,12 @@ import React, { useEffect, useState } from "react";
 import { useOutletContext } from "react-router-dom";
 import BgImg from "../components/BgImg";
 import Transition from "../components/Transition";
-import styles from "../css/pages/Customization.module.css";
+import styles from "../css/pages/customization.module.css";
 import { useMutation } from "@tanstack/react-query";
 import { bg, transition } from "../config/data.jsx";
 import { custom } from "../api/api";
 
-const Customization = () => {
+const customizations = () => {
   const {
     pgname,
     setPagename,
@@ -22,9 +22,8 @@ const Customization = () => {
     cload,
   } = useOutletContext();
   const _id = user[0]?._id;
-
   useEffect(() => {
-    setPagename("Customization");
+    setPagename("Customizations");
   }, [pgname]);
 
   const handleTrans = (e) => {
@@ -36,7 +35,7 @@ const Customization = () => {
     setCheck(newCheck);
     setPortfolio({
       ...portfolio,
-      customization: { ...portfolio?.customization, transition: e.target.name },
+      customizations: { ...portfolio?.customizations, transition: e.target.name },
     });
   };
 
@@ -49,14 +48,13 @@ const Customization = () => {
     setImgCheck(newCheck);
     setPortfolio({
       ...portfolio,
-      customization: { ...portfolio?.customization, bg_img: e.target.name },
+      customizations: { ...portfolio?.customizations, bg_img: e.target.name },
     });
   };
 
   const { isLoading, isError, data, error, mutate, status } = useMutation({
     mutationFn: (data) => custom(data),
     onSuccess: ({ data }) => {
-      console.log(data.msg);
       setCload(!cload);
     },
   });
@@ -66,18 +64,17 @@ const Customization = () => {
     if (!cload) {
       setCload(!cload);
       setTimeout(() => {
-        mutate({ user_id: _id, customizations: portfolio?.customization });
-      }, 2000);
+        mutate({ user_id: _id, customizations: portfolio?.customizations });
+      }, 1000);
     }
-  }, [portfolio?.customization]);
+  }, [portfolio?.customizations]);
+
   if (isError) {
     console.log(error);
-    alert(error.msg);
   }
 
   //logging
-  console.log(status);
-  
+
   return (
     <>
       <div className={styles.custom_container}>
@@ -102,19 +99,19 @@ const Customization = () => {
               <input
                 type="range"
                 max="20"
-                value={portfolio?.customization.border_radius}
+                value={portfolio?.customizations?.border_radius}
                 onChange={({ target: { value: radius } }) => {
                   setPortfolio({
                     ...portfolio,
-                    customization: {
-                      ...portfolio?.customization,
+                    customizations: {
+                      ...portfolio?.customizations,
                       border_radius: radius,
                     },
                   });
                 }}
               />
               <div className={styles.data}>
-                {portfolio?.customization.border_radius}
+                {portfolio?.customizations?.border_radius}
               </div>
             </div>
           </div>
@@ -124,22 +121,22 @@ const Customization = () => {
               <input
                 type="color"
                 className={styles.color_picker}
-                value={portfolio?.customization.bg_color}
+                value={portfolio?.customizations?.bg_color}
                 onChange={({ target: { value: code } }) => {
                   if (cload) {
                     return;
                   }
                   setPortfolio({
                     ...portfolio,
-                    customization: {
-                      ...portfolio?.customization,
+                    customizations: {
+                      ...portfolio?.customizations,
                       bg_color: code,
                     },
                   });
                 }}
               />
               <span className={styles.color_hex}>
-                {portfolio?.customization.bg_color}
+                {portfolio?.customizations?.bg_color}
               </span>
             </div>
           </div>
@@ -160,11 +157,11 @@ const Customization = () => {
       </div>
       <div className={styles.msg_con}>
         <span className={styles.msg}>
-          The customization is not available in small view
+          The customizations is not available in small view
         </span>
       </div>
     </>
   );
 };
 
-export default Customization;
+export default customizations;
