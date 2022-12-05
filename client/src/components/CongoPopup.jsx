@@ -5,7 +5,7 @@ import Confetti from "react-confetti";
 import { AiOutlineTwitter } from "react-icons/ai";
 
 const CongoPopup = ({ state }) => {
-  const { popup, setPopup } = state;
+  const { popup, setPopup, portfolio } = state;
   const [pic, setPic] = useState(200);
   const closePopup = () => {
     setPopup({ ...popup, congo: !popup.congo });
@@ -16,11 +16,13 @@ const CongoPopup = ({ state }) => {
       setPic(0);
     }, 5000);
   }, []);
-
+  const title = `Hi👋, ${portfolio?.username}`;
+  const url = portfolio?.url;
+  const shareUrl = `http://twitter.com/share?text=Check it out my Portfolio&url=${url}&hashtags=portfolio,devport`;
   return (
     <>
       <Popup
-        title="Hi👋, User"
+        title={title}
         close={closePopup}
         style={{ width: "min(400px,90%)" }}
       >
@@ -38,10 +40,12 @@ const CongoPopup = ({ state }) => {
             folio.{" "}
           </span>
           <div className={styles.btn_con}>
-            <button className={styles.btn1}>Visit</button>
-            <div className={styles.btn2}>
-              Share <AiOutlineTwitter className={styles.twitter}/>
-            </div>
+            <a href={url} className={styles.btn1} target="_blank">
+              Visit
+            </a>
+            <a href={shareUrl} className={styles.btn2} target="blank">
+              Share <AiOutlineTwitter className={styles.twitter} />
+            </a>
           </div>
         </div>
       </Popup>

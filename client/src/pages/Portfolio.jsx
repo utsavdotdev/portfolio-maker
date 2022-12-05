@@ -17,7 +17,7 @@ const Portfolio = () => {
   const [loading, setLoading] = useState(true);
   const [not, setNot] = useState(false);
   useEffect(() => {
-      getPortfolio();
+    getPortfolio();
   }, []);
 
   const getPortfolio = async () => {
@@ -47,10 +47,37 @@ const Portfolio = () => {
   const trans = portfolio?.customizations.transition
     .toLowerCase()
     .replace(/\s/g, "");
+  const url = portfolio?.url;
+  const name = portfolio?.username;
+  const nameCapitalized = username.charAt(0).toUpperCase() + username.slice(1);
 
   return (
     <>
-      <Page title={username} loc="portfolio">
+      <Page
+        title={nameCapitalized}
+        loc="portfolio"
+        //send meta data
+        meta={
+          <>
+            //favicon
+            <link rel="icon" type="image/*" href={portfolio?.user_img} />
+
+            //Meta data for fb
+            <meta property="og:type" content="website" />
+            <meta property="og:url" content={url} />
+            <meta property="og:title" content={`${name}'s Portfolio`} />
+            <meta property="og:description" content="Check out my portfolio" />
+            <meta property="og:image" content="/p_og.png" />
+            //Meta data for twitter
+            <meta name="twitter:card" content="summary_large_image" />
+            <meta name="twitter:url" content={url} />
+            <meta name="twitter:site" content={`@${name}`} />
+            <meta name="twitter:title" content={`${name}'s Portfolio`} />
+            <meta name="twitter:description" content="Check out my portfolio" />
+            <meta name="twitter:image" content="/p_og.png" />
+          </>
+        }
+      >
         {loading ? (
           <Loader />
         ) : (

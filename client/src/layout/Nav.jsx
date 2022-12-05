@@ -74,7 +74,7 @@ const Nav = () => {
           </div>
         </div>
         {/* {popup.addLink && <AddLinkPopup state={{ popup, setPopup,link,setLink}} />} */}
-        {popup.congo && <CongoPopup state={{ popup, setPopup }} />}
+        {popup.congo && <CongoPopup state={{ popup, setPopup,portfolio }} />}
         <Toaster reverseOrder={true} />
       </Page>
     </>

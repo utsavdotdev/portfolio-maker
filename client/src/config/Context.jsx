@@ -49,7 +49,11 @@ const Context = ({ children }) => {
         setPortfolio(portfolio);
         const allLinks = portfolio?.links;
         const links = allLinks?.reduce((acc, curr) => {
-          acc[curr.platform] = curr.url.split("/").pop();
+          if (curr?.platform === "blog" || curr?.platform === "portfolio") {
+            acc[curr.platform] = curr.url;
+          } else {
+            acc[curr.platform] = curr.url.split("/").pop();
+          }
           return acc;
         }, {});
         console.log(links);
