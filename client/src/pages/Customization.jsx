@@ -2,7 +2,7 @@ import React, { useEffect, useState } from "react";
 import { useOutletContext } from "react-router-dom";
 import BgImg from "../components/BgImg";
 import Transition from "../components/Transition";
-import styles from "../css/pages/customization.module.css";
+import styles from "../css/pages/Customization.module.css";
 import { useMutation } from "@tanstack/react-query";
 import { bg, transition } from "../config/data.jsx";
 import { custom } from "../api/api";

@@ -17,9 +17,7 @@ const Portfolio = () => {
   const [loading, setLoading] = useState(true);
   const [not, setNot] = useState(false);
   useEffect(() => {
-    setTimeout(() => {
       getPortfolio();
-    }, 2000);
   }, []);
 
   const getPortfolio = async () => {
