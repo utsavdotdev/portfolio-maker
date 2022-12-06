@@ -61,7 +61,6 @@ const Portfolio = () => {
           <>
             //favicon
             <link rel="icon" type="image/*" href={portfolio?.user_img} />
-
             //Meta data for fb
             <meta property="og:type" content="website" />
             <meta property="og:url" content={url} />
@@ -74,7 +73,10 @@ const Portfolio = () => {
             <meta name="twitter:site" content={`@${name}`} />
             <meta name="twitter:title" content={`${name}'s Portfolio`} />
             <meta name="twitter:description" content="Check out my portfolio" />
-            <meta name="twitter:image" content="/p_og.png" />
+            <meta
+              name="twitter:image"
+              content="https://cdn.discordapp.com/attachments/1016056668884303903/1049694026087026819/p_og.png"
+            />
           </>
         }
       >
