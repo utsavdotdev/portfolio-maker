@@ -20,6 +20,10 @@ const Hero = () => {
       console.log(error);
     }
   };
+  //divide the imgs state array into 3 parts
+  const img1 = imgs?.slice(0, 3);
+  const img2 = imgs?.slice(3, 6);
+  const img3 = imgs?.slice(6, 9);
   const imgCard = [1, 2, 3, 4];
   return (
     <>
@@ -91,25 +95,31 @@ const Hero = () => {
           </div>
           <div className={styles.who_right}>
             <div className={styles.who_column1}>
-              <div className={styles.who_img}></div>
-              <div className={styles.who_img}></div>
-              <div className={styles.who_img}></div>
+              {imgCard.map((item, i) => (
+                <div className={styles.who_img} key={i}>
+                  {imgs?.length > 0 && (
+                    <img src={img1[i]?.user_img} className={styles.who_pic} />
+                  )}
+                </div>
+              ))}
             </div>
             <div className={styles.who_column2}>
-              <div className={styles.who_img}></div>
-              <div className={styles.who_img}>
-                <img
-                  src={imgs && imgs[0].user_img}
-                  className={styles.who_pic}
-                />
-              </div>
-              <div className={styles.who_img}></div>
+              {imgCard.map((item, i) => (
+                <div className={styles.who_img} key={i}>
+                  {imgs?.length > 0 && (
+                    <img src={img2[i]?.user_img} className={styles.who_pic} />
+                  )}
+                </div>
+              ))}
             </div>
             <div className={styles.who_column3}>
-              <div className={styles.who_img}></div>
-              <div className={styles.who_img}></div>
-              <div className={styles.who_img}></div>
-              <div className={styles.who_img}></div>
+              {imgCard.map((item, i) => (
+                <div className={styles.who_img} key={i}>
+                  {imgs?.length > 0 && (
+                    <img src={img3[i]?.user_img} className={styles.who_pic} />
+                  )}
+                </div>
+              ))}
             </div>
           </div>
         </div>

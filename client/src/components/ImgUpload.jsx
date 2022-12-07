@@ -10,6 +10,7 @@ const ImgUpload = ({ state, id }) => {
   const { setUpload, upload } = state;
   const [pic, setPic] = useState("");
   const [url, setUrl] = useState("");
+  const [loading, setLoading] = useState(false);
   const closePopup = () => {
     setUpload(!upload);
   };
@@ -38,7 +39,11 @@ const ImgUpload = ({ state, id }) => {
   };
 
   const onUpload = async () => {
+    if (loading) {
+      return;
+    }
     try {
+      setLoading(true);
       const res = await axios.patch(
         "/user/pic",
         {
@@ -52,10 +57,13 @@ const ImgUpload = ({ state, id }) => {
         }
       );
       if (res) {
-        window.location.reload();
+        setTimeout(() => {
+          setLoading(false);
+          window.location.reload();
+        }, 1000);
       }
     } catch (error) {
-        console.log(error);
+      console.log(error);
     }
   };
   return (
@@ -82,7 +90,7 @@ const ImgUpload = ({ state, id }) => {
             )}
           </div>
           <div className={styles.upload_btn} onClick={onUpload}>
-            Upload image
+            {loading ? "Uploading..." : "Upload image"}
           </div>
         </div>
       </Popup>

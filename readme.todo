@@ -8,13 +8,13 @@ Todos:
          ✘ Github login @cancelled(22-11-25 00:15)
          ✔ Google login @done(22-11-25 00:15)
          ✘ Add link functionality @cancelled(22-11-23 20:30)
-         ☐ Finishing stuff
-         ☐ Meta configuration    
+         ✔ Finishing stuff @done(22-12-07 22:07)
+         ✔ Meta configuration @done(22-12-07 22:07)
     Backend:
         ✔ Connect with mongo db @done(22-11-20 22:25)
-        ☐ Make all routes
+        ✔ Make all routes @done(22-12-07 22:07)
         ✔ Make all models @done(22-11-22 21:37)
-        ☐ Make all controllers
+        ✔ Make all controllers @done(22-12-07 22:08)
         Api:
             ✔ auth api @done(22-11-29 23:39)
             ✔ image update api api @done(22-11-29 23:39)
@@ -22,8 +22,8 @@ Todos:
             ✔ Links api @done(22-11-30 23:02)
             ✔ Customization api @done(22-11-30 23:02)
             ✔ Newsletter,status and username update api @done(22-11-30 23:02)
-            ☐ search api
-        ☐ Make bot to send email about portfolio engagement
+            ✔ search api @done(22-12-07 22:08)
+        ✔ Make bot to send email about portfolio engagement @done(22-12-07 22:08)
     
     Hosting:
         ✔ Deploy the client side in netlify @done(22-11-21 14:27)

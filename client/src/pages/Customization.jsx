@@ -1,11 +1,12 @@
 import React, { useEffect, useState } from "react";
-import { useOutletContext } from "react-router-dom";
+import { Navigate, useOutletContext } from "react-router-dom";
 import BgImg from "../components/BgImg";
 import Transition from "../components/Transition";
 import styles from "../css/pages/Customization.module.css";
 import { useMutation } from "@tanstack/react-query";
 import { bg, transition } from "../config/data.jsx";
 import { custom } from "../api/api";
+import toast from "react-hot-toast";
 
 const customizations = () => {
   const {
@@ -25,7 +26,10 @@ const customizations = () => {
   useEffect(() => {
     setPagename("Customizations");
   }, [pgname]);
-
+  if (portfolio === undefined) {
+    toast.error("Setup your link");
+    return <Navigate to={"/app"} />;
+  }
   const handleTrans = (e) => {
     if (cload) {
       return;
@@ -35,7 +39,10 @@ const customizations = () => {
     setCheck(newCheck);
     setPortfolio({
       ...portfolio,
-      customizations: { ...portfolio?.customizations, transition: e.target.name },
+      customizations: {
+        ...portfolio?.customizations,
+        transition: e.target.name,
+      },
     });
   };
 

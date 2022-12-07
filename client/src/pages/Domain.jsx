@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from "react";
-import { useOutletContext } from "react-router-dom";
+import { Navigate, useOutletContext } from "react-router-dom";
 import { updateName } from "../api/api";
 import { toast } from "react-hot-toast";
 import styles from "../css/pages/Domain.module.css";
@@ -13,6 +13,11 @@ const Domain = () => {
     setPagename("Domain configuration");
   }, [pgname]);
 
+  if (portfolio === undefined) {
+    toast.error("Setup your link")
+    return <Navigate to={"/app"} />;
+  }
+
   const handleChange = (e) => {
     //convert the username to lowercase and remove all spaces
     const username = e.target.value.toLowerCase().replace(/\s/g, "");
@@ -21,13 +26,13 @@ const Domain = () => {
 
   const handleSubmit = async () => {
     try {
-      if (portfolio.username === "") {
+      if (portfolio?.username === "") {
         return toast.error("Hmm! username");
       }
       setLoading(!loading);
       const res = await updateName({
         user_id: _id,
-        username: portfolio.username,
+        username: portfolio?.username,
       });
       if (res) {
         toast.success(res.data.msg);
@@ -47,7 +52,7 @@ const Domain = () => {
               type="text"
               placeholder="Username"
               name="username"
-              value={portfolio.username}
+              value={portfolio?.username}
               onChange={handleChange}
             />
           </div>

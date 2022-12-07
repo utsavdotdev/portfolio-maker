@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from "react";
-import { useOutletContext } from "react-router-dom";
+import { Navigate, useOutletContext } from "react-router-dom";
 import styles from "../css/pages/Profile.module.css";
 import { BsArrowUpRight } from "react-icons/bs";
 import { FiUser, FiUpload } from "react-icons/fi";
@@ -21,6 +21,10 @@ const Profile = () => {
     setPagename("Profile");
   }, [pgname]);
 
+if (portfolio === undefined) {
+  toast.error("Setup your link");
+  return <Navigate to={"/app"} />;
+}
   const name = user[0]?.username.trim().toLowerCase().split(" ");
   const { mutate: updateProfile } = useMutation({
     mutationFn: (data) => updateOther(data),

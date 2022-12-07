@@ -12,6 +12,20 @@ const Footer = () => {
       >
         devport.me <span>&#169; All right reserved</span>
       </motion.p>
+      <p className={styles.to}>
+        Thanks to{" "}
+        <a
+          href="https://mongodb.com"
+          target="_blank"
+          className={styles.to_link}
+        >
+          MongoDb
+        </a>{" "}
+        and{" "}
+        <a href="https://dev.to" target="_blank" className={styles.to_link}>
+          Dev.to
+        </a>
+      </p>
       <motion.p
         initial={{ opacity: 0 }}
         whileInView={{ opacity: 1 }}

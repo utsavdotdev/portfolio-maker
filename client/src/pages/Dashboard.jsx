@@ -79,9 +79,11 @@ const Dashboard = () => {
         user_img: user[0]?.profilePic,
       });
       if (res.status === 201) {
-        setLoading(false);
-        toast.remove("save");
-        return setPopup({ ...popup, congo: true });
+        setTimeout(() => {
+          setLoading(false);
+          toast.remove("save");
+          return setPopup({ ...popup, congo: true });
+        }, 1000);
       }
       if (res.status === 203) {
         const updateRes = await updateLink({ user_id: _id, links: allLinks });

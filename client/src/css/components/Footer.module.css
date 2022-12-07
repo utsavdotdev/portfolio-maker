@@ -3,6 +3,7 @@
     align-items: center;
     justify-content: space-between;
     padding: 0 2.5rem;
+    flex-wrap: wrap;
 }
 .footer_con p{
     font-size: 16px;
@@ -12,5 +13,24 @@
 .footer_con p span{
     color: gray;
     cursor: pointer;
+}
+.to{
+    font-size: 20px;
+    display: flex;
+    gap: 6px;
+}
+.to_link{
+   text-decoration: underline; 
+   color: var(--gray-text);
+}
 
+@media screen and (max-width: 830px){
+    .footer_con{
+        align-items: center;
+        justify-content: center;
+    }
+    .to{
+        gap: 0.5rem;
+        margin-inline: 1rem;
+    }
 }

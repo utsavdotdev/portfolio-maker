@@ -32,7 +32,7 @@ export const checkPortfolio = async (user_id) => {
 
 export const updateViews = async (user_id, views) => {
   try {
-    await Portfolio.findOneAndUpdate(
+    await Bot.findOneAndUpdate(
       { user_id },
       { $set: { preViews: views } },
       { new: true }

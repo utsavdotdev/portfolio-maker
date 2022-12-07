@@ -6,6 +6,7 @@ import { AiOutlineTwitter } from "react-icons/ai";
 
 const CongoPopup = ({ state }) => {
   const { popup, setPopup, portfolio } = state;
+  console.log(portfolio);
   const [pic, setPic] = useState(200);
   const closePopup = () => {
     setPopup({ ...popup, congo: !popup.congo });
@@ -16,7 +17,7 @@ const CongoPopup = ({ state }) => {
       setPic(0);
     }, 5000);
   }, []);
-  const title = `Hi👋, ${portfolio?.username}`;
+  const title = `Hi👋, User`;
   const url = portfolio?.url;
   const shareUrl = `http://twitter.com/share?text=Check it out my Portfolio&url=${url}&hashtags=portfolio,devport`;
   return (

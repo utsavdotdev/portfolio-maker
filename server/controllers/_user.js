@@ -61,7 +61,7 @@ export const updatePic = async (req, res) => {
       { $set: { user_img: profilePic } },
       { new: true }
     );
-    res.status(200).json({ error: false, user, msg: "User data updated" });
+    res.status(200).json({ error: false, user, msg: "Image uploaded" });
   } catch (error) {
     console.log(error);
     res.status(500).json({ error: true, msg: "Internal server error" });

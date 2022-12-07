@@ -37,7 +37,7 @@ const Context = ({ children }) => {
     if (user.length > 0) {
       getPortfolio();
     }
-  }, [user[0]]);
+  }, [user[0],popup.congo]);
 
   //getting the portfolio
   const getPortfolio = async () => {

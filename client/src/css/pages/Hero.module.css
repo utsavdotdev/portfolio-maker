@@ -19,7 +19,7 @@
   width: max(55%, 400px);
 }
 .hero_content .left_content .hero_title {
-  font-size: 3.4rem;
+  font-size: 3.3rem;
   font-weight: 600;
   color: var(--white);
   display: flex;
@@ -172,7 +172,7 @@
   justify-content: center;
   align-items: center;
   flex-direction: column;
-  padding: 5rem 0;
+  padding: 5rem 0rem;
 }
 .who {
   width: 90%;
@@ -182,7 +182,7 @@
   border-radius: 10px;
   display: flex;
   justify-content: space-between;
-  padding: 1.5rem 2.5rem;
+  padding:2.5rem;
   height: 250px;
   overflow: hidden;
   position: relative;
@@ -306,4 +306,19 @@
     display: flex;
     align-items: center;
   }
+}
+
+@media screen and (max-width:1000px) {
+  .who_title{
+    font-size: 3rem;
+  }
+  .who_des{
+    font-size: 1.2rem;
+  }
+}
+@media screen and (max-width:830px) {
+  .who_con{
+    display: none;
+  }
+  
 }
