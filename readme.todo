@@ -14,7 +14,7 @@ Todos:
         ✔ Connect with mongo db @done(22-11-20 22:25)
         ✔ Make all routes @done(22-12-07 22:07)
         ✔ Make all models @done(22-11-22 21:37)
-        ✔ Make all controllers @done(22-12-07 22:08)
+        ✔ Make all controllers @done(22-12-07 23:15)
         Api:
             ✔ auth api @done(22-11-29 23:39)
             ✔ image update api api @done(22-11-29 23:39)
@@ -22,8 +22,8 @@ Todos:
             ✔ Links api @done(22-11-30 23:02)
             ✔ Customization api @done(22-11-30 23:02)
             ✔ Newsletter,status and username update api @done(22-11-30 23:02)
-            ✔ search api @done(22-12-07 22:08)
-        ✔ Make bot to send email about portfolio engagement @done(22-12-07 22:08)
+            ✔ search api @done(22-12-07 23:15)
+        ✔ Make bot to send email about portfolio engagement @done(22-12-07 23:15)
     
     Hosting:
         ✔ Deploy the client side in netlify @done(22-11-21 14:27)

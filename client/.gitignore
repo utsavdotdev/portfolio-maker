@@ -11,15 +11,5 @@ yarn.lock
 node_modules
 dist
 dist-ssr
-.env
+/.env
 
-# Editor directories and files
-.vscode/*
-!.vscode/extensions.json
-.idea
-.DS_Store
-*.suo
-*.ntvs*
-*.njsproj
-*.sln
-*.sw?

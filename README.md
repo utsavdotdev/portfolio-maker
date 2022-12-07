@@ -62,5 +62,5 @@ yarn bot
 
 We are open to `enhancements` & `bug-fixes` :smile:.
 
-Feel free to open an [issue]() or submit a [pull request]().
+Feel free to open an [issue](https://github.com/utsavbhattarai007/portfolio-maker/issues) or submit a [pull request](https://github.com/utsavbhattarai007/portfolio-maker/pulls).
 
