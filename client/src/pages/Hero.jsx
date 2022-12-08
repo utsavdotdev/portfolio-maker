@@ -4,6 +4,7 @@ import styles from "../css/pages/Hero.module.css";
 import { IoIosCreate, IoIosShareAlt, IoIosSettings } from "react-icons/io";
 import { data } from "../config/data";
 import { fetchImgs } from "../api/api";
+import Page from "../components/Page";
 const Hero = () => {
   const [imgs, setImgs] = useState();
   useEffect(() => {
@@ -27,6 +28,7 @@ const Hero = () => {
   const imgCard = [1, 2, 3, 4];
   return (
     <>
+      <Page>
         <div className={styles.hero_container}>
           <div className={styles.hero_content}>
             <div className={styles.left_content} id="fadein">
@@ -80,7 +82,7 @@ const Hero = () => {
               </div>
               <p className={styles.feature_title}>Share</p>
               <p className={styles.feature_des}>
-                Share it among friends and increase your engagement 
+                Share it among friends and increase your engagement
               </p>
             </div>
           </div>
@@ -124,6 +126,7 @@ const Hero = () => {
             </div>
           </div>
         </div>
+      </Page>
     </>
   );
 };
