@@ -1,6 +1,5 @@
 //Importing dependencies
 import express from "express";
-import colors from "colors";
 import cors from "cors";
 import {} from "dotenv/config";
 import { connectDB } from "./utils/db.js";
