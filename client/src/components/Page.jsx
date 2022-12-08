@@ -6,7 +6,6 @@ const Page = forwardRef(
   ({ children, title = "", url, pic, meta, loc, ...other }, ref) => (
     <HelmetProvider>
       <Helmet>
-        <head>
           <title>
             {loc === "portfolio" ? `${title}` : `${title} | Devport`}
           </title>
@@ -76,7 +75,6 @@ const Page = forwardRef(
                 : "Devport is a portfolio maker for developers. It is a free and open source tool that helps you create a stunning portfolio in minutes with awesome customization"
             }
           />
-        </head>
       </Helmet>
 
       <div ref={ref} {...other}>
