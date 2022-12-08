@@ -80,7 +80,7 @@ const Hero = () => {
               </div>
               <p className={styles.feature_title}>Share</p>
               <p className={styles.feature_des}>
-                Share it and increase your engagement
+                Share it among friends and increase your engagement 
               </p>
             </div>
           </div>
