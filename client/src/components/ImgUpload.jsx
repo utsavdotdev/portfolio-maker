@@ -35,9 +35,9 @@ const ImgUpload = ({ state, id }) => {
       if (res) {
         setImgLoad(false);
         const { msg, imgUrl } = res.data;
+        console.log(msg);
+        setUrl(imgUrl);
       }
-      console.log(msg);
-      setUrl(imgUrl);
     } catch (error) {
       console.log(error);
     }

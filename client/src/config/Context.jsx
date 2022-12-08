@@ -126,7 +126,7 @@ const Context = ({ children }) => {
   };
 
   //logging
-  console.log(user);
+  // console.log(user);
   // console.log(portfolio);
 
   return (
