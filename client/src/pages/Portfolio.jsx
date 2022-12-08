@@ -56,8 +56,32 @@ const Portfolio = () => {
       <Page
         title={nameCapitalized}
         loc="portfolio"
-        url={portfolio?.url}
-        pic={portfolio?.user_img}
+        //send meta data
+        meta={
+          <>
+            //favicon
+            <link rel="icon" type="image/*" href={portfolio?.user_img} />
+            //Meta data for fb
+            <meta property="og:type" content="website" />
+            <meta property="og:url" content={url} />
+            <meta property="og:title" content={`${name}'s Portfolio`} />
+            <meta property="og:description" content="Check out my portfolio" />
+            <meta
+              property="og:image"
+              content="https://cdn.discordapp.com/attachments/1016056668884303903/1049694026087026819/p_og.png"
+            />
+            //Meta data for twitter
+            <meta name="twitter:card" content="summary_large_image" />
+            <meta name="twitter:url" content={url} />
+            <meta name="twitter:site" content={`@${name}`} />
+            <meta name="twitter:title" content={`${name}'s Portfolio`} />
+            <meta name="twitter:description" content="Check out my portfolio" />
+            <meta
+              name="twitter:image"
+              content="https://cdn.discordapp.com/attachments/1016056668884303903/1049694026087026819/p_og.png"
+            />
+          </>
+        }
       >
         {loading ? (
           <Loader />
