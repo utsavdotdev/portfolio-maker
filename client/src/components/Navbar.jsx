@@ -58,6 +58,7 @@ const Navbar = () => {
     let refreshToken = localStorage.getItem("refresh");
     const res = await logout(refreshToken);
     console.log(res.data.msg);
+    window.location.reload();
     localStorage.clear();
     setUser([]);
   };
