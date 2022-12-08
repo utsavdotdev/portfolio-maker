@@ -11,6 +11,7 @@ const ImgUpload = ({ state, id }) => {
   const [pic, setPic] = useState("");
   const [url, setUrl] = useState("");
   const [loading, setLoading] = useState(false);
+  const [imgLoad, setImgLoad] = useState(false);
   const closePopup = () => {
     setUpload(!upload);
   };
@@ -23,6 +24,7 @@ const ImgUpload = ({ state, id }) => {
   //Upload image and get img url
   const getImgUrl = async (file) => {
     try {
+      setImgLoad(true);
       const formData = new FormData();
       formData.append("profile", file);
       const res = await axios.post("/upload", formData, {
@@ -30,7 +32,10 @@ const ImgUpload = ({ state, id }) => {
           "Content-Type": "multipart/form-data",
         },
       });
-      const { msg, imgUrl } = res.data;
+      if (res) {
+        setImgLoad(false);
+        const { msg, imgUrl } = res.data;
+      }
       console.log(msg);
       setUrl(imgUrl);
     } catch (error) {
@@ -39,6 +44,9 @@ const ImgUpload = ({ state, id }) => {
   };
 
   const onUpload = async () => {
+    if(imgLoad){
+      return;
+    }
     if (loading) {
       return;
     }
@@ -89,9 +97,9 @@ const ImgUpload = ({ state, id }) => {
               </div>
             )}
           </div>
-          <div className={styles.upload_btn} onClick={onUpload}>
+          <button className={styles.upload_btn} onClick={onUpload} disabled={imgLoad}>
             {loading ? "Uploading..." : "Upload image"}
-          </div>
+          </button>
         </div>
       </Popup>
     </>
