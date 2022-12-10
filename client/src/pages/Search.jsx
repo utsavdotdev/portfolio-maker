@@ -43,7 +43,7 @@ const Search = () => {
     if (!loading) {
       setLoading(true);
       setTimeout(() => {
-        mutate({ search });
+        mutate(search);
       }, 2000);
     }
   };
