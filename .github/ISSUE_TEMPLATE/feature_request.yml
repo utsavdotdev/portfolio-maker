@@ -60,7 +60,7 @@ body:
         - "Yes I am willing to submit a PR!"
         - "No"
       validations:
-      required: true
+        required: true
 
   - type: checkboxes
     id: terms
